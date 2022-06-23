@@ -15,20 +15,24 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
+                <form action="login.php" method="POST" class="sign-in-form">
                     <h2 class="title">Login</h2>
                     
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username">
+                        <input type="text" 
+                        name="username" 
+                        placeholder="Username">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password" 
+                        name="password" 
+                        placeholder="Password">
                     </div>
 
                     <p class="lupa_pass">Lupa Password ?</p>
-                    <input type="submit" value="Login" class="btn solid">
+                    <input type="submit" name="login" value="login" class="btn solid">
 
                     <!-- <p class="social_text">Or Sign in with social media</p>
                     <div class="social-media">
@@ -41,21 +45,21 @@
                     </div> -->
                 </form>
 
-                <form action="#" class="sign-up-form">
+                <form action="register.php" method="POST" class="sign-up-form">
                     <h2 class="title">Register</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username">
+                        <input type="text" name="reg_user" placeholder="Username">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="text" placeholder="Email">
+                        <input type="text" name="reg_email" placeholder="Email">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password" name="reg_pass" placeholder="Password">
                     </div>
-                    <input type="submit" value="Register" class="btn solid">
+                    <input type="submit" name="register" value="register" class="btn solid">
 
                     <!-- <p class="social_text">Or Sign up with social media</p>
                     <div class="social-media">

@@ -43,8 +43,10 @@
             </ul>
             <!-- Button -->
             <div>
-                <button class="btn_transparent">Daftar</button>
-                <button class="btn_primary">Masuk</button>
+                <a class="btn btn-primary" href="index.php" role="button">Daftar</a>
+                <a class="btn btn-primary" href="index.php" role="button">Masuk</a>
+                <!-- <button class="btn_transparent">Daftar</button>
+                <button class="btn_primary">Masuk</button> -->
             </div>
           </div>
         </div>
