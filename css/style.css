@@ -94,7 +94,7 @@ form.sign-in-form {
     border: none;
     line-height: 1;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 16px;
     color: #000000;
 }
 
@@ -111,7 +111,18 @@ form.sign-in-form {
 }
 
 .lupa_pass:hover {
-    color: #4481eb;
+    color: #1D64DD;
+}
+
+.daftar_vendor{
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #0F1F48;
+}
+
+.daftar_vendor:hover {
+  color: #1D64DD;
 }
 
 .btn {
@@ -127,6 +138,7 @@ form.sign-in-form {
     font-weight: 600;
     margin: 10px 0;
     transition: 0.5s;
+    font-size: 1rem;
 }
 
 /* animasi button */
@@ -198,7 +210,7 @@ form.sign-in-form {
 
 .panel p {
   font-size: 0.95rem;
-  padding: 0.7rem 0;
+  padding: 1rem 0;
 }
 
 .btn.transparent {
@@ -322,6 +334,11 @@ form.sign-in-form {
     }
   
     .panel p {
+      font-size: 0.7rem;
+      padding: 0.5rem 0;
+    }
+
+    .panel a {
       font-size: 0.7rem;
       padding: 0.5rem 0;
     }

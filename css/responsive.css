@@ -1,0 +1,35 @@
+
+@media screen and (max-width : 922px) {
+    
+}
+
+/* TAB / HP Landscape  */
+@media screen and (max-width : 576px) {
+    .hero-tagline h1 {
+        top: 200px;
+        width: auto;
+        font-size: 28px;
+    }
+
+    .img-hero {
+        width: 50%;
+        height: auto;
+    }
+
+    .hero-tagline p {
+        width: auto;
+        font-size: 16px;
+    }
+
+    .btn_cari_sekarang {
+        font-size: 14px;
+        height: 50px;
+        width: 160px;
+    }
+}
+
+/* HP */
+@media screen and (max-width : 350px) {
+    
+}
+

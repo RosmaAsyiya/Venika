@@ -15,11 +15,21 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="css/style_landing_page.css">
+
+    <!-- Style Responsive -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+
+    <!-- Style Swiper CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
     <title>Venika</title>
   </head>
   <body>
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-transparent position-fixed w-100">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-fixed w-100">
         <div class="container">
             <!-- Icon Navbar -->
           <a class="navbar-brand" href="#">
@@ -43,8 +53,10 @@
             </ul>
             <!-- Button -->
             <div>
-                <button class="btn_transparent">Daftar</button>
-                <button class="btn_primary">Masuk</button>
+                <a class="btn btn-primary" href="index.php" role="button">Daftar</a>
+                <a class="btn btn-primary" href="index.php" role="button">Masuk</a>
+                <!-- <button class="btn_transparent">Daftar</button>
+                <button class="btn_primary">Masuk</button> -->
             </div>
           </div>
         </div>
@@ -61,7 +73,7 @@
               <button class="btn_cari_sekarang">Cari sekarang...</button>
             </div>
           </div>
-          <img src="img/hero3.png" alt="" class="position-absolute end-0 bottom-0">
+          <img src="img/hero.png" alt="" class="position-absolute end-0 bottom-0 img-hero">
         </div>
       </section>
       
@@ -198,23 +210,6 @@
               </div>
             </div>
       </section>
-
-      <!-- <section id="kategori">
-        <div class="container position-relative mx-auto">
-          <div class="row">
-            <div class="col-12 text-center">
-              <div class="col-md-3">
-                <div class="card-kategori">
-                  <div class="circle-icon ">
-                    <img src="img/icon_sound.png" alt="">
-                    <h4>Sound System</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
       
       <!-- Inspirasi Pernikahan -->
       
@@ -238,53 +233,85 @@
 
       <!-- SECTION TESTIMONI -->
 
-      
+      <section id="testimoni">
+        <div class="slide-container swiper">
+          <div class="slide-content arrow bullet">
+            <h2 class="text-center">TESTIMONI</h2>
+              <div class="card-wrapper swiper-wrapper">
+                  <div class="card swiper-slide">
+                      <div class="image-content">
+                          <span class="overlay"></span>
 
-      
+                          <div class="card-image">
+                              <img src="" alt="" class="card-img">
+                          </div>
+                      </div>
 
+                      <div class="card-content">
+                          <h3 class="name">Muhammad Sultan Rafi</h3>
+                          <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
 
+                          <!-- <button class="button">View More</button> -->
+                      </div>
+                  </div>
+                  
+                  <div class="card swiper-slide">
+                      <div class="image-content">
+                          <span class="overlay"></span>
 
-      <!-- <section class="testimoni" id="testimoni">
+                          <div class="card-image">
+                              <img src="img/bg.jpg" alt="" class="card-img">
+                          </div>
+                      </div>
 
-        <div class="wrap">
-          <span id="right-arrow" class="arrow right fa fa-chevron-right "><span>
-          <span id="left-arrow" class="arrow left fa fa-chevron-left "><span>
-          
-          <ul class="dots" id="testimoni-dots">
-            <li class="dot active"></li>
-            <li class="dot"></li>
-            <li class="dot"></li>
-            <li class="dot"></li>
-            <li class="dot"></li>
-          </ul>
+                      <div class="card-content">
+                          <h3 class="name">Rosma Khoirul Asiyya</h3>
+                          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis repellendus ducimus id dicta! Nemo delectus neque accusantium autem saepe enim!</p>
 
-          <div class="content" id="testimoni-content">
-            <div class="active">
-              <div class="img">
-                <img src="img/bg.jpg">
+                          <!-- <button class="button">View More</button> -->
+                      </div>
+                  </div>
               </div>
-              <h2>Lorem N. Ipsum</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, distinctio?</p>
-            </div>
-
-            <div class="active">
-              <div class="img">
-                <img src="img/bg.jpg">
-              </div>
-              <h2>Lorem N. Ipsum</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, distinctio?</p>
-            </div>
-
-            <div class="active">
-              <div class="img">
-                <img src="img/bg.jpg">
-              </div>
-              <h2>Lorem N. Ipsum</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, distinctio?</p>
-            </div>
           </div>
+
+          <div class="swiper-button-next swiper-navBtn"></div>
+          <div class="swiper-button-prev swiper-navBtn"></div>
+          <div class="swiper-pagination"></div>
+      </div>
+      </section>
+
+      <!-- Swiper JS -->
+      <script src="js/swiper-bundle.min.js"></script>
+
+      <!-- JavaScript -->
+      <script src="js/script.js"></script>
+      
+          <!-- Swiper JS -->
+      <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+      
+
+      <!-- FOOTER SECTION -->
+      <footer class="bg">
+        <div class="footer-content">
+          <h3>Venika</h3>
+          <p>Venika adalah platform digital yang menyediakan layanan informasi vendor kebutuhan di daerah Semarang dan sekitarnya.</p>
+          <ul class="fast_link">
+            <li>Kontak</li>
+            <li>Vendor</li>
+            <li>Tentang Kami</li>
+            <li>FAQ</li>
+          </ul>
+          <ul class="sosmed">
+            <li><a href="#"><img src="img/facebook-circle-fill.png"></a></li>
+            <li><a href="#"><img src="img/instagram-fill.png"></a></li>
+            <li><a href="#"><img src="img/twitter-fill.png"></a></li>
+          </ul>
         </div>
-      </section> -->
+        <div class="footer-bottom">
+          <p>Copyright &copy;2022 Venika. designed by <span>Venika</span></p>
+        </div>
+      </footer>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
