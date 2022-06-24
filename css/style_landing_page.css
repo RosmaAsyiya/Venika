@@ -1,0 +1,319 @@
+
+:root {
+    --primary-color : #FF7171;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F5F5;
+}
+
+
+
+/* Navbar */
+/* bold tulisan logo pd navbar */
+.navbar-brand {
+    font-weight: 700;
+}
+
+.nav-link {
+    font-size: 16px;
+}
+
+.nav-link.active {
+    font-weight: 700;
+}
+
+.btn_transparent {
+    width: 122px;
+    height: 44px;
+    background-color: transparent;
+    color: #FFF;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 30px;
+    
+}
+
+.btn_primary {
+    width: 122px;
+    height: 44px;
+    background-color: #FFFFFF;
+    color: var(--primary-color);
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.btn_primary:hover {
+    width: 122px;
+    height: 44px;
+    background-color: #0F1F48;
+    color: #FFFFFF;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 30px;
+}
+
+/* Hero Section */
+
+#hero {
+    background: linear-gradient(107.1deg, #FF7171 2.48%, rgba(255, 113, 113, 0.55) 48.14%, rgba(255, 113, 113, 0.8) 94.86%);
+    height: 754px;
+    width: 100%;
+}
+
+.hero-tagline h1 {
+    position: absolute;
+    width: 511px;
+    height: 96px;
+    left: 100px;
+    top: 245px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    color: #000;
+}
+
+.hero-tagline p {
+    position: absolute;
+    height: 60px;
+    width: 511px;
+    top: 355px;
+    left: 100px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    line-height: 30px;
+}
+
+.btn_cari_sekarang {
+    box-sizing: border-box;
+    position: absolute;
+    height: 56px;
+    width: 220px;
+    top: 461px;
+    left: 100px;
+    background: none;
+    border: 3px solid #F5F5F5;
+    border-radius: 30px;
+    font-size: 18px;
+    color: #FFF;
+    font-weight: 700;
+}
+
+/* Search Section */
+
+#search {
+    padding: 100px 0;
+    position: relative;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    color: #000000;
+}
+
+
+/* .input-cari {
+    height: 50px;
+    top: 200px;
+} */
+
+/* .input-cari:focus {
+    border: none;
+} */
+
+.rectangle {
+    position: relative;
+    height: 108px;
+    width: 100%;
+    top: 50px;
+    background-color: #0F1F48;
+    border-radius: 20px;
+}
+
+.form-control {
+    /* position: absolute; */
+    width: 580px;
+    height: 50px;
+    background: #F0F0F0;
+    border-radius: 12px;
+    /* margin: 30px; */
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.btn_dropdown {
+    box-sizing: border-box;
+    color: #FFF;
+    width: 200px;
+    height: 50px;
+    border: 2px solid #FF7171;
+    border-radius: 12px;
+    background-color: transparent;
+    margin-left: 20px;
+    /* margin-left: 10px; */
+    margin-top: 30px;
+}
+
+.btn_search {
+    width: 120px;
+    background-color: #FF7171;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #FFF;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-top: 30px;
+    /* margin: 30px; */
+}
+
+/* Kategori Section */
+
+#kategori {
+    padding: 50px 0;
+}
+
+.card-kategori {
+    width: 200px;
+    height: 184.55px;
+    background: #F4F9E9;
+    box-shadow: 0px 5px 30px rgba(238, 165, 166, 0.25);
+    border-radius: 30px;
+    padding: 50px;
+    cursor: pointer;
+    margin: 30px;
+
+    transition: all .1s ease-in;
+}
+
+.kategori img, h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+
+    transition: all .1s ease-in;
+}
+
+/* Hover Kategori */
+
+#kategori {
+    padding: 50px 0;
+}
+
+.card-kategori:hover {
+    width: 200px;
+    height: 184.55px;
+    background: #FFE1E1;
+    box-shadow: 0px 5px 30px rgba(238, 165, 166, 0.25);
+    border-radius: 30px;
+    padding: 50px;
+    cursor: pointer;
+    margin: 30px;
+
+    transition: all .1s ease-in;
+}
+
+.kategori img, h4:hover {
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+
+    transition: all .2s ease-in;
+}
+
+/* Inspirasi Pernikahan Section */
+
+/* .wrapper {
+    width: 1100px;
+    margin: auto;
+    position: relative;
+} */
+
+/* .wrapper {
+    margin: auto;
+    display: flex;
+    width: 1100px;
+    margin: auto;
+    position: relative;
+    
+} */
+
+#inspirasi_nikah {
+    background: #EEF0EB;
+    width: 100%;
+}
+
+#inspirasi_nikah h2 {
+    margin-top: 50px;
+    color: #000000;
+}
+
+.right {
+    display: grid;
+    grid-template-columns: 50% auto;
+    padding: 4em 1em;  
+    
+}
+
+.right img {
+    width: 100%;
+}
+
+.features {
+    margin-left: 80px;
+    margin-top: 80px;
+}
+
+.features h3 {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2C2C2C;
+    text-align: left;
+}
+
+.features p {
+    font-weight: 400;
+    font-size: 16px;
+    color: #5F5F5F;
+    text-align: justify;
+}
+
+.features a {
+    color: var(--primary-color);
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.features a:hover {
+    color: #FFF;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+
+/* TESTIMONI SECTION */
+
+
+
