@@ -11,9 +11,9 @@ if (isset($_POST['login'])) {
 	$user = $_POST['username'];
 	// password
 	$pass = $_POST['password'];
-
+	$hashpass = md5($pass);
 	// sql query 
-	$sql = mysqli_query($koneksi, "SELECT * FROM user WHERE username ='$user' AND password='$pass'");
+	$sql = mysqli_query($koneksi, "SELECT * FROM user WHERE username ='$user' AND password='$hashpass'");
 	$cek = mysqli_num_rows($sql);
 
 	// apakah user tersebut ada 
@@ -27,8 +27,12 @@ if (isset($_POST['login'])) {
 	}
 	else{
 		// beri pesan dan dialihkan ke halaman login
+		echo "<script> alert('password salah!);</script>";
 		echo "<script>document.location.href='index.php';</script>";
 	}
+}
+else {
+	echo "<script> alert('ERROR!);</script>";
 }
 
 ?>

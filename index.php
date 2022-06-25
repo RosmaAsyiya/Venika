@@ -8,13 +8,13 @@
       src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
     </script>
     <title>Venika</title>
-    <link rel="stylesheet" href="frontend/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="#" class="sign-in-form">
+                <form action="login.php" method="POST" class="sign-in-form">
                     
                     <h2 class="title">Login</h2>
                     
@@ -33,7 +33,7 @@
 
                     <p class="lupa_pass">Lupa Password ?</p>
                     
-                    <input type="submit" value="Login" class="btn solid">
+                    <input type="submit" name="login" value="login" class="btn solid">
                     
                 </form>
 
@@ -41,25 +41,35 @@
                     <h2 class="title">Register</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Nama Lengkap">
+                        <input type="text" 
+                        name="reg_nama"
+                        placeholder="Nama Lengkap">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username">
+                        <input type="text" 
+                        name="reg_user"
+                        placeholder="Username">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="text" name="reg_email" placeholder="Email">
+                        <input type="email" 
+                        name="reg_email" 
+                        placeholder="Email">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="reg_pass" placeholder="Password">
+                        <input type="password" 
+                        name="reg_pass" 
+                        placeholder="Password">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Konfirmasi Password">
+                        <input type="password" 
+                        name="reg_pass2" 
+                        placeholder="Konfirmasi Password">
                     </div>
-                    <input type="submit" value="Register" class="btn solid">
+                    <input type="submit" name="register" value="register" class="btn solid">
 
                     </form>
                 </div>
