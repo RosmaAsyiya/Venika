@@ -53,10 +53,10 @@
             </ul>
             <!-- Button -->
             <div>
-                <a class="btn btn-primary" href="index.php" role="button">Daftar</a>
-                <a class="btn btn-primary" href="index.php" role="button">Masuk</a>
-                <!-- <button class="btn_transparent">Daftar</button>
-                <button class="btn_primary">Masuk</button> -->
+                <!-- <a class="btn btn-primary" href="index.php" role="button">Daftar</a>
+                <a class="btn btn-primary" href="index.php" role="button">Masuk</a> -->
+                <button class="btn_transparent" href="index.php">Daftar</button>
+                <button class="btn_primary" href="index.php">Masuk</button>
             </div>
           </div>
         </div>
@@ -308,7 +308,7 @@
           </ul>
         </div>
         <div class="footer-bottom">
-          <p>Copyright &copy;2022 Venika. designed by <span>Venika</span></p>
+          <p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
         </div>
       </footer>
 

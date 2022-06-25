@@ -8,7 +8,7 @@
       src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
     </script>
     <title>Venika</title>
-    <link rel="stylesheet" href="frontend/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">

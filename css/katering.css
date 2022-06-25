@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F5F5;
+}
+
+.navbar {
+    z-index: 3;
+}
+
+.bg-transparent {
+    transition: all ease-in 0.3s;
+}
+
+.nav-color {
+    background-color: #FD8E8E;
+    transition: all ease-in-out 0.3s;
+}
+
+/* Navbar */
+/* bold tulisan logo pd navbar */
+.navbar-brand {
+    font-weight: 700;
+}
+
+.nav-link {
+    font-size: 16px;
+}
+
+.nav-link.active {
+    font-weight: 700;
+}
+
+.btn_transparent {
+    width: 122px;
+    height: 44px;
+    background-color: transparent;
+    color: #FFF;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 30px;
+}
+
+.btn_transparent:hover {
+    color: #0F1F48;
+    font-weight: 700;
+    transition: 0.4s ease;
+}
+
+.btn_primary {
+    width: 122px;
+    height: 44px;
+    background-color: #FFFFFF;
+    color: #FF7171;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.btn_primary:hover {
+    width: 122px;
+    height: 44px;
+    background-color: #0F1F48;
+    color: #FFFFFF;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 30px;
+}
+
+/* Hero Section */
+
+#hero {
+    /* background: linear-gradient(107.1deg, #FF7171 2.48%, rgba(255, 113, 113, 0.55) 48.14%, rgba(255, 113, 113, 0.8) 94.86%); */
+    /* background-image: 'img/bg_katering.jpg'; */
+    height: 654px;
+    width: 100%;
+}
+
+.hero-tagline h1 {
+    position: absolute;
+    width: 550px;
+    height: 96px;
+    left: 100px;
+    top: 225px;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 48px;
+    color: #FFF;
+}
+
+.hero-tagline p {
+    position: absolute;
+    height: 60px;
+    width: 511px;
+    top: 350px;
+    left: 100px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #FFF;
+    line-height: 30px;
+}
+
+.btn_cari_sekarang {
+    box-sizing: border-box;
+    position: absolute;
+    height: 50px;
+    width: 220px;
+    top: 410px;
+    left: 100px;
+    background: none;
+    border: 3px solid #F5F5F5;
+    border-radius: 30px;
+    font-size: 18px;
+    color: #FFF;
+    font-weight: 700;
+}
+
+.btn_cari_sekarang:hover {
+    background: #0F1F48;
+    border: none;
+}
+
+/* Search Section */
+
+#search {
+    /* padding: 100px 0; */
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    color: #000000;
+}
+
+.rectangle {
+    position: relative;
+    height: 108px;
+    width: 100%;
+    top: 50px;
+    background-color: #0F1F48;
+    border-radius: 20px;
+}
+
+.form-control {
+    /* position: absolute; */
+    width: 580px;
+    height: 50px;
+    background: #F0F0F0;
+    border-radius: 12px;
+    /* margin: 30px; */
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.btn_dropdown {
+    box-sizing: border-box;
+    color: #FFF;
+    width: 200px;
+    height: 50px;
+    border: 2px solid #FF7171;
+    border-radius: 12px;
+    background-color: transparent;
+    margin-left: 20px;
+    /* margin-left: 10px; */
+    margin-top: 30px;
+}
+
+.btn_search {
+    width: 120px;
+    background-color: #FF7171;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #FFF;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-top: 30px;
+    /* margin: 30px; */
+}
+
+/* KATERING SECTION */
+.card {
+    height: 440px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    background: #F4F9E9;
+    box-shadow: 10px 13px 50px rgba(0, 0, 0, 0.20);
+    margin-top: 30px;
+}
+
+.card img {
+    border-radius: 30px 30px 0 0;
+}
+
+.card:hover {
+    background: #FFE1E1;
+    box-shadow: 10px 13px 50px rgba(254, 156, 156, 0.25);
+    transition: all ease-in-out 0.5s;
+}
+
+.card-body h4 {
+    color: #000000;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    /* margin-bottom: 3px; */
+}
+
+.card-body p {
+    color: #000000;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.card-body span {
+    line-height: 24px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.card-body i {
+    color: #D0D0D0;
+    float: right;
+    margin-right: 20px;
+    font-size: 24px;
+}
+
+.card-body i:hover {
+    color: #fd4646;
+    transition: all ease-in 0.2s;
+}
+
+
+
+
+  /* FOOTER SECTION */
+
+  footer {
+    /* position: relative; */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0F1F48;
+    height: auto;
+    width: 100vw;
+    margin-top: 100px;
+    padding-top: 50px;
+    color: #FFF;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+
+.footer-content p {
+    max-width: 600px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.fast_link {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.fast_link li {
+  margin: 0 30px;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.fast_link li:hover {
+  color: #FF7171;
+  transition: 0.4s ease;
+}
+
+.sosmed {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 2rem 3rem 0;
+}
+
+.sosmed li {
+  margin: 0 15px;
+}
+
+.sosmed a {
+  text-decoration: none;
+  color: #FFF;
+}
+.sosmed a img {
+    font-size: 1.1rem;
+    /* transition: color .4s ease; */
+}
+
+/* .sosmed img:hover {
+    color: #FF7171;
+} */
+
+.footer-bottom {
+    /* background-color: #000; */
+    width: 100vw;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.footer-bottom span {
+    /* text-transform: uppercase; */
+    opacity: .4;
+    font-weight: 200;
+}

@@ -90,12 +90,12 @@ body {
 
 .hero-tagline h1 {
     position: absolute;
-    width: 550px;
+    width: 670px;
     height: 96px;
     left: 100px;
-    top: 245px;
+    top: 225px;
     font-weight: 700;
-    font-size: 34px;
+    font-size: 44px;
     line-height: 48px;
     color: #FFF;
 }
@@ -104,7 +104,7 @@ body {
     position: absolute;
     height: 60px;
     width: 511px;
-    top: 360px;
+    top: 390px;
     left: 100px;
     font-size: 20px;
     font-weight: 400;
@@ -117,7 +117,7 @@ body {
     position: absolute;
     height: 50px;
     width: 220px;
-    top: 460px;
+    top: 480px;
     left: 100px;
     background: none;
     border: 3px solid #F5F5F5;
