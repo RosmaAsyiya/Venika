@@ -61,7 +61,7 @@ body {
     width: 122px;
     height: 44px;
     background-color: #FFFFFF;
-    color: var(--primary-color);
+    color: #FF7171;
     border: none;
     font-size: 16px;
     font-weight: 700;
@@ -135,7 +135,7 @@ body {
 /* Search Section */
 
 #search {
-    padding: 100px 0;
+    padding: 50px 0;
     position: relative;
 }
 
@@ -154,10 +154,10 @@ h2 {
     background-color: #0F1F48;
     border-radius: 20px;
 }
-
+/* field cari */
 .form-control {
     /* position: absolute; */
-    width: 580px;
+    width: 420px;
     height: 50px;
     background: #F0F0F0;
     border-radius: 12px;
@@ -166,10 +166,47 @@ h2 {
     margin-top: 30px;
 }
 
+.form-select {
+    color: #FFF;
+}
+
+.form-select {
+    box-sizing: border-box;
+    color: #000;
+    width: 200px;
+    height: 50px;
+    /* border: 2px solid #FF7171; */
+    border-radius: 12px;
+    /* background-color: transparent; */
+    background-color: #F0F0F0;
+    
+    /* margin-left: 20px; */
+    /* margin-left: 10px; */
+    margin-top: 30px;
+}
+
+/* .rentang_harga {
+    box-sizing: border-box;
+    color: #000;
+    width: 230px;
+    height: 50px;
+    font-size: 14px;
+    border-radius: 12px;
+    background-color: #F0F0F0;
+    
+    margin-top: 30px;
+} */
+
+.form-select .option {
+    background: #FFF;
+    color: #000000;
+    border: none;
+}
+
 .btn_dropdown {
     box-sizing: border-box;
     color: #FFF;
-    width: 200px;
+    width: 140px;
     height: 50px;
     border: 2px solid #FF7171;
     border-radius: 12px;
@@ -180,7 +217,7 @@ h2 {
 }
 
 .btn_search {
-    width: 120px;
+    width: 80px;
     background-color: #FF7171;
     height: 50px;
     border: none;
@@ -189,7 +226,7 @@ h2 {
     cursor: pointer;
     color: #FFF;
     font-weight: 600;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     margin-top: 30px;
     /* margin: 30px; */
 }
@@ -213,7 +250,7 @@ h2 {
     transition: all .1s ease-in;
 }
 
-.kategori img, h4 {
+.kategori i, h4 {
     font-size: 18px;
     font-weight: 500;
     margin-top: 20px;
@@ -240,14 +277,25 @@ h2 {
     transition: all .1s ease-in;
 }
 
-.kategori img, h4:hover {
+.card-kategori i {
+    text-align: center;
+    /* line-height: 55px; */
+    color: #FF7171;
+    font-size: 30px;
+    transition: 0.5s;
+    margin-top: auto;
+
+    transition: all .1s ease-in;
+}
+
+/* .kategori img, h4:hover {
     color: #000;
     font-size: 18px;
     font-weight: 500;
     margin-top: 20px;
 
     transition: all .2s ease-in;
-}
+} */
 
 /* Inspirasi Pernikahan Section */
 
