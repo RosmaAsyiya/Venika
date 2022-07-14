@@ -18,6 +18,9 @@
   <!-- Style CSS -->
   <link rel="stylesheet" href="css/style_landing_page.css">
 
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="css/style_nav_login.css">
+
   <!-- Style Responsive -->
   <link rel="stylesheet" href="css/responsive.css">
 
@@ -38,7 +41,7 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-fixed w-100">
+  <nav class="navbar navbar-expand-lg bg-transparent navbar-dark position-fixed w-100">
     <div class="container">
       <!-- Icon Navbar -->
       <a class="navbar-brand" href="#">
@@ -64,14 +67,99 @@
         </ul>
         <!-- Button -->
         <div>
-          <!-- <a class="btn btn-primary" href="index.php" role="button">Daftar</a>
-                <a class="btn btn-primary" href="index.php" role="button">Masuk</a> -->
+          <div id="pcoded" class="pcoded">
+            <div class="pcoded-overlay-box"></div>
+            <div class="pcoded-container navbar-wrapper">
+              <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+
+                  <div class="navbar-container container-fluid">
+                    <!-- user profile drop down -->
+                    <ul class="nav-right">
+                      <li class="user-profile header-notification">
+                        <a href="#!" class="arrowdown">
+                          <img src="img/bg.jpg" class="img-radius" alt="User-Profile-Image">
+                          <span>Rosma Asiyya</span>
+                          <i class="fas fa-angle-down toggle"></i>
+                        </a>
+                        <ul class="show-notification profile-notification">
+                          <li class="">
+                            <a href="#!">
+                              <i class="fas fa-user"></i> Lihat Profil
+                            </a>
+                          </li>
+                          <li class="">
+                            <a href="#">
+                              <i class="fas fa-question"></i> FAQ
+                            </a>
+                          </li>
+                          <li class="">
+                            <a href="#">
+                              <i class="fas fa-arrow-right-from-bracket"></i> Keluar
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <!-- JavaScript -->
+          <script src="js/script.js"></script>
+          <!-- Required Jquery -->
+          <script type="text/javascript" src="js/jquery.min.js"></script>
+
+          <!-- menu js -->
+          <script src="js/pcoded.min.js"></script>
+          <script src="js/vertical-layout.min.js"></script>
+          <script type="text/javascript" src="js/user_profile.js"></script>
+
+          <!-- Font Awesome -->
+          <!-- <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
+          </script> -->
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Navbar -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-fixed w-100">
+    <div class="container">
+      
+      <a class="navbar-brand" href="#">
+        <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
+          class="d-inline-block align-text-top" me-3>Venika</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          
+          <li class="nav-item mx-3">
+            
+            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="#">Vendor</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="#">Tentang Kami</a>
+          </li>
+        </ul>
+        
+        <div>
+          
           <button class="btn_transparent" href="index.php">Daftar</button>
           <button class="btn_primary" href="index.php">Masuk</button>
         </div>
       </div>
     </div>
-  </nav>
+  </nav> -->
+
+  
 
   <!-- Hero Section -->
   <section id="hero">
