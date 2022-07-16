@@ -17,8 +17,8 @@ body {
 
 .navbar {
     z-index: 3;
-    background-color: #FD8E8E;
-    
+	height: 80px;
+    /* background-color: #F9C8C8; */
 }
 
 .bg-transparent {
@@ -26,7 +26,7 @@ body {
 }
 
 .nav-color {
-    background-color: #FD8E8E;
+    background-color: #F9C8C8;
     transition: all ease-in-out 0.3s;
 }
 
@@ -44,52 +44,14 @@ body {
     font-weight: 700;
 }
 
-.btn_transparent {
-    width: 122px;
-    height: 44px;
-    background-color: transparent;
-    color: #FFF;
-    border: none;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 30px;
-}
-
-.btn_transparent:hover {
-    color: #0F1F48;
-    font-weight: 700;
-    transition: 0.4s ease;
-}
-
-.btn_primary {
-    width: 122px;
-    height: 44px;
-    background-color: #FFFFFF;
-    color: #FF7171;
-    border: none;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 30px;
-    transition: 0.5s;
-}
-
-.btn_primary:hover {
-    width: 122px;
-    height: 44px;
-    background-color: #0F1F48;
-    color: #FFFFFF;
-    border: none;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 30px;
-}
-
 /* user profile drop down */
 ul {
 	padding-left: 0;
 	list-style-type: none;
 	margin-bottom: 0;
+	padding-top: 12px;
 }
+
 /* tulisan dalam card */
 a {
 	font-size: 13px;
@@ -100,7 +62,7 @@ a {
 }
 
 span {
-    color: #FFF;
+    color: #000;
 }
 
 /* .header-navbar .navbar-wrapper .navbar-container .nav-left,
@@ -133,7 +95,7 @@ span {
 .header-navbar .navbar-wrapper .navbar-container .nav-right .user-profile i {
 	/* font-size: 10px; */
 	margin-left: 10px;
-	color: #FFF;
+	color: #000;
 }
 
 /* card */

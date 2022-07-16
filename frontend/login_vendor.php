@@ -21,7 +21,7 @@
             <div class="signin-signup">
                 <form action="#" class="sign-in-form">
                     
-                    <h2 class="title">Login</h2>
+                    <h2 class="title">Vendor Login</h2>
                     
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -42,15 +42,16 @@
                 </form>
 
                 <form action="register.php" method="POST" class="sign-up-form">
-                    <h2 class="title">Register</h2>
+                    <h2 class="title">Vendor Register</h2>
                     <div class="input-field">
                         <i class="fas fa-solid fas fa-users"></i>
                         <input type="text" placeholder="Nama Vendor">
                     </div>
-                    <!-- <div class="input-field">
-                        <i class="fas fa-list"></i>
-                        <input type="text" placeholder="Kategori Vendor">
-                    </div> -->
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username">
+                    </div>
+                    
                     <div class="select-menu">
                         <div class="select-btn input-field">
                             <i class="fas fa-list"></i>
@@ -88,21 +89,10 @@
 
                     <!-- <script src="js/script.js"></script> -->
                     
-                    <!-- <div class="input-group mb-3">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Separated link</a></li>
-                        </ul>
-                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                      </div> -->
-                    <div class="input-field">
+                    <!-- <div class="input-field">
                         <i class="fa-solid fa-location-dot"></i>
                         <input type="text" name="reg_kecamatan" placeholder="Kecamatan">
-                    </div>
+                    </div> -->
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input type="text" name="reg_email" placeholder="Email">
@@ -128,10 +118,10 @@
                         <p>Daftar, dan promosikan bisnis vendor anda sekarang...</p>
                      <button class="btn transparent" id="sign-up-btn">Register</button>
 
-                     <!-- <p>
-                         Ingin Daftar sebagai vendor ? 
-                         <a href="" class="daftar_vendor"> Daftar Vendor</a>
-                    </p> -->
+                     <p>
+                         Login sebagai User ? 
+                         <a href="login_user.php" class="daftar_vendor"> Login User</a>
+                    </p>
                     </div>
 
                     <img src="img/illustrasi_loginvendor.png" class="image_login_vendor" alt="">
@@ -139,7 +129,7 @@
                 <div class="panel right-panel">
                     <div class="content">
                         <h3>Sudah Punya Akun ?</h3>
-                        <p>Dapatkan klien lebih banyak, mudah dan cepat melalui Venika</p>
+                        <p>Kembangkan bisnis vendor anda dan dapatkan klien lebih banyak dan cepat melalui Venika</p>
                         <button class="btn transparent" id="sign-in-btn">Login</button>
                     </div>
                     <img src="img/illustrasi_registervendor.png" class="image" alt="">

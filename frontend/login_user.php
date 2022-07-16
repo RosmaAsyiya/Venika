@@ -18,7 +18,7 @@
             <div class="signin-signup">
                 <form action="#" class="sign-in-form">
                     
-                    <h2 class="title">Login</h2>
+                    <h2 class="title">User Login</h2>
                     
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -40,7 +40,7 @@
                 </form>
 
                 <form action="register.php" method="POST" class="sign-up-form">
-                    <h2 class="title">Register</h2>
+                    <h2 class="title">User Register</h2>
                     <div class="input-field">
                         <i class="fa-solid fa-address-card"></i>
                         <input type="text" placeholder="Nama Lengkap">
@@ -76,7 +76,7 @@
 
                      <p>
                          Ingin Daftar sebagai vendor ? 
-                         <a href="" class="daftar_vendor"> Daftar Vendor</a>
+                         <a href="login_vendor.php" class="daftar_vendor"> Daftar Vendor</a>
                     </p>
                     </div>
 

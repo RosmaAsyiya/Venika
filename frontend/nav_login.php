@@ -29,7 +29,7 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark position-fixed w-100">
+  <nav class="navbar navbar-expand-lg navbar-light position-fixed w-100">
     <div class="container">
       <!-- Icon Navbar -->
       <a class="navbar-brand" href="#">
@@ -68,7 +68,8 @@
                         <a href="#!" class="arrowdown">
                           <img src="img/bg.jpg" class="img-radius" alt="User-Profile-Image">
                           <span>Rosma Asiyya</span>
-                          <i class="fas fa-angle-down toggle"></i>
+                          <!-- <i class="fas fa-angle-down toggle"></i> -->
+                          <i class="fa-solid fa-angle-down"></i>
                         </a>
                         <ul class="show-notification profile-notification">
                           <li class="">
