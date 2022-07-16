@@ -10,6 +10,7 @@ body {
 
 .navbar {
     z-index: 3;
+    height: 80px;
 }
 
 .bg-transparent {
@@ -17,7 +18,7 @@ body {
 }
 
 .nav-color {
-    background-color: #FD8E8E;
+    background-color: #F9C8C8;
     transition: all ease-in-out 0.3s;
 }
 
@@ -35,28 +36,30 @@ body {
     font-weight: 700;
 }
 
-.btn_transparent {
-    width: 122px;
-    height: 44px;
-    background-color: transparent;
-    color: #FFF;
+.btn_register {
+    width: 110px;
+    height: 40px;
+    background-color: #FFF;
+    color: #FF7171;
     border: none;
     font-size: 16px;
     font-weight: 500;
     border-radius: 30px;
+    margin-right: 10px;
 }
 
-.btn_transparent:hover {
-    color: #0F1F48;
+.btn_register:hover {
+    background-color: #0F1F48;
+    color: #FFF;
     font-weight: 700;
     transition: 0.4s ease;
 }
 
-.btn_primary {
-    width: 122px;
-    height: 44px;
-    background-color: #FFFFFF;
-    color: #FF7171;
+.btn_login {
+    width: 110px;
+    height: 40px;
+    background-color: #0F1F48;
+    color: #FFF;
     border: none;
     font-size: 16px;
     font-weight: 700;
@@ -64,16 +67,11 @@ body {
     transition: 0.5s;
 }
 
-.btn_primary:hover {
-    width: 122px;
-    height: 44px;
-    background-color: #0F1F48;
-    color: #FFFFFF;
-    border: none;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 30px;
+.btn_login:hover {
+    background-color: #FFF;
+    color: #FF7171;
 }
+
 
 /* Hero Section */
 
@@ -115,8 +113,8 @@ body {
     width: 220px;
     top: 410px;
     left: 100px;
-    background: none;
-    border: 3px solid #F5F5F5;
+    background: #FF7171;
+    border: none;
     border-radius: 30px;
     font-size: 18px;
     color: #FFF;
@@ -129,12 +127,9 @@ body {
 }
 
 /* Search Section */
-
 #search {
-    /* padding: 100px 0; */
+    padding: 0px 0 80px;
     position: relative;
-    padding-top: 50px;
-    padding-bottom: 100px;
 }
 
 h2 {
@@ -146,16 +141,18 @@ h2 {
 
 .rectangle {
     position: relative;
-    height: 108px;
+    height: 180px;
     width: 100%;
     top: 50px;
-    background-color: #0F1F48;
+    background-color: #F5F5F5;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.10);
     border-radius: 20px;
+    /* margin-bottom: 50px; */
 }
-
+/* field cari */
 .form-control {
     /* position: absolute; */
-    width: 580px;
+    width: 420px;
     height: 50px;
     background: #F0F0F0;
     border-radius: 12px;
@@ -164,10 +161,51 @@ h2 {
     margin-top: 30px;
 }
 
+.form-select {
+    color: #FFF;
+}
+
+.form-select {
+    box-sizing: border-box;
+    color: #000;
+    width: 180px;
+    height: 50px;
+    /* border: 2px solid #FF7171; */
+    border-radius: 12px;
+    /* background-color: transparent; */
+    background-color: #F0F0F0;
+    
+    /* margin-left: 20px; */
+    /* margin-left: 10px; */
+    margin-top: 30px;
+}
+
+.form-select .option {
+    background: #FFF;
+    color: #000000;
+    border: none;
+}
+
+.filter_adat .form-select {
+    box-sizing: border-box;
+    color: #000;
+    width: 110px;
+    height: 50px;
+    /* border: 2px solid #FF7171; */
+    border-radius: 12px;
+    /* background-color: transparent; */
+    background-color: #F0F0F0;
+    
+    /* margin-left: 20px; */
+    /* margin-left: 10px; */
+    margin-top: 30px;
+}
+
+
 .btn_dropdown {
     box-sizing: border-box;
     color: #FFF;
-    width: 200px;
+    width: 140px;
     height: 50px;
     border: 2px solid #FF7171;
     border-radius: 12px;
@@ -187,10 +225,10 @@ h2 {
     cursor: pointer;
     color: #FFF;
     font-weight: 600;
-    margin-left: 20px;
-    margin-top: 30px;
-    /* margin: 30px; */
+    margin-top: 20px;
+    margin-left: 60px;
 }
+
 
 /* KATERING SECTION */
 .card {
