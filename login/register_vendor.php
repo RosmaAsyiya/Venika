@@ -7,7 +7,7 @@ include 'database/connection.php';
 
 // Check apakah terdapat post register
 if (isset($_POST['register'])) {
-	if(empty($_POST["reg_nama"]) && empty($_POST["reg_user"]) && empty($_POST["reg_email"]) && empty($_POST["reg_pass"]) && empty($_POST["reg_pass2"]))
+	if(empty($_POST["reg_nama"]) && empty($_POST["reg_user"]) && empty($_POST["reg_layanan"]) && empty($_POST["reg_email"]) && empty($_POST["reg_pass"]) && empty($_POST["reg_pass2"]))
 	{
 		echo '<script>alert("Isi Semua Form!")</script>';
 		return false;
@@ -17,11 +17,12 @@ if (isset($_POST['register'])) {
 		$nama = mysqli_real_escape_string($koneksi, $_POST["reg_nama"]);
 		// username 
 		$user = mysqli_real_escape_string($koneksi, $_POST["reg_user"]);
+        // layanan
+        $layanan = mysqli_real_escape_string($koneksi, $_POST["reg_layanan"]);
 		//email
 		$email = mysqli_real_escape_string($koneksi, $_POST["reg_email"]);
 		// password
 		$pass = mysqli_real_escape_string($koneksi, $_POST["reg_pass"]);
-		
 		// konfirmasi password
 		$pass2 = mysqli_real_escape_string($koneksi, $_POST["reg_pass2"]);
 
@@ -42,7 +43,21 @@ if (isset($_POST['register'])) {
 		else{
 		// sql query 
 			$pass = md5($pass);
-			$sql = mysqli_query($koneksi, "INSERT INTO user(nama,email,nomor_hp,username,password) values ('$nama','$email','','$user','$pass')");
+			$query1 = "INSERT INTO vendor(username, password, nama, status) values ('$user','$pass','$nama','0')";
+			$query2 = "INSERT INTO jenis_layanan(nama_layanan, nama_vendor) values ('$layanan','$nama')";
+			$query3 = "INSERT INTO login(username, password, tipe) values ('$user', '$pass', 'vendor')";
+			mysqli_query($koneksi, $query1);
+			mysqli_query($koneksi, $query2);
+			mysqli_query($koneksi, $query3);
+            // $query = "
+            // INSERT INTO vendor(username, password, nama, status) values ('$user','$pass','$nama','0');
+            // INSERT INTO jenis_layanan(nama_layanan) values ('$layanan');
+            // INSERT INTO login(username, password, tipe) values ('$user', '$pass', 'vendor');            
+            // ";
+            // $result = $koneksi->multi_query($query);
+			// $sql = mysqli_query($koneksi, "INSERT INTO vendor(username, password, nama, status) values ('$user','$pass','$nama','0')");
+            // $sql2 = mysqli_query($koneksi, "INSERT INTO jenis_layanan(nama_layanan) values ('$layanan')");
+            // $sql3 = mysqli_query($koneksi, "INSERT INTO login(username, password, tipe) values ('$user', '$pass', 'vendor')");
 			if(mysqli_affected_rows($koneksi) > 0){
 				// buat session login
 				$_SESSION['is_login'] = true;
@@ -54,7 +69,7 @@ if (isset($_POST['register'])) {
 				}
 			else{
 					// beri pesan dan dialihkan ke halaman login
-					echo "error";
+					echo "<script>alert('error');</script>";
 					echo "<script>document.location.href='index.php';</script>";
 				}
 			}

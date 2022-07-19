@@ -11,14 +11,17 @@
     <script src="https://kit.fontawesome.com/3709d60cb3.js" crossorigin="anonymous"></script>
     <title>Venika</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <!--===== Boxicons CSS =====-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="login/code_login_user.php" method="POST" class="sign-in-form">
+                <form action="login/code_login_vendor.php" method="POST" class="sign-in-form">
                     
-                    <h2 class="title">User Login</h2>
+                    <h2 class="title">Vendor Login</h2>
                     
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -36,19 +39,47 @@
                     <p class="lupa_pass">Lupa Password ?</p>
                     
                     <input type="submit" name="login" value="login" class="btn solid">
-                    
                 </form>
 
-                <form action="register/register_user.php" method="POST" class="sign-up-form">
-                    <h2 class="title">User Register</h2>
+                <form action="register/register_vendor.php" method="POST" class="sign-up-form">
+                    <h2 class="title">Vendor Register</h2>
                     <div class="input-field">
-                        <i class="fa-solid fa-address-card"></i>
-                        <input type="text" name="reg_nama" placeholder="Nama Lengkap">
+                        <i class="fas fa-solid fas fa-users"></i>
+                        <input type="text" name="reg_nama" placeholder="Nama Vendor">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" name="reg_user" placeholder="Username">
                     </div>
+                    
+                    <div class="item form-group select-menu">
+                       
+                        <div class="col-md-6 col-sm-6 sel input-field">
+                            <i class="fas fa-list"></i>
+                            <select name="reg_layanan" class=" select-btn">
+                                <i class="fas fa-list"></i>
+                               
+                                <option value="">Pilih Jenis Layanan</option>
+                                <option value="Dekorasi">Dekorasi</option>
+                                <option value="Foto & Video">Foto & Video</option>
+                                <option value="Gaun Pengantin">Gaun Pengantin</option>
+                                <option value="Gedung">Gedung</option>
+                                <option value="Katering">Katering</option>
+                                <option value="Makeup">Makeup</option>
+                                <option value="MC">MC</option>
+                                <option value="Music Band">Music Band</option>
+                                <option value="Sewa Mobil">Sewa Mobil</option>
+                                <option value="Sound System">Sound System</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- <script src="js/script.js"></script> -->
+                    
+                    <!-- <div class="input-field">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" name="reg_kecamatan" placeholder="Kecamatan">
+                    </div> -->
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input type="text" name="reg_email" placeholder="Email">
@@ -61,7 +92,7 @@
                         <i class="fas fa-lock"></i>
                         <input type="password" name="reg_pass2" placeholder="Konfirmasi Password">
                     </div>
-                    <input type="submit" name="register" value="register" class="btn solid">
+                    <input type="submit" value="register" name="register" class="btn solid">
 
                     </form>
                 </div>
@@ -71,27 +102,28 @@
                 <div class="panel left-panel">
                     <div class="content">
                         <h3>Belum Punya Akun ?</h3>
-                        <p>Cari kebutuhan pernikahan lebih mudah dan cepat dengan venika</p>
+                        <p>Daftar, dan promosikan bisnis vendor anda sekarang...</p>
                      <button class="btn transparent" id="sign-up-btn">Register</button>
 
                      <p>
-                         Ingin Daftar sebagai vendor ? 
-                         <a href="login_vendor.php" class="daftar_vendor"> Daftar Vendor</a>
+                         Login sebagai User ? 
+                         <a href="index.php" class="daftar_vendor"> Login User</a>
                     </p>
                     </div>
 
-                    <img src="img/illustrasi_login.png" class="image" alt="">
+                    <img src="img/illustrasi_loginvendor.png" class="image_login_vendor" alt="">
                 </div>
                 <div class="panel right-panel">
                     <div class="content">
                         <h3>Sudah Punya Akun ?</h3>
-                        <p>Eksplore berbagai vendor pernikahan terbaik melalui Venika..</p>
+                        <p>Kembangkan bisnis vendor anda dan dapatkan klien lebih banyak dan cepat melalui Venika</p>
                         <button class="btn transparent" id="sign-in-btn">Login</button>
                     </div>
-                    <img src="img/illustrasi_register.png" class="image" alt="">
+                    <img src="img/illustrasi_registervendor.png" class="image" alt="">
                 </div>
             </div>
         </div>
         <script src="js/app.js"></script>
+        
     </body>
 </html>

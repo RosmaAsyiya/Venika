@@ -17,6 +17,8 @@
 
   <!-- Style CSS -->
   <link rel="stylesheet" href="css/style_landing_page.css">
+
+  <!-- Style CSS -->
   <link rel="stylesheet" href="css/style_nav_login.css">
 
   <!-- Style Responsive -->
@@ -38,9 +40,10 @@
 </head>
 
 <body>
-  <!-- Navbar Login -->
-  <!-- <nav class="navbar navbar-expand-lg bg-transparent navbar-light position-fixed w-100">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-transparent navbar-dark position-fixed w-100">
     <div class="container">
+      <!-- Icon Navbar -->
       <a class="navbar-brand" href="#">
         <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
           class="d-inline-block align-text-top" me-3>Venika</a>
@@ -50,7 +53,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
+          <!-- mx : margin pd sumbu x -->
           <li class="nav-item mx-3">
+            <!-- nav menu yg aktif -->
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
           </li>
           <li class="nav-item mx-3">
@@ -60,7 +65,7 @@
             <a class="nav-link" href="#">Tentang Kami</a>
           </li>
         </ul>
-
+        <!-- Button -->
         <div>
           <div id="pcoded" class="pcoded">
             <div class="pcoded-overlay-box"></div>
@@ -69,7 +74,7 @@
                 <div class="navbar-wrapper">
 
                   <div class="navbar-container container-fluid">
-
+                    <!-- user profile drop down -->
                     <ul class="nav-right">
                       <li class="user-profile header-notification">
                         <a href="#!" class="arrowdown">
@@ -101,21 +106,26 @@
               </nav>
             </div>
           </div>
-
+          <!-- JavaScript -->
+          <script src="js/script.js"></script>
+          <!-- Required Jquery -->
           <script type="text/javascript" src="js/jquery.min.js"></script>
 
-
+          <!-- menu js -->
           <script src="js/pcoded.min.js"></script>
           <script src="js/vertical-layout.min.js"></script>
           <script type="text/javascript" src="js/user_profile.js"></script>
 
+          <!-- Font Awesome -->
+          <!-- <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
+          </script> -->
         </div>
       </div>
     </div>
-  </nav> -->
+  </nav>
   
-  <!-- Navbar sebelum Login -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent position-fixed w-100">
+  <!-- Navbar -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-fixed w-100">
     <div class="container">
       
       <a class="navbar-brand" href="#">
@@ -142,12 +152,12 @@
         
         <div>
           
-          <button class="btn_register" href="login_user.php">Register</button>
-          <button class="btn_login" href="login_user.php">Login</button>
+          <button class="btn_transparent" href="index.php">Daftar</button>
+          <button class="btn_primary" href="index.php">Masuk</button>
         </div>
       </div>
     </div>
-  </nav>
+  </nav> -->
 
   
 
@@ -198,20 +208,18 @@
                 </ul>
               </div> -->
 
-          <!-- Filter Jenis Layanan -->
-          <div class="col-auto filter_jenis layanan">
+          <!-- Filter Kategori -->
+          <div class="col-auto">
             <select class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Jenis Layanan</option>
+              <option selected class="option">Kategori</option>
               <option class="option" value="1">Dekorasi</option>
               <option class="option" value="2">Katering</option>
               <option class="option" value="3">Makeup</option>
               <option class="option" value="4">Sound System</option>
-              <option class="option" value="5">Music Band</option>
-              <option class="option" value="6">Gedung</option>
-              <option class="option" value="7">Foto & Video</option>
-              <option class="option" value="8">Sewa Mobil</option>
-              <option class="option" value="9">Gaun Pengantin</option>
-              <option class="option" value="10">MC</option>
+              <option class="option" value="5">Gedung</option>
+              <option class="option" value="6">Foto & Video</option>
+              <option class="option" value="7">Sewa Mobil</option>
+              <option class="option" value="8">Gaun Pengantin</option>
             </select>
           </div>
 
@@ -227,31 +235,20 @@
               <option class="option" value="6">Gunungpati</option>
               <option class="option" value="7">Mijen</option>
               <option class="option" value="8">Ngaliyan</option>
-              <option class="option" value="9">Pedurungan</option>
-              <option class="option" value="10">Semarang Barat</option>
-              <option class="option" value="11">Semarang Selatan</option>
-              <option class="option" value="12">Semarang Tengah</option>
-              <option class="option" value="13">Semarang Utara</option>
-              <option class="option" value="14">Tembalang</option>
-              <option class="option" value="15">Tugu</option>
             </select>
           </div>
 
-          <!-- Filter Adat -->
-          <div class="col-auto filter_adat">
-            <select class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Adat</option>
-              <option class="option" value="1">Bali</option>
-              <option class="option" value="2">Batak</option>
-              <option class="option" value="3">Betawi</option>
-              <option class="option" value="4">Eropa</option>
-              <option class="option" value="5">Jawa</option>
-              <option class="option" value="6">Melayu</option>
-              <option class="option" value="7">Sunda</option>
+          <!-- Filter Rentang Harga -->
+          <!-- <div class="col-auto ">
+            <select class="form-select rentang_harga" id="inputGroupSelect01">
+              <option selected class="option">Rentang Harga</option>
+              <option class="option" value="1">0 - Rp500.000</option>
+              <option class="option" value="2">Rp500.000 - Rp1.000.000</option>
+              <option class="option" value="3">Rp1.000.000 - 2.000.000</option>
+              
             </select>
-          </div>
+          </div> -->
 
-          <!-- Button Cari -->
           <div class="col-auto">
             <button class="btn_search" type="button" id="button-addon2">Cari</button>
           </div>
@@ -281,8 +278,8 @@
           <div class="col-md-3">
             <div class="card-kategori">
               <div class="circle-icon ">
-                <i class="fa-solid fa-cake-candles"></i>
-                <!-- <i class="fa-solid fa-bell-concierge"></i> -->
+                <i class="fas fa-utensils"></i>
+                <!-- <img src="img/icon_sound.png" alt=""> -->
                 <h4>Katering</h4>
               </div>
             </div>
@@ -307,19 +304,7 @@
                 <!-- <img src="img/icon_sound.png" alt=""> -->
                 <!-- <i class="fa-brands fa-soundcloud"></i> -->
                 <i class="fa-solid fa-volume-high"></i>
-                <!-- <i class="fa-solid fa-square-poll-vertical"></i> -->
                 <h4>Sound System</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-solid fa-music"></i>
-                <h4>Music Band</h4>
               </div>
             </div>
           </div>
@@ -364,17 +349,6 @@
               <div class="circle-icon ">
                 <i class="fa-brands fa-black-tie"></i>
                 <h4>Gaun Pengantin</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-solid fa-user-tie"></i>
-                <h4>MC</h4>
               </div>
             </div>
           </div>
