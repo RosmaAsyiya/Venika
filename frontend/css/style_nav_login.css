@@ -89,8 +89,14 @@ span {
 
 .img-radius {
 	border-radius: 50%;
-	object-fit: cover;
+	object-fit: fill;
+	background: #ececec;
 }
+/* .i-radius {
+	border-radius: 50%;
+	object-fit: cover;
+	background: #ececec;
+} */
 
 .header-navbar .navbar-wrapper .navbar-container .nav-right .user-profile i {
 	/* font-size: 10px; */
