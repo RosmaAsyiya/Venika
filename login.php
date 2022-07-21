@@ -39,7 +39,7 @@
                     
                 </form>
 
-                <form action="register/register_user.php" method="POST" class="sign-up-form">
+                <form action="login/register_user.php" method="POST" class="sign-up-form">
                     <h2 class="title">User Register</h2>
                     <div class="input-field">
                         <i class="fa-solid fa-address-card"></i>

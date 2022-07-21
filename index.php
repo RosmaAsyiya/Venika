@@ -1,3 +1,6 @@
+<?php
+session_start(); 
+?>
 <!doctype html>
 <html lang="en">
 
@@ -16,14 +19,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Style CSS -->
-  <link rel="stylesheet" href="css/style_landing_page.css">
-  <link rel="stylesheet" href="css/style_nav_login.css">
+  <link rel="stylesheet" href="frontend/css/style_landing_page.css">
+  <link rel="stylesheet" href="frontend/css/style_nav_login.css">
 
   <!-- Style Responsive -->
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="frontend/css/responsive.css">
 
   <!-- Swiper CSS -->
-  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="frontend/css/swiper-bundle.min.css">
 
   <!-- Style Swiper CSS-->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -33,13 +36,14 @@
     src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
   </script> -->
   <script src="https://kit.fontawesome.com/3709d60cb3.js" crossorigin="anonymous"></script>
-
   <title>Venika</title>
 </head>
-
-<body>
-  <!-- Navbar Login -->
-  <!-- <nav class="navbar navbar-expand-lg bg-transparent navbar-light position-fixed w-100">
+<?php
+if (isset($_SESSION['username'])){
+?>
+  <body>
+  <!-- Navbar Login --> 
+  <nav class="navbar navbar-expand-lg bg-transparent navbar-light position-fixed w-100">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
@@ -54,7 +58,7 @@
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Vendor</a>
+            <a class="nav-link" href="katering.php">Vendor</a>
           </li>
           <li class="nav-item mx-3">
             <a class="nav-link" href="#">Tentang Kami</a>
@@ -74,7 +78,7 @@
                       <li class="user-profile header-notification">
                         <a href="#!" class="arrowdown">
                           <img src="img/bg.jpg" class="img-radius" alt="User-Profile-Image">
-                          <span>Rosma Asiyya</span>
+                          <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
                           <i class="fas fa-angle-down toggle"></i>
                         </a>
                         <ul class="show-notification profile-notification">
@@ -89,7 +93,7 @@
                             </a>
                           </li>
                           <li class="">
-                            <a href="#">
+                            <a href="logout.php">
                               <i class="fas fa-arrow-right-from-bracket"></i> Keluar
                             </a>
                           </li>
@@ -112,8 +116,11 @@
         </div>
       </div>
     </div>
-  </nav> -->
-  
+  </nav>
+  <?php }
+  else {
+  ?>
+  <body>
   <!-- Navbar sebelum Login -->
   <nav class="navbar navbar-expand-lg navbar-light bg-transparent position-fixed w-100">
     <div class="container">
@@ -133,7 +140,7 @@
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Vendor</a>
+            <a class="nav-link" href="katering.php">Vendor</a>
           </li>
           <li class="nav-item mx-3">
             <a class="nav-link" href="#">Tentang Kami</a>
@@ -142,14 +149,17 @@
         
         <div>
           
-          <button class="btn_register" href="login_user.php">Register</button>
-          <button class="btn_login" href="login_user.php">Login</button>
+        <a href="login.php"><button class="btn_register">Register</button></a>
+          <a href="login.php"><button class="btn_login">Login</button></a>
         </div>
       </div>
     </div>
   </nav>
-
   
+<?php
+  }
+?>
+
 
   <!-- Hero Section -->
   <section id="hero">
@@ -200,7 +210,7 @@
 
           <!-- Filter Jenis Layanan -->
           <div class="col-auto filter_jenis layanan">
-            <select class="form-select" id="inputGroupSelect01">
+            <select name="jenis_layanan" class="form-select" id="inputGroupSelect01">
               <option selected class="option">Jenis Layanan</option>
               <option class="option" value="1">Dekorasi</option>
               <option class="option" value="2">Katering</option>
@@ -217,7 +227,7 @@
 
           <!-- Filter Lokasi -->
           <div class="col-auto ">
-            <select class="form-select" id="inputGroupSelect01">
+            <select name="lokasi" class="form-select" id="inputGroupSelect01">
               <option selected class="option">Lokasi</option>
               <option class="option" value="1">Banyumanik</option>
               <option class="option" value="2">Candisari</option>
@@ -239,7 +249,7 @@
 
           <!-- Filter Adat -->
           <div class="col-auto filter_adat">
-            <select class="form-select" id="inputGroupSelect01">
+            <select name="adat" class="form-select" id="inputGroupSelect01">
               <option selected class="option">Adat</option>
               <option class="option" value="1">Bali</option>
               <option class="option" value="2">Batak</option>
@@ -253,7 +263,7 @@
 
           <!-- Button Cari -->
           <div class="col-auto">
-            <button class="btn_search" type="button" id="button-addon2">Cari</button>
+            <button name="search" class="btn_search" type="button" id="button-addon2">Cari</button>
           </div>
         </div>
       </div>
@@ -469,7 +479,7 @@
       <h3>Venika</h3>
       <p>Venika adalah platform digital yang menyediakan layanan informasi vendor kebutuhan di daerah Semarang dan
         sekitarnya.</p>
-      <ul class="fast_link">
+      <ul class="fast_link">  
         <li>Kontak</li>
         <li>Vendor</li>
         <li>Tentang Kami</li>

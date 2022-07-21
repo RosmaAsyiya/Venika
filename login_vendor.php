@@ -107,7 +107,7 @@
 
                      <p>
                          Login sebagai User ? 
-                         <a href="index.php" class="daftar_vendor"> Login User</a>
+                         <a href="login.php" class="daftar_vendor"> Login User</a>
                     </p>
                     </div>
 
