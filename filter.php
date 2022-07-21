@@ -1,12 +1,9 @@
 <?php 
-// Mulai session
-session_start();
-
 // Panggil file config
-include '../database/connection.php';
+include 'database/connection.php';
 
 // Check apakah terdapat post Login
-if (isset($_POST['login'])) {
+if (isset($_POST['search'])) {
 	// username 
 	$user = $_POST['username'];
 	// password
@@ -24,12 +21,12 @@ if (isset($_POST['login'])) {
 
 		// beri pesan dan dialihkan ke halaman admin
 		// echo "berhasil login";
-		echo "<script>document.location.href='../index.php';</script>";
+		echo "<script>document.location.href='../landing_page.php';</script>";
 	}
 	else{
 		// beri pesan dan dialihkan ke halaman login
 		echo "<script> alert('password salah!);</script>";
-		echo "<script>document.location.href='../login.php';</script>";
+		echo "<script>document.location.href='../index.php';</script>";
 	}
 }
 else {

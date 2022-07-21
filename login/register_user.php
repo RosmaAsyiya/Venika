@@ -3,7 +3,7 @@
 session_start();
 
 // Panggil file config
-include 'database/connection.php';
+include '../database/connection.php';
 
 // Check apakah terdapat post register
 if (isset($_POST['register'])) {
@@ -40,6 +40,14 @@ if (isset($_POST['register'])) {
 			return false;
 		}
 		else{
+			$result = mysqli_query($koneksi, "SELECT email FROM user where email = '$email'");
+			if(mysqli_num_rows($result) > 0) {
+				echo "<script>
+						alert('Email sudah terdaftar!');
+						</script>";
+				return false;
+		}
+			else{
 		// sql query 
 			$pass = md5($pass);
 			$sql = "INSERT INTO user(nama,email,username,password) values ('$nama','$email','$user','$pass')";
@@ -53,15 +61,16 @@ if (isset($_POST['register'])) {
 				// beri pesan dan dialihkan ke halaman admin
 				echo "<script>alert('Registrasi Berhasil!');
 				</script>";
-				echo "<script>document.location.href='index.php';</script>";
+				echo "<script>document.location.href='../index.php';</script>";
 				}
 			else{
 					// beri pesan dan dialihkan ke halaman login
 					echo "error";
-					echo "<script>document.location.href='index.php';</script>";
+					echo "<script>document.location.href='../index.php';</script>";
 				}
 			}
 				}
+			}
 		}
 else{
 	echo "<script>alert('masukkan data!'); </script>";
