@@ -426,23 +426,11 @@ section {
   opacity: 0.9;
   color: #000;
 }
-.detail .tab-pane ul li .u{
-    /* margin: 0; */
-    list-style: disc;
-    background-size: 18px;
-    /* padding-left: 0.5rem; */
-    margin: 1.2rem 0;
-    font-weight: 500;
-    opacity: 0.9;
-    color: #000;
-  }
 .detail .tab-pane ul li p{
   font-weight: 400;
   color: #666;
   margin: 0.1rem 0;
 }
-
-
 
 .order{
     margin-top: 50px;
