@@ -13,25 +13,23 @@
   <!-- Font Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
 
   <!-- Style CSS -->
-  <link rel="stylesheet" href="css/style_landing_page.css">
   <link rel="stylesheet" href="css/style_nav_login.css">
+  <link rel="stylesheet" href="css/det.css">
 
   <!-- Style Responsive -->
-  <link rel="stylesheet" href="css/responsive.css">
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="css/swiper-bundle.min.css">
-
-  <!-- Style Swiper CSS-->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 
   <!-- Font Awesome -->
-  <!-- <script
-    src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
-  </script> -->
   <script src="https://kit.fontawesome.com/3709d60cb3.js" crossorigin="anonymous"></script>
 
   <title>Venika</title>
@@ -113,354 +111,242 @@
       </div>
     </div>
   </nav>
-  
-  <!-- Navbar sebelum Login -->
-  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-transparent position-fixed w-100">
-    <div class="container">
-      
-      <a class="navbar-brand" href="#">
-        <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
-          class="d-inline-block align-text-top" me-3>Venika</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          
-          <li class="nav-item mx-3">
-            
-            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Vendor</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Tentang Kami</a>
-          </li>
-        </ul>
-        
-        <div>
-          
-          <a href="login_user.php"><button class="btn_register">Register</button></a>
-          <a href="login_user.php"><button class="btn_login">Login</button></a>
-        </div>
-      </div>
-    </div>
-  </nav> -->
 
-  
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <!-- h-100 : height agar memenuhi layar -->
-    <div class="container" h-100>
-      <div class="row" h-100>
-        <div class="col-md-6 hero-tagline my-auto">
-          <h1>Membantu anda mendapatkan vendor terbaik !</h1>
-          <p>Mencari vendor pernikahan kini lebih mudah melalui <span class="fw-bold">Venika</span></p>
-          <button class="btn_cari_sekarang">Cari sekarang...</button>
+  <div id="menu-btn" class=""></div>
+
+  <!-- Prodcuts -->
+
+  <section class="products" id="products">
+
+    <!-- <h1 class="heading"> our <span>products</span> </h1> -->
+
+    <h1 class="heading">Mawar Katering</h1>
+
+    <div class="swiper products-slider">
+
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide slide">
+          <img src="img/mawar_katering.png" alt="">
+          <!-- <h3>Paket A</h3> -->
+          <!-- <div class="btn" data-product="product-1">lihat detail</div> -->
         </div>
+
+        <div class="swiper-slide slide">
+          <img src="img/Agnez_katering.jpg" alt="">
+        </div>
+
+        <div class="swiper-slide slide">
+          <img src="img/japanese_katering.jpg" alt="">
+        </div>
+
+        <div class="swiper-slide slide">
+          <img src="img/japanese_katering.jpg" alt="">
+        </div>
+
+        <div class="swiper-slide slide">
+          <img src="img/Agnez_katering.jpg" alt="">
+        </div>
+
+        <div class="swiper-slide slide">
+          <img src="img/mawar_katering.png" alt="">
+        </div>
+
       </div>
-      <img src="img/hero.png" alt="" class="position-absolute end-0 bottom-0 img-hero">
+      <!-- <p>Swipe<i class="fa-solid fa-arrow-right"></i></p>   -->
     </div>
+
   </section>
 
-  <!-- Search Section -->
 
-  <section id="search">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-          <h2>VENDOR</h2>
-        </div>
+  <!-- Product Preview  -->
+
+  <section class="products-preview-container">
+
+    <!-- <div class="product-preview" data-target="product-1">
+      <div class="fas fa-times"></div>
+      <div class="image">
+        <img src="img/mawar_katering.png" alt="">
       </div>
+      <div class="content">
+        <h3>Paket A</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas eligendi, corporis sed culpa assumenda
+          odio ullam itaque porro facere quaerat!</p>
+        <ul>
+          <li>Lorem, ipsum dolor.</li>
+          <li>Lorem, ipsum dolor.</li>
+        </ul>
+      </div>
+    </div> -->
 
-      <div class="col-10 mx-auto rectangle">
-        <div class="row">
-          <div class="col-auto">
-            <input type="text" class="form-control" placeholder="Cari vendor..." aria-label="Cari vendor">
-          </div>
+  </section>
 
-          <!-- <div class="col-auto">
-                <button class="btn_dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Kategori
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">Dekorasi</a></li>
-                  <li><a class="dropdown-item" href="#">Katering</a></li>
-                  <li><a class="dropdown-item" href="#">Makeup</a></li>
-                  <li><a class="dropdown-item" href="#">Sound System</a></li>
-                  <li><a class="dropdown-item" href="#">Gedung</a></li>
-                  <li><a class="dropdown-item" href="#">Foto & Video</a></li>
-                  <li><a class="dropdown-item" href="#">Sewa Mobil</a></li>
-                  <li><a class="dropdown-item" href="#">Gaun Pengantin</a></li>
-                </ul>
+  
+  <!-- Detail Vendor -->
+
+  <section class="detail" id="detail">
+    <div class="product-content">
+      <h2 class="product-title">Detail Layanan</h2>
+      <a href=""><button class="btn_call">Hubungi Vendor</button></a> <br>
+
+      <!-- <div class = "product-rating">
+                <i class = "fas fa-star"></i>
+                <i class = "fas fa-star"></i>
+                <i class = "fas fa-star"></i>
+                <i class = "fas fa-star"></i>
+                <i class = "fas fa-star-half-alt"></i>
+                <span>4.7(21)</span>
               </div> -->
 
-          <!-- Filter Jenis Layanan -->
-          <div class="col-auto filter_jenis layanan">
-            <select class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Jenis Layanan</option>
-              <option class="option" value="1">Dekorasi</option>
-              <option class="option" value="2">Katering</option>
-              <option class="option" value="3">Makeup</option>
-              <option class="option" value="4">Sound System</option>
-              <option class="option" value="5">Music Band</option>
-              <option class="option" value="6">Gedung</option>
-              <option class="option" value="7">Foto & Video</option>
-              <option class="option" value="8">Sewa Mobil</option>
-              <option class="option" value="9">Gaun Pengantin</option>
-              <option class="option" value="10">MC</option>
-            </select>
-          </div>
+      <!-- <div class = "product-price">
+                <p class = "last-price">Old Price: <span>$257.00</span></p>
+                <p class = "new-price">New Price: <span>$249.00 (5%)</span></p>
+              </div> -->
 
-          <!-- Filter Lokasi -->
-          <div class="col-auto ">
-            <select class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Lokasi</option>
-              <option class="option" value="1">Banyumanik</option>
-              <option class="option" value="2">Candisari</option>
-              <option class="option" value="3">Gajahmungkur</option>
-              <option class="option" value="4">Gayamsari</option>
-              <option class="option" value="5">Genuk</option>
-              <option class="option" value="6">Gunungpati</option>
-              <option class="option" value="7">Mijen</option>
-              <option class="option" value="8">Ngaliyan</option>
-              <option class="option" value="9">Pedurungan</option>
-              <option class="option" value="10">Semarang Barat</option>
-              <option class="option" value="11">Semarang Selatan</option>
-              <option class="option" value="12">Semarang Tengah</option>
-              <option class="option" value="13">Semarang Utara</option>
-              <option class="option" value="14">Tembalang</option>
-              <option class="option" value="15">Tugu</option>
-            </select>
-          </div>
+      <div class="product-detail">
+        <h2>Tentang Vendor</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quod commodi accusamus necessitatibus alias
+          dolorem odit illum libero itaque dignissimos, omnis debitis enim voluptate deleniti ut saepe quos? Ipsum,
+          laborum!</p>
+        <h2>Fasilitas</h2>
+        <ul>
+          <li>...</li>
+          <li>...</li>
+          <li>...</li>
+        </ul>
 
-          <!-- Filter Adat -->
-          <div class="col-auto filter_adat">
-            <select class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Adat</option>
-              <option class="option" value="1">Bali</option>
-              <option class="option" value="2">Batak</option>
-              <option class="option" value="3">Betawi</option>
-              <option class="option" value="4">Eropa</option>
-              <option class="option" value="5">Jawa</option>
-              <option class="option" value="6">Melayu</option>
-              <option class="option" value="7">Sunda</option>
-            </select>
-          </div>
+        <h2>Pilihan Menu</h2>
+        <ul>
+          <li>Paket A : <p>Prasmanan, Buffet</p>
+          </li>
+          <li>Paket B : <p>Pondok ala buffet</p></li>
+          <li>Main Course : <p>Bakso</p>
+            <p>Sate (ayam/sapi/kambing)</p>
+            <p>Rawon (sapi/kambing)</p>
+            <p>Soto (ayam,sapi)</p>
+            <p>Gule (ayam/sapi/kambing</p>
+            <p>Steak (ayam/sapi)</p>
+            <p>Nasi Putih (kakap asam manis, ayam bakar, sambal goreng, capcay, sop, kerupuk udang, bihun)</p>
+          </li>
+          <li>Appetizers : <p>Batagor, Siomay, Zuppa Soup</p>
+          </li>
+          <li>Desserts : <p>Ice Cream, Kue, Buah (melon, semangka, apel, anggur, pear), Rujak, Puding</p>
+          </li>
+        </ul>
 
-          <!-- Button Cari -->
-          <div class="col-auto">
-            <button class="btn_search" type="button" id="button-addon2">Cari</button>
-          </div>
-        </div>
+        <h2>Kontak</h2>
+        <ul>
+          <li>Whatsapp : <a href="#" class="product-link">https://wa.me/628988325479</a></li>
+          <li>Instagram : <a href="#" class="product-link">https://www.instagram.com/mawar/</a></li>
+          <li>Website : <a href="#" class="product-link">https://www.mawar.com</a></li>
+        </ul>
+        <!-- <ul>
+                  <li>Color: <span>Black</span></li>
+                  <li>Available: <span>in stock</span></li>
+                  <li>Category: <span>Shoes</span></li>
+                  <li>Shipping Area: <span>All over the world</span></li>
+                  <li>Shipping Fee: <span>Free</span></li>
+                </ul> -->
       </div>
 
+      <!-- <div class = "purchase-info">
+                <input type = "number" min = "0" value = "1">
+                <button type = "button" class = "btn">
+                  Add to Cart <i class = "fas fa-shopping-cart"></i>
+                </button>
+                <button type = "button" class = "btn">Compare</button>
+              </div> -->
+
+      <!-- <div class = "social-links">
+                <p>Share At: </p>
+                <a href = "#">
+                  <i class = "fab fa-facebook-f"></i>
+                </a>
+                <a href = "#">
+                  <i class = "fab fa-twitter"></i>
+                </a>
+                <a href = "#">
+                  <i class = "fab fa-instagram"></i>
+                </a>
+                <a href = "#">
+                  <i class = "fab fa-whatsapp"></i>
+                </a>
+                <a href = "#">
+                  <i class = "fab fa-pinterest"></i>
+                </a>
+              </div> -->
     </div>
   </section>
 
-  <!-- Kategori Section -->
+  <!-- Form Pemesanan -->
 
-  <section id="kategori">
-    <div class="container position-relative mx-auto">
-      <div class="row">
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-solid fa-paint-roller"></i>
-                <h4>Dekorasi</h4>
-              </div>
-            </div>
+  <section class="order" id="order">
+
+    <div class="heading">
+      <h2>Form Pemesanan</h2>
+      <!-- <h3>fast home delivery</h3> -->
+    </div>
+
+    <form action="">
+      <div class="box-container">
+        <div class="box">
+          <div class="inputBox">
+            <label for="">Nama</label>
+            <input type="text" placeholder="masukkan nama anda">
+          </div>
+          <div class="inputBox">
+            <label for="">Nomor Telephone</label>
+            <input type="text" placeholder="masukkan nomor telepon">
+          </div>
+          <div class="inputBox">
+            <label for="">Tanggal Booking</label>
+            <input type="date">
+          </div>
+          <div class="inputBox">
+            <label for="">Alamat</label>
+            <textarea name="" placeholder="masukkan alamat" id="" cols="30" rows="10"></textarea>
           </div>
         </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-solid fa-cake-candles"></i>
-                <!-- <i class="fa-solid fa-bell-concierge"></i> -->
-                <h4>Katering</h4>
-              </div>
-            </div>
+        <div class="box">
+          <div class="inputBox">
+            <label for="">Jenis Layanan</label>
+            <select class="form-select" aria-label="Default select example">
+              <option value="">Pilih Jenis Layanan</option>
+              <option value="">Dekorasi</option>
+              <option value="">Foto & Video</option>
+              <option value="">Gaun Pengantin</option>
+              <option value="">Gedung</option>
+              <option value="">Katering</option>
+              <option value="">Makeup</option>
+              <option value="">MC</option>
+              <option value="">Music Band</option>
+              <option value="">Sewa Mobil</option>
+              <option value="">Sound System</option>
+            </select>
           </div>
-        </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-solid fa-paintbrush"></i>
-                <h4>Makeup</h4>
-              </div>
-            </div>
+          <div class="inputBox">
+            <label for="">Paket Layanan</label>
+            <input type="text" placeholder="paket yang dipilih">
           </div>
-        </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <!-- <img src="img/icon_sound.png" alt=""> -->
-                <!-- <i class="fa-brands fa-soundcloud"></i> -->
-                <i class="fa-solid fa-volume-high"></i>
-                <!-- <i class="fa-solid fa-square-poll-vertical"></i> -->
-                <h4>Sound System</h4>
-              </div>
-            </div>
+          <div class="inputBox">
+            <label for="">Jumlah Porsi</label>
+            <input type="number" placeholder="masukkan jumlah porsi">
           </div>
-        </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-solid fa-music"></i>
-                <h4>Music Band</h4>
-              </div>
-            </div>
+          <div class="inputBox">
+            <label for="">Detail Pesan</label>
+            <textarea name="" placeholder="masukkan detail pesanan" id="" cols="30" rows="10"></textarea>
           </div>
-        </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-solid fa-landmark-dome"></i>
-                <h4>Gedung Pernikahan</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-solid fa-camera"></i>
-                <h4>Foto & Video</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-solid fa-car"></i>
-                <h4>Sewa Mobil</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-brands fa-black-tie"></i>
-                <h4>Gaun Pengantin</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-auto text-center">
-          <div class="col-md-3">
-            <div class="card-kategori">
-              <div class="circle-icon ">
-                <i class="fa-solid fa-user-tie"></i>
-                <h4>MC</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-  </section>
-
-  <!-- Inspirasi Pernikahan -->
-
-  <section id="inspirasi_nikah">
-    <div class="container">
-      <div class="row">
-        <div class="text-center">
-          <h2>TIPS PERNIKAHAN</h2>
-        </div>
-        <div class="right">
-          <img src="img/wedding_background.jpg" alt="">
-          <div class="features">
-            <h3>Tips & Trik Pernikahan</h3>
-            <p>Pernikahan adalah acara sakral yang dilakukan oleh 2 orang yang saling mencintai satu sama lain. Setiap
-              pasangan menginginkan acara pernikahannya berjalan dengan lancar sesuai apa yang diharapkan.</p>
-            <a href="#" class="btn_learnmore">Learn More</a>
-          </div>
+          <!-- <div class="inputBox">
+                <span>our address</span>
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d60307.59083109428!2d72.840725!3d19.141651!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400047!5e0!3m2!1sen!2sin!4v1642222128240!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+             </div> -->
         </div>
       </div>
-    </div>
+      <input type="submit" value="Pesan" class="btn_pesan">
+    </form>
+
   </section>
-
-  <!-- SECTION TESTIMONI -->
-
-  <section id="testimoni">
-    <div class="slide-container swiper">
-      <div class="slide-content arrow bullet">
-        <h2 class="text-center">TESTIMONI</h2>
-        <div class="card-wrapper swiper-wrapper">
-          <div class="card swiper-slide">
-            <div class="image-content">
-              <span class="overlay"></span>
-
-              <div class="card-image">
-                <img src="" alt="" class="card-img">
-              </div>
-            </div>
-
-            <div class="card-content">
-              <h3 class="name">Muhammad Sultan Rafi</h3>
-              <p class="description">The lorem text the section that contains header with having open functionality.
-                Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-              <!-- <button class="button">View More</button> -->
-            </div>
-          </div>
-
-          <div class="card swiper-slide">
-            <div class="image-content">
-              <span class="overlay"></span>
-
-              <div class="card-image">
-                <img src="img/bg.jpg" alt="" class="card-img">
-              </div>
-            </div>
-
-            <div class="card-content">
-              <h3 class="name">Rosma Khoirul Asiyya</h3>
-              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis repellendus
-                ducimus id dicta! Nemo delectus neque accusantium autem saepe enim!</p>
-
-              <!-- <button class="button">View More</button> -->
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-button-next swiper-navBtn"></div>
-      <div class="swiper-button-prev swiper-navBtn"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
-
-  <!-- Swiper JS -->
-  <script src="js/swiper-bundle.min.js"></script>
-
-  <!-- JavaScript -->
-  <script src="js/script.js"></script>
-
-  <!-- Swiper JS -->
-  <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 
 
   <!-- FOOTER SECTION -->
@@ -486,6 +372,16 @@
     </div>
   </footer>
 
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <!-- JavaScript -->
+  <script src="js/det.js"></script>
+  <script src="js/script.js"></script>
+
+  <!-- Swiper JS -->
+  <!-- <script src="js/swiper-bundle.min.js"></script> -->
+  <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 
   <!-- Optional JavaScript; choose one of the two! -->
 

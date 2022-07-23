@@ -83,9 +83,11 @@ body {
 /* DETAIL KONTEN */
 
 .card-wrapper{
-    max-width: 1200px;
+    max-width: 1150px;
+    /* max-height: 1000px; */
     margin: 0 auto;
     padding-top: 120px;
+    padding-left: 20px;
     /* margin-bottom: 50px; */
 }
 .card-wrapper .card {
@@ -112,6 +114,7 @@ body {
 }
 .img-item{
     margin: 0.3rem;
+    padding-top: 10px;
 }
 .img-item:nth-child(1),
 .img-item:nth-child(2),
@@ -121,6 +124,32 @@ body {
 .img-item:hover{
     opacity: 0.8;
 }
+
+.form_pesan {
+    margin-top: 300px;
+    /* position: absolute; */
+    background: #F9C8C8;
+    /* box-sizing: border-box; */
+    border: 2px solid #909090;
+}
+
+h3 {
+    font-weight: 600;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.form_pesan form {
+    /* display: grid; */
+    /* position: absolute; */
+    width: 80%;
+    /* align-items: center;
+    align-content: center;
+    justify-content: center; */
+}
+
+
 
 .product-content{
     padding: 2rem 2rem;
