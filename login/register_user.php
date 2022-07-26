@@ -51,9 +51,7 @@ if (isset($_POST['register'])) {
 		// sql query 
 			$pass = md5($pass);
 			$sql = "INSERT INTO user(nama,email,username,password) values ('$nama','$email','$user','$pass')";
-			$sql2 = "INSERT INTO login(username, password, tipe) values ('$user', '$pass', 'user')";
 			mysqli_query($koneksi, $sql);
-			mysqli_query($koneksi, $sql2);
 			if(mysqli_affected_rows($koneksi) > 0){
 				// buat session login
 				$_SESSION['is_login'] = true;

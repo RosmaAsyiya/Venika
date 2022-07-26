@@ -3,7 +3,7 @@
 session_start();
 
 // Panggil file config
-include 'database/connection.php';
+include '../database/connection.php';
 
 // Check apakah terdapat post register
 if (isset($_POST['register'])) {
@@ -17,8 +17,6 @@ if (isset($_POST['register'])) {
 		$nama = mysqli_real_escape_string($koneksi, $_POST["reg_nama"]);
 		// username 
 		$user = mysqli_real_escape_string($koneksi, $_POST["reg_user"]);
-        // layanan
-        $layanan = mysqli_real_escape_string($koneksi, $_POST["reg_layanan"]);
 		//email
 		$email = mysqli_real_escape_string($koneksi, $_POST["reg_email"]);
 		// password
@@ -26,7 +24,7 @@ if (isset($_POST['register'])) {
 		// konfirmasi password
 		$pass2 = mysqli_real_escape_string($koneksi, $_POST["reg_pass2"]);
 
-		$result = mysqli_query($koneksi, "SELECT username FROM user where username = '$user'");
+		$result = mysqli_query($koneksi, "SELECT username FROM vendor where username = '$user'");
 		if(mysqli_num_rows($result) > 0) {
 			echo "<script>
 					alert('Username sudah terdaftar');
@@ -43,12 +41,8 @@ if (isset($_POST['register'])) {
 		else{
 		// sql query 
 			$pass = md5($pass);
-			$query1 = "INSERT INTO vendor(username, password, nama, status) values ('$user','$pass','$nama','0')";
-			$query2 = "INSERT INTO jenis_layanan(nama_layanan, nama_vendor) values ('$layanan','$nama')";
-			$query3 = "INSERT INTO login(username, password, tipe) values ('$user', '$pass', 'vendor')";
-			mysqli_query($koneksi, $query1);
-			mysqli_query($koneksi, $query2);
-			mysqli_query($koneksi, $query3);
+			$sql = "INSERT INTO vendor(username, password, nama, email) values ('$user','$pass','$nama','$email')";
+			mysqli_query($koneksi, $sql);
             // $query = "
             // INSERT INTO vendor(username, password, nama, status) values ('$user','$pass','$nama','0');
             // INSERT INTO jenis_layanan(nama_layanan) values ('$layanan');
@@ -60,17 +54,17 @@ if (isset($_POST['register'])) {
             // $sql3 = mysqli_query($koneksi, "INSERT INTO login(username, password, tipe) values ('$user', '$pass', 'vendor')");
 			if(mysqli_affected_rows($koneksi) > 0){
 				// buat session login
-				$_SESSION['is_login'] = true;
+				// $_SESSION['is_login'] = true;
 
 				// beri pesan dan dialihkan ke halaman admin
 				echo "<script>alert('Registrasi Berhasil!');
 				</script>";
-				echo "<script>document.location.href='index.php';</script>";
+				echo "<script>document.location.href='../index.php';</script>";
 				}
 			else{
 					// beri pesan dan dialihkan ke halaman login
 					echo "<script>alert('error');</script>";
-					echo "<script>document.location.href='index.php';</script>";
+					echo "<script>document.location.href='../index.php';</script>";
 				}
 			}
 				}
