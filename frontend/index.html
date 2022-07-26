@@ -142,8 +142,8 @@
         
         <div>
           
-          <button class="btn_register" href="login_user.php">Register</button>
-          <button class="btn_login" href="login_user.php">Login</button>
+          <a href="login_user.php"><button class="btn_register">Register</button></a>
+          <a href="login_user.php"><button class="btn_login">Login</button></a>
         </div>
       </div>
     </div>
