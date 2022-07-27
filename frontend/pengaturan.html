@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'> -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard_vendor.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/3709d60cb3.js" crossorigin="anonymous"></script>
+
+    <title>Venika</title>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="index.html" class="brand">
+            <i class="fa-brands fa-slack icon"></i>
+            Venika
+        </a>
+        <ul class="side-menu">
+            <li>
+                <a href="dashboard_vendor.html" class="nav-link">
+                    <i class="fa-solid fa-house-chimney icon"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="divider" data-text="main">Main</li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-folder-plus icon"></i>
+                    Data Vendor
+                    <i class="fa-solid fa-angle-right icon-right"></i>
+                </a>
+                <ul class="side-dropdown">
+					<li><a href="data_vendor.html"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
+                    <li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah Data</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="data_pesanan.html" class="nav-link">
+                    <i class="fa-solid fa-cart-shopping icon"></i>
+                    Pesanan
+					<i class="fa-solid fa-angle-right icon-right"></i>
+                </a>
+				<ul class="side-dropdown">
+                    <li><a href="req_pesanan.html"><i class="fa-solid fa-user-clock icon"></i> Permintaan Pesanan</a></li>
+                    <li><a href="data_pesanan.html"><i class="fa-solid fa-clipboard-list icon"></i> Data Pesanan</a></li>
+                </ul>
+            </li>
+			<li>
+                <a href="pengaturan.html" class="active">
+                    <i class="fa-solid fa-gear icon"></i>
+                    Pengaturan
+                </a>
+            </li>
+			<li>
+                <a href="login_vendor.php" class="nav-link">
+                    <i class="fa-solid fa-right-from-bracket icon"></i>
+                    Keluar
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    	<!-- NAVBAR -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class="fa-solid fa-bars toggle-sidebar"></i>
+			
+			<div class="profile">
+				<!-- <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt=""> -->
+
+				<ul class="profile-link">
+					<li><a href="#"><i class='bx bxs-user-circle icon' ></i> Profile</a></li>
+					<li><a href="#"><i class='bx bxs-cog' ></i> Settings</a></li>
+					<li><a href="#"><i class='bx bxs-log-out-circle' ></i> Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- NAVBAR -->
+
+        <!-- MAIN -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Pengaturan</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Pengaturan</a>
+						</li>
+						<li><i class="fa-solid fa-angle-right"></i></li>
+						<li>
+							<a class="active" href="#">Edit Profile</a>
+						</li>
+					</ul>
+				</div>
+				<!-- <a href="#" class="btn-download">
+					<i class='bx bxs-cloud-download' ></i>
+					<span class="text">Download PDF</span>
+				</a> -->
+			</div>
+
+    <!-- Form Pemesanan -->
+
+    <section class="order" id="order">
+
+        <div class="heading">
+            <!-- <h2>Edit Profile</h2> -->
+            <!-- <h3>fast home delivery</h3> -->
+        </div>
+
+        <form action="">
+            <div class="box-container">
+                <div class="box">
+                    <div class="inputBox">
+                        <label for="validationCustom01">Nama Vendor</label>
+                        <input type="text" placeholder="" id="validationDefault01" required>
+                    </div>
+                    <div class="inputBox">
+                        <label for="validationCustom01">Username</label>
+                        <input type="text" placeholder="" id="validationDefault01" required>
+                    </div>
+                    <div class="inputBox">
+                        <label for="validationCustom01">Email</label>
+                        <input type="text" placeholder="" id="validationDefault01" required>
+                    </div>
+                    <div class="inputBox">
+                        <label for="validationCustom02">Nomor Telephone</label>
+                        <input type="text" placeholder="" id="validationDefault02" required>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="inputBox">
+                      <label for="validationCustom04">Jenis Layanan</label>
+                      <select class="form-select" aria-label="Default select example" id="validationDefault03" required>
+                        <option value="">Pilih Jenis Layanan</option>
+                        <option value="">Dekorasi</option>
+                        <option value="">Foto & Video</option>
+                        <option value="">Gaun Pengantin</option>
+                        <option value="">Gedung</option>
+                        <option value="">Katering</option>
+                        <option value="">Makeup</option>
+                        <option value="">MC</option>
+                        <option value="">Music Band</option>
+                        <option value="">Sewa Mobil</option>
+                        <option value="">Sound System</option>
+                      </select>
+                    </div>
+                    
+                    <div class="inputBox">
+                        <label for="validationCustom02">Alamat</label>
+                        <input type="text" placeholder="" id="validationDefault02" required>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value="Simpan" class="btn_simpan">
+        </form>
+
+    </section>
+
+
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- NAVBAR -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="js/dashboard_vendor.js"></script>
+</body>
+
+</html>

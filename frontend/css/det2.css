@@ -433,7 +433,6 @@ section {
 }
 
 .order{
-    margin-top: 50px;
   background: #faeded;
 }
 
@@ -515,8 +514,8 @@ section {
 }
 
 form .btn_pesan {
-  width: 110px;
-  height: 40px;
+  width: 120px;
+  height: 46px;
   background-color: #FF7171;
   color: #FFF;
   border: none;
@@ -524,6 +523,7 @@ form .btn_pesan {
   font-weight: 700;
   border-radius: 30px;
   transition: 0.5s;
+  margin-top: 20px;
 }
 
 form .btn_pesan:hover {

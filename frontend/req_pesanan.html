@@ -35,31 +35,32 @@
         </a>
         <ul class="side-menu">
             <li>
-                <a href="dashboard_vendor.html" class="active">
+                <a href="dashboard_vendor.html" class="nav-link">
                     <i class="fa-solid fa-house-chimney icon"></i>
                     Dashboard
                 </a>
             </li>
             <li class="divider" data-text="main">Main</li>
             <li>
-                <a href="data_vendor.html">
+                <a href="#">
                     <i class="fa-solid fa-folder-plus icon"></i>
                     Data Vendor
                     <i class="fa-solid fa-angle-right icon-right"></i>
                 </a>
                 <ul class="side-dropdown">
-                    <li><a href="tambah_data.html">Tambah Data</a></li>
+					<li><a href="data_vendor.html"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
+                    <li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah Data</a></li>
                 </ul>
             </li>
             <li>
-                <a href="data_pesanan.html" class="nav-link">
+                <a href="req_pesanan.html" class="active">
                     <i class="fa-solid fa-cart-shopping icon"></i>
                     Pesanan
 					<i class="fa-solid fa-angle-right icon-right"></i>
                 </a>
 				<ul class="side-dropdown">
-                    <li><a href="req_pesanan.html">Permintaan Pesanan</a></li>
-                    <li><a href="data_pesanan.html">Data Pesanan</a></li>
+                    <li><a href="req_pesanan.html"><i class="fa-solid fa-user-clock icon"></i> Permintaan Pesanan</a></li>
+                    <li><a href="data_pesanan.html"><i class="fa-solid fa-clipboard-list icon"></i> Data Pesanan</a></li>
                 </ul>
             </li>
 			<li>
@@ -219,12 +220,12 @@
 					<h1>Permintaan Pesanan</h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Permintaan Pesanan</a>
+							<a href="#">Pesanan</a>
 						</li>
-						<!-- <li><i class="fa-solid fa-angle-right"></i></li>
+						<li><i class="fa-solid fa-angle-right"></i></li>
 						<li>
-							<a class="active" href="#">Home</a>
-						</li> -->
+							<a class="active" href="#">Permintaan Pesanan</a>
+						</li>
 					</ul>
 				</div>
 				
@@ -270,10 +271,10 @@
 						<thead>
 							<tr>
 								<th>Nama</th>
-								<th>Telp</th>
-								<th>Tanggal Booking</th>
-								<th>Jenis Layanan</th>
-								<th>Paket Layanan</th>
+								<th>Telephone</th>
+								<th>Tgl Booking</th>
+								<th>Layanan</th>
+								<th>Variasi Layanan</th>
 								<th>Action</th>
 							</tr>
 						</thead>
