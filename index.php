@@ -77,7 +77,7 @@ if (isset($_SESSION['username'])){
                     <ul class="nav-right">
                       <li class="user-profile header-notification">
                         <a href="#!" class="arrowdown">
-                          <img src="img/bg.jpg" class="img-radius" alt="User-Profile-Image">
+                        <img src="frontend/img/circle-user-solid.svg" class="img-radius" alt="User-Profile-Image">
                           <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
                           <i class="fas fa-angle-down toggle"></i>
                         </a>
@@ -186,10 +186,11 @@ if (isset($_SESSION['username'])){
         </div>
       </div>
 
+      <form action="filter.php" method="GET">
       <div class="col-10 mx-auto rectangle">
         <div class="row">
           <div class="col-auto">
-            <input type="text" class="form-control" placeholder="Cari vendor..." aria-label="Cari vendor">
+            <input value="" type="text" class="form-control" name="nama_vendor" placeholder="Cari vendor..." aria-label="Cari vendor">
           </div>
 
           <!-- <div class="col-auto">
@@ -211,62 +212,63 @@ if (isset($_SESSION['username'])){
           <!-- Filter Jenis Layanan -->
           <div class="col-auto filter_jenis layanan">
             <select name="jenis_layanan" class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Jenis Layanan</option>
-              <option class="option" value="1">Dekorasi</option>
-              <option class="option" value="2">Katering</option>
-              <option class="option" value="3">Makeup</option>
-              <option class="option" value="4">Sound System</option>
-              <option class="option" value="5">Music Band</option>
-              <option class="option" value="6">Gedung</option>
-              <option class="option" value="7">Foto & Video</option>
-              <option class="option" value="8">Sewa Mobil</option>
-              <option class="option" value="9">Gaun Pengantin</option>
-              <option class="option" value="10">MC</option>
+              <option selected class="option" value="">Jenis Layanan</option>
+              <option class="option" value="Dekorasi">Dekorasi</option>
+              <option class="option" value="Katering">Katering</option>
+              <option class="option" value="Makeup">Makeup</option>
+              <option class="option" value="SoundSystem">Sound System</option>
+              <option class="option" value="MusicBand">Music Band</option>
+              <option class="option" value="Gedung">Gedung</option>
+              <option class="option" value="FotoVideo">Foto & Video</option>
+              <option class="option" value="SewaMobil">Sewa Mobil</option>
+              <option class="option" value="GaunPengantin">Gaun Pengantin</option>
+              <option class="option" value="MC">MC</option>
             </select>
           </div>
 
           <!-- Filter Lokasi -->
           <div class="col-auto ">
             <select name="lokasi" class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Lokasi</option>
-              <option class="option" value="1">Banyumanik</option>
-              <option class="option" value="2">Candisari</option>
-              <option class="option" value="3">Gajahmungkur</option>
-              <option class="option" value="4">Gayamsari</option>
-              <option class="option" value="5">Genuk</option>
-              <option class="option" value="6">Gunungpati</option>
-              <option class="option" value="7">Mijen</option>
-              <option class="option" value="8">Ngaliyan</option>
-              <option class="option" value="9">Pedurungan</option>
-              <option class="option" value="10">Semarang Barat</option>
-              <option class="option" value="11">Semarang Selatan</option>
-              <option class="option" value="12">Semarang Tengah</option>
-              <option class="option" value="13">Semarang Utara</option>
-              <option class="option" value="14">Tembalang</option>
-              <option class="option" value="15">Tugu</option>
+              <option selected class="option" value="">Lokasi</option>
+              <option class="option" value="Banyumanik">Banyumanik</option>
+              <option class="option" value="Candisari">Candisari</option>
+              <option class="option" value="Gajahmungkur">Gajahmungkur</option>
+              <option class="option" value="Gayamsari">Gayamsari</option>
+              <option class="option" value="Genuk">Genuk</option>
+              <option class="option" value="Gunungpati">Gunungpati</option>
+              <option class="option" value="Mijen">Mijen</option>
+              <option class="option" value="Ngaliyan">Ngaliyan</option>
+              <option class="option" value="Pedurungan">Pedurungan</option>
+              <option class="option" value="SemarangBarat">Semarang Barat</option>
+              <option class="option" value="SemarangSelatan">Semarang Selatan</option>
+              <option class="option" value="Semarang Tengah">Semarang Tengah</option>
+              <option class="option" value="SemarangUtara">Semarang Utara</option>
+              <option class="option" value="Tembalang">Tembalang</option>
+              <option class="option" value="Tugu">Tugu</option>
             </select>
           </div>
 
           <!-- Filter Adat -->
           <div class="col-auto filter_adat">
             <select name="adat" class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Adat</option>
-              <option class="option" value="1">Bali</option>
-              <option class="option" value="2">Batak</option>
-              <option class="option" value="3">Betawi</option>
-              <option class="option" value="4">Eropa</option>
-              <option class="option" value="5">Jawa</option>
-              <option class="option" value="6">Melayu</option>
-              <option class="option" value="7">Sunda</option>
+              <option selected class="option" value="">Adat</option>
+              <option class="option" value="Bali">Bali</option>
+              <option class="option" value="Batak">Batak</option>
+              <option class="option" value="Betawi">Betawi</option>
+              <option class="option" value="Eropa">Eropa</option>
+              <option class="option" value="Jawa">Jawa</option>
+              <option class="option" value="Melayu">Melayu</option>
+              <option class="option" value="Sunda">Sunda</option>
             </select>
           </div>
 
           <!-- Button Cari -->
           <div class="col-auto">
-            <button name="search" class="btn_search" type="button" id="button-addon2">Cari</button>
+            <button name="search" class="btn_search" type="submit" id="button-addon2">Cari</button>
           </div>
         </div>
       </div>
+      </form>
 
     </div>
   </section>

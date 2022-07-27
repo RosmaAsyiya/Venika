@@ -82,6 +82,11 @@ body {
     width: 100%;
 }
 
+#hero2{
+    height:100px;
+    width: 100%;
+}
+
 .hero-tagline h1 {
     position: absolute;
     width: 550px;

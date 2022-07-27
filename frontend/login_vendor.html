@@ -19,7 +19,7 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="login/code_login_vendor.php" method="POST" class="sign-in-form">
+                <form action="#" class="sign-in-form">
                     
                     <h2 class="title">Vendor Login</h2>
                     
@@ -38,40 +38,75 @@
 
                     <p class="lupa_pass">Lupa Password ?</p>
                     
-                    <input type="submit" name="login" value="login" class="btn solid">
+                    <input type="submit" value="Login" class="btn solid">
                 </form>
 
-                <form action="login/register_vendor.php" method="POST" class="sign-up-form">
+                <form action="register.php" method="POST" class="sign-up-form">
                     <h2 class="title">Vendor Register</h2>
                     <div class="input-field">
                         <i class="fas fa-solid fas fa-users"></i>
-                        <input type="text" name="reg_nama" placeholder="Nama Vendor">
+                        <input type="text" placeholder="Nama Vendor">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="reg_user" placeholder="Username">
+                        <input type="text" placeholder="Username">
                     </div>
-                    
-                    <!-- <div class="item form-group select-menu">
+
+                    <div class="item form-group select-menu">
                        
                         <div class="col-md-6 col-sm-6 sel input-field">
                             <i class="fas fa-list"></i>
-                            <select name="reg_layanan" class=" select-btn">
+                            <select name="jenis_layanan" class=" select-btn">
                                 <i class="fas fa-list"></i>
                                
                                 <option value="">Pilih Jenis Layanan</option>
-                                <option value="Dekorasi">Dekorasi</option>
-                                <option value="Foto & Video">Foto & Video</option>
-                                <option value="Gaun Pengantin">Gaun Pengantin</option>
-                                <option value="Gedung">Gedung</option>
-                                <option value="Katering">Katering</option>
-                                <option value="Makeup">Makeup</option>
-                                <option value="MC">MC</option>
-                                <option value="Music Band">Music Band</option>
-                                <option value="Sewa Mobil">Sewa Mobil</option>
-                                <option value="Sound System">Sound System</option>
+                                <option value="">Dekorasi</option>
+                                <option value="">Foto & Video</option>
+                                <option value="">Gaun Pengantin</option>
+                                <option value="">Gedung</option>
+                                <option value="">Katering</option>
+                                <option value="">Makeup</option>
+                                <option value="">MC</option>
+                                <option value="">Music Band</option>
+                                <option value="">Sewa Mobil</option>
+                                <option value="">Sound System</option>
                             </select>
                         </div>
+                    </div>
+                    
+                    <!-- <div class="select-menu">
+                        <div class="select-btn input-field">
+                            <i class="fas fa-list"></i>
+                            <span class="sBtn-text">Jenis Layanan</span>
+                            <i class="fas fa-solid fa-angle-down"></i>
+                        </div>
+                
+                        <ul class="options">
+                            <li class="option">
+                                <span class="option-text">Dekorasi</span>
+                            </li>
+                            <li class="option">
+                                <span class="option-text">Katering</span>
+                            </li>
+                            <li class="option">
+                                <span class="option-text">Makeup</span>
+                            </li>
+                            <li class="option">
+                                <span class="option-text">Sound System</span>
+                            </li>
+                            <li class="option">
+                                <span class="option-text">Gedung</span>
+                            </li>
+                            <li class="option">
+                                <span class="option-text">Foto & Video</span>
+                            </li>
+                            <li class="option">
+                                <span class="option-text">Sewa Mobil</span>
+                            </li>
+                            <li class="option">
+                                <span class="option-text">Gaun Pengantin</span>
+                            </li>
+                        </ul>
                     </div> -->
 
                     <!-- <script src="js/script.js"></script> -->
@@ -90,9 +125,9 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="reg_pass2" placeholder="Konfirmasi Password">
+                        <input type="password" placeholder="Konfirmasi Password">
                     </div>
-                    <input type="submit" value="register" name="register" class="btn solid">
+                    <input type="submit" value="Register" class="btn solid">
 
                     </form>
                 </div>
@@ -107,7 +142,7 @@
 
                      <p>
                          Login sebagai User ? 
-                         <a href="login.php" class="daftar_vendor"> Login User</a>
+                         <a href="login_user.php" class="daftar_vendor"> Login User</a>
                     </p>
                     </div>
 
