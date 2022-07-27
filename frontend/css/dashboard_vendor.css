@@ -132,6 +132,12 @@ li {
 	color: var(--light);
 	font-weight: 600;
 }
+#sidebar .dropdown_a:active,
+#sidebar .dropdown_a:active:hover {
+	background: var(--pink);
+	color: var(--light);
+	font-weight: 600;
+}
 
 #sidebar .divider {
 	margin-top: 24px;
@@ -188,9 +194,6 @@ li {
 /* SIDEBAR */
 
 
-
-
-
 /* CONTENT */
 #content {
 	position: relative;
@@ -204,8 +207,10 @@ li {
 }
 
 
+
+
 /* NAVBAR */
-nav {
+/* nav {
 	background: var(--light);
 	height: 64px;
 	padding: 0 20px;
@@ -278,28 +283,42 @@ nav .divider {
 	display: block;
 }
 nav .profile {
+	margin-right: 30px;
 	position: relative;
     float: right;
+	cursor: pointer;
+}
+nav .profile .profile-dropdown {
+	height: 36px;
+	cursor: pointer;
+	width: max-content;
+	color: #000;
 }
 nav .profile img {
 	width: 36px;
 	height: 36px;
 	border-radius: 50%;
 	object-fit: cover;
-	cursor: pointer;
+}
+nav .profile span {
+	margin-left: 6px;
+}
+nav .profile i {
+	margin-left: 6px;
 }
 nav .profile .profile-link {
 	position: absolute;
 	top: calc(100% + 10px);
 	right: 0;
-	background: var(--light);
+	background: #f5f5f5;
 	padding: 10px 0;
-	box-shadow: 4px 4px 16px rgba(0, 0, 0, .1);
+	box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.15);
 	border-radius: 10px;
-	width: 160px;
+	width: 12rem;
 	opacity: 0;
 	pointer-events: none;
 	transition: all .3s ease;
+	margin-top: 15px;
 }
 nav .profile .profile-link.show {
 	opacity: 1;
@@ -310,21 +329,229 @@ nav .profile .profile-link a {
 	padding: 10px 16px;
 	display: flex;
 	grid-gap: 10px;
-	font-size: 14px;
-	color: var(--dark);
+	font-size: 15px;
+	color: #909090;
 	align-items: center;
 	transition: all .3s ease;
 }
 nav .profile .profile-link a:hover {
-	background: var(--grey);
-}
+	background: #ececec;
+} */
 /* NAVBAR */
+
+
+
+nav {
+	background: var(--light);
+	/* height: 64px; */
+	padding: 0 20px;
+	/* display: flex; */
+	align-items: center;
+	grid-gap: 28px;
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+nav .toggle-sidebar {
+	font-size: 18px;
+	cursor: pointer;
+	margin-top: 30px;
+}
+nav .toggle-sidebarr {
+	font-size: 18px;
+	cursor: pointer;
+	/* margin-top: 20px; */
+	display: flex;
+}
+/* nav .profile {
+	margin-right: 30px;
+	position: relative;
+    float: right;
+	cursor: pointer;
+} */
+
+.navbar {
+    z-index: 3;
+	height: 80px;
+}
+
+.bg-transparent {
+    transition: all ease-in 0.3s;
+}
+
+.nav-color {
+    background-color: #F9C8C8;
+    transition: all ease-in-out 0.3s;
+}
+
+.nav-link {
+    font-size: 16px;
+}
+
+.nav-link.active {
+    font-weight: 700;
+}
+
+/* user profile drop down */
+ul {
+	padding-left: 0;
+	list-style-type: none;
+	margin-bottom: 0;
+	/* padding-top: 14px; */
+}
+
+/* tulisan dalam card */
+a {
+	font-size: 13px;
+	color: #000;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	text-decoration: none;
+}
+
+span {
+    color: #000;
+}
+
+/* .header-navbar .navbar-wrapper .navbar-container .nav-left,
+.header-navbar .navbar-wrapper .navbar-container .nav-right {
+	float: left;
+	margin-bottom: 0;
+} */
+
+.header-navbar .navbar-wrapper .navbar-container .nav-right li>a {
+	font-size: 16px;
+	/* display: block; */
+	display: flex;
+}
+
+.header-navbar .navbar-wrapper .navbar-container .nav-rightt li>a {
+	font-size: 16px;
+	/* display: block; */
+	/* display: flex; */
+}
+
+.nav-right {
+	float: right;
+	/* padding-top: 16px; */
+	margin-right: 20px;
+	/* background: #3C91E6; */
+	margin-top: -30px;
+}
+
+.nav-rightt {
+	float: right;
+	/* padding-top: 16px; */
+	margin-right: 0px;
+	/* background: #3C91E6; */
+	margin-top: 16px;
+}
+
+/* foto */
+.header-navbar .navbar-wrapper .navbar-container .nav-right .user-profile img {
+	margin-right: 8px;
+	width: 30px;
+    height: 30px;
+}
+
+.header-navbar .navbar-wrapper .navbar-container .nav-rightt .user-profile img {
+	margin-right: 8px;
+	width: 30px;
+    height: 30px;
+}
+
+.img-radius {
+	border-radius: 50%;
+	object-fit: cover;
+	background: #ececec;
+}
+
+
+.header-navbar .navbar-wrapper .navbar-container .nav-right .user-profile i {
+	/* font-size: 10px; */
+	margin-left: 10px;
+	color: #000;
+	margin-top: 5px;
+}
+
+.header-navbar .navbar-wrapper .navbar-container .nav-rightt .user-profile i {
+	/* font-size: 10px; */
+	margin-left: 10px;
+	color: #000;
+	margin-top: 5px;
+}
+
+/* card */
+.header-navbar .navbar-wrapper .navbar-container .header-notification .show-notification,
+.header-navbar .navbar-wrapper .navbar-container .header-notification .profile-notification {
+	/* background: #448aff; */
+	-webkit-box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.15);
+	border-radius: 5px;
+	opacity: 1;
+	position: absolute;
+	/* right: 20px; */
+	visibility: visible;
+	width: 24rem;
+	display: none;
+	padding: 15px 0;
+	-webkit-transform: translateY(20px);
+	transform: translateY(20px);
+	background-color: #F5F5F5;
+}
+
+.header-navbar .navbar-wrapper .navbar-container .header-notification .show-notification li,
+.header-navbar .navbar-wrapper .navbar-container .header-notification .profile-notification li {
+	line-height: initial;
+	padding: 1em 20px;
+	width: 100%;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.show-notification li:hover,
+.profile-notification li:hover {
+	background-color: #ececec;
+}
+
+
+.header-navbar .navbar-wrapper .navbar-container .header-notification .show-notification li:first-child,
+.header-navbar .navbar-wrapper .navbar-container .header-notification .profile-notification li:first-child {
+	padding: 10px 20px;
+}
+
+/* ukuran card */
+.header-navbar .navbar-wrapper .navbar-container .header-notification .profile-notification {
+	width: 12em;
+}
+/* ukuran teks */
+.header-navbar .navbar-wrapper .navbar-container .header-notification .profile-notification a {
+	font-size: 15px;
+	padding-left: 0;
+}
+
+.header-navbar .navbar-wrapper .navbar-container .header-notification .profile-notification i {
+	font-size: 15px;
+	margin-left: 0;
+	margin-right: 8px;
+	color: #909090;
+}
+
+/*======= Main-header css end ======*/
+
+.pcoded .pcoded-header {
+	position: relative;
+	display: block;
+	background-color: transparent;
+}
+
+
 
 
 
 
 /* CONTENT */
-
 
 
 /* MAIN */
@@ -818,7 +1045,7 @@ form .btn_simpan:hover {
 		width: calc(100% - 60px);
 		transition: all .3s ease;
 	}
-	nav .nav-link,
+	nav .nav-right,
 	nav .divider {
 		display: none;
 	}
