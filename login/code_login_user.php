@@ -13,7 +13,7 @@ if (isset($_POST['login'])) {
 	$pass = $_POST['password'];
 	$hashpass = md5($pass);
 	// sql query 
-	$sql = mysqli_query($koneksi, "SELECT username FROM user WHERE username ='$user' AND password='$hashpass'");
+	$sql = mysqli_query($koneksi, "SELECT id, username FROM user WHERE username ='$user' AND password='$hashpass'");
 	$cek = mysqli_num_rows($sql);
 
 	// apakah user tersebut ada 
@@ -21,6 +21,7 @@ if (isset($_POST['login'])) {
 		// buat session login
 		$_SESSION['is_login'] = true;
 		$_SESSION['username'] = $user;
+		$_SESSION['id'] = $id_user;
 		
 		// beri pesan dan dialihkan ke halaman admin
 		// echo "berhasil login";
