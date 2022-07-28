@@ -1,101 +1,8 @@
-<?php 
-// Panggil file config
-include 'database/connection.php';
-session_start();
-// Check apakah terdapat post Login
-if (isset($_GET['search'])) {
-	// nama vendor
-	$vendor = $_GET['nama_vendor'];
-	// lokasi 
-	$lokasi = $_GET['lokasi'];
-	// adat
-	$adat = $_GET['adat'];
-    // jenis_layanan
-    $jenis_layanan = $_GET['jenis_layanan'];
-	
-	
-	// Test ECHO
-	// echo $vendor;
-	// echo $lokasi;
-	// echo $adat;
-	// echo $jenis_layanan;
+<?php
 
-	if((!$_GET['nama_vendor']) && (!$_GET['lokasi']) && (!$_GET['adat']) && (!$_GET['jenis_layanan']))
-	{
-		echo "<script>document.location.href='index.php';</script>";
-		return false;
-	}
+    include 'database/connection.php';
+    include 'search.php';
 
-	if((!$_GET['lokasi']) && (!$_GET['adat']) && (!$_GET['jenis_layanan']) && ($_GET['nama_vendor']))
-	{
-		$sql = mysqli_query($koneksi,
-		"SELECT DISTINCT vendor.nama, vendor.kecamatan, jenis_layanan.galeri FROM vendor, jenis_layanan 
-		WHERE vendor.nama = '$vendor' AND vendor.id = jenis_layanan.id_vendor");
-	}
-	if((!$_GET['nama_vendor']) && (!$_GET['adat']) && (!$_GET['jenis_layanan']) && ($_GET['lokasi']))
-	{
-		$sql = mysqli_query($koneksi,
-		"SELECT DISTINCT vendor.nama, vendor.kecamatan, jenis_layanan.galeri FROM vendor, jenis_layanan 
-		WHERE vendor.kecamatan = '$lokasi' AND vendor.id = jenis_layanan.id_vendor");
-	}
-	if((!$_GET['nama_vendor']) && (!$_GET['lokasi']) && (!$_GET['jenis_layanan']) && ($_GET['adat']))
-	{
-		$sql = mysqli_query($koneksi,
-		"SELECT DISTINCT vendor.nama, vendor.kecamatan, jenis_layanan.galeri FROM vendor, jenis_layanan 
-		WHERE jenis_layanan.adat = '$adat' AND vendor.id = jenis_layanan.id_vendor");
-	}
-	if((!$_GET['nama_vendor']) && (!$_GET['lokasi']) && (!$_GET['adat']) && ($_GET['jenis_layanan']))
-	{
-		$sql = mysqli_query($koneksi,
-		"SELECT DISTINCT vendor.nama, vendor.kecamatan, jenis_layanan.galeri FROM vendor, jenis_layanan 
-		WHERE jenis_layanan.nama_layanan = '$jenis_layanan' AND vendor.id = jenis_layanan.id_vendor");
-	}
-
-	if(($_GET['nama_vendor']) && ($_GET['lokasi']) && ($_GET['adat']) && ($_GET['jenis_layanan']))
-	{
-		$sql = mysqli_query($koneksi, 
-		"SELECT * FROM vendor, jenis_layanan WHERE (vendor.nama='$vendor' AND vendor.kecamatan ='$lokasi' 
-		AND jenis_layanan.adat='$adat' AND jenis_layanan.nama_layanan='$jenis_layanan')
-		OR (vendor.nama='$vendor' AND jenis_layanan.nama_layanan='$jenis_layanan')
-		OR (vendor.kecamatan ='$lokasi' AND jenis_layanan.nama_layanan='$jenis_layanan')
-		OR (jenis_layanan.adat='$adat' AND jenis_layanan.nama_layanan='$jenis_layanan')
-        AND vendor.id = jenis_layanan.id_vendor");
-		// "SELECT * FROM vendor, jenis_layanan WHERE (vendor.nama='$vendor' AND vendor.kecamatan ='$lokasi' 
-		// AND jenis_layanan.adat='$adat' AND jenis_layanan.nama_layanan='$jenis_layanan')
-		// OR (vendor.nama='$vendor' AND vendor.kecamatan ='$lokasi')
-		// OR (vendor.nama='$vendor' AND jenis_layanan.adat='$adat')
-		// OR (vendor.nama='$vendor' AND jenis_layanan.nama_layanan='$jenis_layanan')
-		// OR (vendor.kecamatan ='$lokasi' AND jenis_layanan.adat='$adat')
-		// OR (vendor.kecamatan ='$lokasi' AND jenis_layanan.nama_layanan='$jenis_layanan')
-		// OR (jenis_layanan.adat='$adat' AND jenis_layanan.nama_layanan='$jenis_layanan')
-		// AND vendor.id = jenis_layanan.id_vendor");
-
-		// while ($cek = mysqli_fetch_assoc($sql)){
-		// 	$nama = $cek["nama"];
-		// 	$kecamatan = $cek["kecamatan"];
-		// }
-		// echo'	<div class="col-4">';
-		// echo'	<div class="card" style="width: 22rem;">';
-		// echo'		<img src="img/Agnez_katering.jpg" alt="">';
-		// echo'		<div class="card-body">';
-		// echo'			<h4>'. $cek["nama"] .'</h4>';
-		// echo'			<p>' . $cek["kecamatan"] .', Semarang <br> <span class="text-danger">Mulai dari Rp.95.000</span></p>';
-		// echo'			<!-- <img src="img/love.png" alt=""> -->';
-		// echo'			<i class="fas fa-heart"></i>';
-		// echo'		</div>';
-		// echo'	</div>';
-		// echo' </div>';
-		
-
-		// apabila data tidak ditemukan
-	// 	while ($cek = 0) {
-	// 		echo "<script> alert('DATA TIDAK DITEMUKAN');</script>;";
-	// 		echo "<script>document.location.href='index.php';</script>";
-	// }
-	// }
-	
-	}
-}
 ?>
 
 <!doctype html>
@@ -275,14 +182,15 @@ if (isset($_SESSION['username'])){
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2  style="margin-top:100px">VENDOR</h2>
+          <h2 style="margin-top:100px">VENDOR</h2>
         </div>
       </div>
 
+      <form action="hasil.php" method="GET">
       <div class="col-10 mx-auto rectangle">
         <div class="row">
           <div class="col-auto">
-            <input type="text" class="form-control" placeholder="Cari vendor..." aria-label="Cari vendor">
+            <input value="" type="text" class="form-control" name="nama_vendor" placeholder="Cari vendor..." aria-label="Cari vendor">
           </div>
 
           <!-- <div class="col-auto">
@@ -304,62 +212,63 @@ if (isset($_SESSION['username'])){
           <!-- Filter Jenis Layanan -->
           <div class="col-auto filter_jenis layanan">
             <select name="jenis_layanan" class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Jenis Layanan</option>
-              <option class="option" value="1">Dekorasi</option>
-              <option class="option" value="2">Katering</option>
-              <option class="option" value="3">Makeup</option>
-              <option class="option" value="4">Sound System</option>
-              <option class="option" value="5">Music Band</option>
-              <option class="option" value="6">Gedung</option>
-              <option class="option" value="7">Foto & Video</option>
-              <option class="option" value="8">Sewa Mobil</option>
-              <option class="option" value="9">Gaun Pengantin</option>
-              <option class="option" value="10">MC</option>
+              <option selected class="option" value="">Jenis Layanan</option>
+              <option class="option" value="Dekorasi">Dekorasi</option>
+              <option class="option" value="Katering">Katering</option>
+              <option class="option" value="Makeup">Makeup</option>
+              <option class="option" value="SoundSystem">Sound System</option>
+              <option class="option" value="MusicBand">Music Band</option>
+              <option class="option" value="Gedung">Gedung</option>
+              <option class="option" value="FotoVideo">Foto & Video</option>
+              <option class="option" value="SewaMobil">Sewa Mobil</option>
+              <option class="option" value="GaunPengantin">Gaun Pengantin</option>
+              <option class="option" value="MC">MC</option>
             </select>
           </div>
 
           <!-- Filter Lokasi -->
           <div class="col-auto ">
             <select name="lokasi" class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Lokasi</option>
-              <option class="option" value="1">Banyumanik</option>
-              <option class="option" value="2">Candisari</option>
-              <option class="option" value="3">Gajahmungkur</option>
-              <option class="option" value="4">Gayamsari</option>
-              <option class="option" value="5">Genuk</option>
-              <option class="option" value="6">Gunungpati</option>
-              <option class="option" value="7">Mijen</option>
-              <option class="option" value="8">Ngaliyan</option>
-              <option class="option" value="9">Pedurungan</option>
-              <option class="option" value="10">Semarang Barat</option>
-              <option class="option" value="11">Semarang Selatan</option>
-              <option class="option" value="12">Semarang Tengah</option>
-              <option class="option" value="13">Semarang Utara</option>
-              <option class="option" value="14">Tembalang</option>
-              <option class="option" value="15">Tugu</option>
+              <option selected class="option" value="">Lokasi</option>
+              <option class="option" value="Banyumanik">Banyumanik</option>
+              <option class="option" value="Candisari">Candisari</option>
+              <option class="option" value="Gajahmungkur">Gajahmungkur</option>
+              <option class="option" value="Gayamsari">Gayamsari</option>
+              <option class="option" value="Genuk">Genuk</option>
+              <option class="option" value="Gunungpati">Gunungpati</option>
+              <option class="option" value="Mijen">Mijen</option>
+              <option class="option" value="Ngaliyan">Ngaliyan</option>
+              <option class="option" value="Pedurungan">Pedurungan</option>
+              <option class="option" value="SemarangBarat">Semarang Barat</option>
+              <option class="option" value="SemarangSelatan">Semarang Selatan</option>
+              <option class="option" value="Semarang Tengah">Semarang Tengah</option>
+              <option class="option" value="SemarangUtara">Semarang Utara</option>
+              <option class="option" value="Tembalang">Tembalang</option>
+              <option class="option" value="Tugu">Tugu</option>
             </select>
           </div>
 
           <!-- Filter Adat -->
           <div class="col-auto filter_adat">
             <select name="adat" class="form-select" id="inputGroupSelect01">
-              <option selected class="option">Adat</option>
-              <option class="option" value="1">Bali</option>
-              <option class="option" value="2">Batak</option>
-              <option class="option" value="3">Betawi</option>
-              <option class="option" value="4">Eropa</option>
-              <option class="option" value="5">Jawa</option>
-              <option class="option" value="6">Melayu</option>
-              <option class="option" value="7">Sunda</option>
+              <option selected class="option" value="">Adat</option>
+              <option class="option" value="Bali">Bali</option>
+              <option class="option" value="Batak">Batak</option>
+              <option class="option" value="Betawi">Betawi</option>
+              <option class="option" value="Eropa">Eropa</option>
+              <option class="option" value="Jawa">Jawa</option>
+              <option class="option" value="Melayu">Melayu</option>
+              <option class="option" value="Sunda">Sunda</option>
             </select>
           </div>
 
           <!-- Button Cari -->
           <div class="col-auto">
-            <button name="search" class="btn_search" type="button" id="button-addon2">Cari</button>
+            <button name="search" class="btn_search" type="submit" id="button-addon2">Cari</button>
           </div>
         </div>
       </div>
+      </form>
 
     </div>
   </section>
@@ -372,25 +281,29 @@ if (isset($_SESSION['username'])){
                       
                   </div>
               </div>
-			  <?php
-				while ($cek = mysqli_fetch_assoc($sql)){
-					$nama = $cek["nama"];
-					$kecamatan = $cek["kecamatan"];
-			  ?>
-              	<div class="row">
-			  	<div class="col-4">
-					<div class="card" style="width: 22rem;">
-						<img src="img/Agnez_katering.jpg" alt="">
-						<div class="card-body">
-						<?php echo'<h4> '. $nama .'</h4>';?>
-						<?php echo '<p> ' . $kecamatan .' , Semarang <br> <span class="text-danger">Mulai dari Rp.95.000</span></p>';?>
-						<!-- <img src="img/love.png" alt=""> -->
-					<i class="fas fa-heart"></i>
-						</div>
+              <div class="row">
+                <?php
+                while ($cek = mysqli_fetch_assoc($sql)){
+                    $nama = $cek["nama"];
+                    $kecamatan = $cek["kecamatan"];
+                    $jenis_layanan = $cek["nama_layanan"];
+                    $id = $cek["id"];
+                ?>
+			  	  <div class="col-4">
+					    <div class="card" style="width: 22rem;">
+						    <img src="img/Agnez_katering.jpg" alt="">
+						    <div class="card-body">
+						    <?php echo'<h4> '. $nama .'</h4>';?>
+						    <?php echo '<p> ' . $kecamatan .', Semarang <br> <span class="text-danger">Mulai dari Rp.95.000</span></p>';?>
+                <?php echo'<a href="frontend/detail.php?' . $id .'" class="stretched-link"></a>';
+                      ?>
+						    <!-- <img src="img/love.png" alt=""> -->
+					     <i class="fas fa-heart"></i>
+						  </div>
 					</div>
-			 	</div>	
-				<?php } ?>
-                  
+			 	</div>
+                <?php } ?>
+        </div>
       </section>
 
 
