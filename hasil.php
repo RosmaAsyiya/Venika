@@ -295,7 +295,7 @@ if (isset($_SESSION['username'])){
 						    <div class="card-body">
 						    <?php echo'<h4> '. $nama .'</h4>';?>
 						    <?php echo '<p> ' . $kecamatan .', Semarang <br> <span class="text-danger">Mulai dari Rp.95.000</span></p>';?>
-                <?php echo'<a href="frontend/detail.php?' . $id .'" class="stretched-link"></a>';
+                <?php echo'<a href="frontend/detail.php?' . $id .'#' . $jenis_layanan . '" class="stretched-link"></a>';
                       ?>
 						    <!-- <img src="img/love.png" alt=""> -->
 					     <i class="fas fa-heart"></i>

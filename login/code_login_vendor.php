@@ -13,23 +13,25 @@ if (isset($_POST['login'])) {
 	$pass = $_POST['password'];
 	$hashpass = md5($pass);
 	// sql query 
-	$sql = mysqli_query($koneksi, "SELECT username FROM vendor WHERE username ='$user' AND password='$hashpass'");
+	$sql = mysqli_query($koneksi, "SELECT id, username FROM vendor WHERE username ='$user' AND password='$hashpass'");
 	$cek = mysqli_num_rows($sql);
-
+	$cek2 = mysqli_fetch_assoc($sql);
+	// echo $cek2['id'];
 	// apakah user tersebut ada 
 	if ($cek > 0) {
 		// buat session login
 		$_SESSION['is_login'] = true;
 		$_SESSION['username'] = $user;
-
+		$_SESSION['id'] = $cek2['id'];
+		// echo $_SESSION['id'];
 		// beri pesan dan dialihkan ke halaman admin
 		// echo "berhasil login";
-		echo "<script>document.location.href='../index.php';</script>";
+		echo "<script>document.location.href='../frontend/dashboard_vendor.php';</script>";
 	}
 	else{
 		// beri pesan dan dialihkan ke halaman login
 		echo "<script> alert('password salah!);</script>";
-		echo "<script>document.location.href='../index.php';</script>";
+		echo "<script>document.location.href='../login.php';</script>";
 	}
 }
 else {

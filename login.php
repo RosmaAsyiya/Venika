@@ -75,8 +75,8 @@
                      <button class="btn transparent" id="sign-up-btn">Register</button>
 
                      <p>
-                         Ingin Daftar sebagai vendor ? 
-                         <a href="login_vendor.php" class="daftar_vendor"> Daftar Vendor</a>
+                         Login Sebagai Vendor ? 
+                         <a href="login_vendor.php" class="daftar_vendor"> Login Vendor</a>
                     </p>
                     </div>
 

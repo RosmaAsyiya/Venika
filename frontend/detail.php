@@ -1,9 +1,14 @@
 <?php
+session_start();
     include '../database/connection.php';
     include '../search.php';
 
     $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     $id = parse_url($actual_link, PHP_URL_QUERY);
+    $id_user = $_SESSION['id'];
+    $_GET['id'] = $id;
+
+
     $sql = mysqli_query($koneksi, 
     "SELECT * FROM vendor, jenis_layanan WHERE vendor.id = jenis_layanan.id_vendor
     AND vendor.id = '$id'");
@@ -424,6 +429,9 @@ if (isset($_SESSION['username'])){
                     <div class="inputBox">
                         <label for="validationCustom03">Tanggal Booking</label>
                         <input type="date" name="tanggal" id="validationDefault03" required>
+                    </div>
+                    <div class="inputBox"> 
+                        <?php echo '<input type="hidden" name="id" value="' . $_GET['id'] . '">'; ?>
                     </div>
                     <!-- <div class="inputBox">
                         <label for="">Alamat</label>
