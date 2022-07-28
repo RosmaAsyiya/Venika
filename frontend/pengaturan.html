@@ -184,7 +184,22 @@
 				</a> -->
             </div>
 
-            <!-- Form Pemesanan -->
+            <div class="edit_foto">
+                <h3 class="head_profile">Pilih Foto Profil</h3>
+            <div class="profile-pic-div">
+                <img src="img/circle-user-solid.svg" id="photo">
+                <input type="file" id="file">
+                <label for="file" id="uploadBtn">
+                    <i class="fa-solid fa-camera icon_btn"></i> <br>
+                    Pilih Foto</label>
+              </div>
+              
+            </div>
+
+              <script src="js/profil.js"></script>
+              
+
+            <!-- Form Edit -->
 
             <section class="order" id="order">
 
@@ -193,48 +208,37 @@
                     <!-- <h3>fast home delivery</h3> -->
                 </div>
 
+                <h3 class="head_profile">Informasi Akun</h3>
+
                 <form action="">
                     <div class="box-container">
                         <div class="box">
                             <div class="inputBox">
                                 <label for="validationCustom01">Nama Vendor</label>
-                                <input type="text" placeholder="" id="validationDefault01" required>
+                                <input type="text" placeholder="" value="Mawar Katering" id="validationDefault01" required>
                             </div>
                             <div class="inputBox">
                                 <label for="validationCustom01">Username</label>
-                                <input type="text" placeholder="" id="validationDefault01" required>
+                                <input type="text" placeholder="" value="Mawar" id="validationDefault01" required>
                             </div>
                             <div class="inputBox">
                                 <label for="validationCustom01">Email</label>
-                                <input type="text" placeholder="" id="validationDefault01" required>
+                                <input type="text" placeholder="" value="mawar@gmail.com"  id="validationDefault01" required>
                             </div>
-                            <div class="inputBox">
-                                <label for="validationCustom02">Nomor Telephone</label>
-                                <input type="text" placeholder="" id="validationDefault02" required>
-                            </div>
+                            
                         </div>
                         <div class="box">
                             <div class="inputBox">
-                                <label for="validationCustom04">Jenis Layanan</label>
-                                <select class="form-select" aria-label="Default select example" id="validationDefault03"
-                                    required>
-                                    <option value="">Pilih Jenis Layanan</option>
-                                    <option value="">Dekorasi</option>
-                                    <option value="">Foto & Video</option>
-                                    <option value="">Gaun Pengantin</option>
-                                    <option value="">Gedung</option>
-                                    <option value="">Katering</option>
-                                    <option value="">Makeup</option>
-                                    <option value="">MC</option>
-                                    <option value="">Music Band</option>
-                                    <option value="">Sewa Mobil</option>
-                                    <option value="">Sound System</option>
-                                </select>
+                                <label for="validationCustom02">Nomor Telephone</label>
+                                <input type="text" placeholder="" value="08988325479" id="validationDefault02" required>
                             </div>
-
                             <div class="inputBox">
                                 <label for="validationCustom02">Alamat</label>
-                                <input type="text" placeholder="" id="validationDefault02" required>
+                                <input type="text" placeholder="" value="Jl.Cempaka, Tembalang, Semarang" id="validationDefault02" required>
+                            </div>
+                            <div class="inputBox">
+                                <label for="validationCustom02">Password</label>
+                                <input type="password" placeholder="" value="asiyya" id="validationDefault02" required>
                             </div>
                         </div>
                     </div>

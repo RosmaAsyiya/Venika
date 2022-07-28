@@ -549,10 +549,6 @@ span {
 }
 
 
-
-
-
-
 /* CONTENT */
 
 
@@ -1035,6 +1031,63 @@ form .btn_simpan:hover {
 
 
 
+
+
+/* Edit Profile */
+.edit_foto {
+	margin-top: 30px;
+	/* margin-left: 40%; */
+}
+
+.head_profile {
+	/* margin: 120px 0 0 50px; */
+	font-size: 26px;
+	margin-bottom: 30px;
+	font-weight: 600;
+}
+
+.profile-pic-div{
+    height: 200px;
+    width: 200px;
+    transform: translate(0,0);
+    border-radius: 50%;
+    overflow: hidden;
+    /* border: 1px solid grey; */
+	margin-top: 30px;
+	margin-bottom: 50px;
+	/* margin-left: 60px; */
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+	object-fit: cover;
+}
+
+#file{
+    display: none;
+}
+
+#uploadBtn{
+    height: 210px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ececec;
+    line-height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
+	padding-top: 85px;
+}
+
+.icon_btn {
+	font-size: 24px;
+}
 
 
 
