@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="frontend/css/katering.css">
+    <link rel="stylesheet" href="frontend/css/list_vendor.css">
     <link rel="stylesheet" href="frontend/css/style_nav_login.css">
 
     <!-- Style Responsive -->

@@ -630,9 +630,9 @@ form .btn_pesan:hover {
 }
 
 .footer-bottom span {
-    /* text-transform: uppercase; */
-    opacity: .4;
-    font-weight: 200;
+  color: #fff;
+  font-size: 16px;    
+  font-weight: 700;
 }
 
 

@@ -20,7 +20,7 @@
 	--dark-grey: #AAAAAA;
 	--dark: #000000;
 	--red: #DB504A;
-	--yellow: #FFCE26;
+	--yellow: #ffc70f;
 	--light-yellow: #FFF2C6;
 	--orange: #FD7238;
 	--light-orange: #FFE0D3;
@@ -736,10 +736,10 @@ span {
 	border-radius: 20px;
 	font-weight: 600;
 }
-#content main .table-data .order table tr td .status.completed {
+#content main .table-data .order table tr td .status.selesai {
 	background: var(--blue);
 }
-#content main .table-data .order table tr td .status.process {
+#content main .table-data .order table tr td .status.proses {
 	background: var(--yellow);
 }
 #content main .table-data .order table tr td .status.pending {
@@ -831,7 +831,7 @@ span {
 	width: auto;
 	height: auto;
 	padding: 10px 20px 10px 20px;
-	background-color: #535353;
+	background-color: #909090;
 	color: #FFF;
 	border: none;
 	font-size: 16px;
@@ -848,6 +848,11 @@ span {
 	margin: 2px;
 	padding: 6px 6px;
 	width: max-content;
+}
+
+.btn_ubah:hover,
+.btn_hapus:hover {
+	color: #fff;
 }
 
 

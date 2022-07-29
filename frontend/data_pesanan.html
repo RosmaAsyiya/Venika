@@ -200,7 +200,7 @@
 				Tambah Data
 			</button> -->
 
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+			<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
 				aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -252,7 +252,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 
 			<!-- <ul class="box-info">
@@ -313,13 +313,16 @@
 								<td>Katering</td>
 								<td>Paket A</td>
 								<td>
-									<span class="status completed">Completed</span>
+									<span class="status selesai">Selesai</span>
 								</td>
 								<td>
-									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"><i
-											class="fa-solid fa-pen-to-square"></i> Ubah</button>
-									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus"><i
-											class="fa-solid fa-trash-can"></i> Hapus</button>
+									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
+										data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-solid fa-pen-to-square"></i> Ubah
+									</button>
+									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus">
+										<i class="fa-solid fa-trash-can"></i> Hapus
+									</button>
 								</td>
 							</tr>
 							<tr>
@@ -334,10 +337,13 @@
 									<span class="status pending">Pending</span>
 								</td>
 								<td>
-									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"><i
-											class="fa-solid fa-pen-to-square"></i> Ubah</button>
-									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus"><i
-											class="fa-solid fa-trash-can"></i> Hapus</button>
+									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
+										data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-solid fa-pen-to-square"></i> Ubah
+									</button>
+									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus">
+										<i class="fa-solid fa-trash-can"></i> Hapus
+									</button>
 								</td>
 							</tr>
 							<tr>
@@ -349,13 +355,16 @@
 								<td>Katering</td>
 								<td>Paket A</td>
 								<td>
-									<span class="status process">Process</span>
+									<span class="status proses">Proses</span>
 								</td>
 								<td>
-									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"><i
-											class="fa-solid fa-pen-to-square"></i> Ubah</button>
-									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus"><i
-											class="fa-solid fa-trash-can"></i> Hapus</button>
+									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
+										data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-solid fa-pen-to-square"></i> Ubah
+									</button>
+									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus">
+										<i class="fa-solid fa-trash-can"></i> Hapus
+									</button>
 								</td>
 							</tr>
 							<tr>
@@ -370,10 +379,13 @@
 									<span class="status pending">Pending</span>
 								</td>
 								<td>
-									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"><i
-											class="fa-solid fa-pen-to-square"></i> Ubah</button>
-									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus"><i
-											class="fa-solid fa-trash-can"></i> Hapus</button>
+									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
+										data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-solid fa-pen-to-square"></i> Ubah
+									</button>
+									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus">
+										<i class="fa-solid fa-trash-can"></i> Hapus
+									</button>
 								</td>
 							</tr>
 							<tr>
@@ -385,13 +397,16 @@
 								<td>Katering</td>
 								<td>Prasmanan</td>
 								<td>
-									<span class="status completed">Completed</span>
+									<span class="status selesai">Selesai</span>
 								</td>
 								<td>
-									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"><i
-											class="fa-solid fa-pen-to-square"></i> Ubah</button>
-									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus"><i
-											class="fa-solid fa-trash-can"></i> Hapus</button>
+									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
+										data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-solid fa-pen-to-square"></i> Ubah
+									</button>
+									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus">
+										<i class="fa-solid fa-trash-can"></i> Hapus
+									</button>
 								</td>
 							</tr>
 						</tbody>
@@ -425,6 +440,68 @@
 						</li>
 					</ul>
 				</div> -->
+			</div>
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Form Ubah Data Pesanan</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form class="needs-validation">
+								<div class="mb-3">
+									<label for="validationCustom01" class="form-label">Nama</label>
+									<input type="text" class="form-control" id="validationDefault01" required>
+								</div>
+								<div class="mb-3">
+									<label for="recipient-name" class="col-form-label">Telephone</label>
+									<input type="text" class="form-control" id="nama">
+								</div>
+								<div class="mb-3">
+									<label for="validationCustom03" class="col-form-label">Tanggal Booking</label>
+									<input type="date" class="form-control" id="validationDefault03" required>
+								</div>
+								<div class="mb-3">
+									<label for="recipient-name" class="col-form-label">Layanan</label>
+									<select class="form-select" aria-label="Default select example"
+										id="validationDefault03" required>
+										<option value="">---Pilih Jenis Layanan---</option>
+										<option value="">Dekorasi</option>
+										<option value="">Foto & Video</option>
+										<option value="">Gaun Pengantin</option>
+										<option value="">Gedung</option>
+										<option value="">Katering</option>
+										<option value="">Makeup</option>
+										<option value="">MC</option>
+										<option value="">Music Band</option>
+										<option value="">Sewa Mobil</option>
+										<option value="">Sound System</option>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label for="message-text" class="col-form-label">Variasi Layanan</label>
+									<textarea class="form-control" id="message-text" cols="30" rows="5"></textarea>
+								</div>
+								<div class="mb-3">
+									<label for="recipient-name" class="col-form-label">Status</label>
+									<select class="form-select" aria-label="Default select example"
+										id="validationDefault03" required>
+										<option value="">---Status---</option>
+										<option value="">Pending</option>
+										<option value="">Proses</option>
+										<option value="">Selesai</option>
+									</select>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn_tutup" data-bs-dismiss="modal">Batal</button>
+							<button type="submit" class="btn_tambah"><i class="fa-solid fa-floppy-disk"></i>Simpan</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</main>
 		<!-- MAIN -->
