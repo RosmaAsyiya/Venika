@@ -169,7 +169,7 @@ li {
 }
 #sidebar .ads {
 	width: 100%;
-	padding: 20px;
+	/* padding: 20px; */
 }
 #sidebar.hide .ads {
 	display: none;
@@ -178,15 +178,29 @@ li {
 	display: block;
 }
 #sidebar .ads .wrapper {
-	background: var(--grey);
+	margin-top: 195px;
 	padding: 20px;
-	border-radius: 10px;
 }
-
+#sidebar .ads .wrapper .fast_link {
+	display: flex;
+	font-size: 12px;
+	color: #000;
+	text-align: center;
+	cursor: pointer;
+}
+#sidebar .ads .wrapper .fast_link li {
+	text-decoration: underline;
+	margin: 5px;
+	color: #000;
+}
+#sidebar .ads .wrapper .fast_link li:hover {
+	color: var(--blue);
+}
 #sidebar .ads .wrapper p {
 	font-size: 12px;
-	color: var(--dark-grey);
+	color: #000;
 	text-align: center;
+	margin-top: 10px;
 }
 #sidebar .ads .wrapper p span {
 	font-weight: 700;
@@ -205,6 +219,11 @@ li {
 	width: calc(100% - 60px);
 	left: 60px;
 }
+
+
+
+/* Footer */
+
 
 
 
@@ -711,8 +730,8 @@ span {
 	border-bottom: 1px solid var(--grey);
 	font-weight: 600;
 }
-#content main .table-data .order table td {
-	padding: 16px 0;
+#content main .table-data .order table td,th {
+	padding: 10px 14px;
 }
 #content main .table-data .order table tr td:first-child {
 	display: flex;
@@ -780,27 +799,58 @@ span {
 
 
 .btn_tambahdata {
-	float: right;
+	/* float: right; */
 	width: auto;
 	height: auto;
 	padding: 10px 20px 10px 20px;
 	background-color: #FF7171;
 	color: #FFF;
 	border: none;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 700;
 	border-radius: 30px;
 	transition: 0.5s;
-	margin: 6px 0px 10px 0px;
+	margin: 10px 0px 10px 0px;
   }
   .btn_tambahdata:hover {
 	background: #0F1F48;
 	color: #fff;
   }
-
-.btn_tambahdata i {
+  .btn_tambahdata i {
 	margin-right: 6px;
 }
+
+
+
+
+
+
+.tambah_gbr input [type="file"] {
+	  display: none;
+  }
+.tambah_gbr label {
+	width: auto;
+	height: auto;
+	padding: 10px 20px 10px 20px;
+	background-color: #FF7171;
+	color: #FFF;
+	border: none;
+	font-size: 14px;
+	font-weight: 700;
+	border-radius: 30px;
+	transition: 0.5s;
+	margin: 10px 0px 10px 0px;
+	cursor: pointer;
+}
+.tambah_gbr i {
+	margin-right: 6px;
+	font-size: 15px;
+}
+
+
+
+
+
 
 .btn_tambah {
 	float: right;
@@ -869,12 +919,15 @@ span {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 	gap:2rem;
+	margin-top: 20px;
  }
  
  .gallery .gallery-container .box{
 	height: auto;
 	position: relative;
 	overflow: hidden;
+	height: 100%;
+	width: 100%;
  }
  
  .gallery .gallery-container .box img{
@@ -896,13 +949,46 @@ span {
 	/* opacity: 20%; */
  }
  
+.gallery .gallery-container .box .icon .ubah i{
+	background: var(--yellow);
+	color: #fff;
+	font-size: 18px;
+	margin: 2px;
+	padding: 6px 6px;
+	width: max-content;
+}
+
+.gallery .gallery-container .box .icon .ubah label {
+	cursor: pointer;
+}
+
+.gallery .gallery-container .box .icon .btn_hapus i{
+	background: var(--red);
+	color: #fff;
+	font-size: 18px;
+	margin: 2px;
+	padding: 6px 6px;
+	width: max-content;
+}
+
+.gallery .gallery-container .box .icon .btn_ubah:hover,
+.gallery .gallery-container .box .icon .btn_hapus:hover {
+	color: #fff;
+}
+
  .gallery .gallery-container .box .icon i{
-	font-size: 40px;
-	color: #FFF;
+	background: var(--blue);
+	color: #fff;
+	font-size: 18px;
+	margin: 2px;
+	padding: 6px 6px;
+	width: max-content;
+	border-radius: 20%;
  }
  
  .gallery .gallery-container .box:hover .icon{
 	display: flex;
+	/* display: grid; */
  }
  
  .gallery .head h3{
@@ -913,7 +999,112 @@ span {
 
 
 
+ .layanan .head h3{
+	 margin-top: 30px;
+	 margin-bottom: 20px;
+	 font-weight: 600;
+	 font-size: 24px;
+ }
 
+ .layanan .layanan-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	gap:2rem;
+ }
+ 
+ .layanan .layanan-container .card {
+	height: auto;
+	position: relative;
+	overflow: hidden;
+	height: 250px;
+	width: 100%;
+ }
+
+ .layanan .card {
+	border-radius: 20px;
+	background: var(--light);
+	overflow-x: auto;
+	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.10);
+	border: none;
+ }
+
+ .layanan .card:hover {
+	background: #F9C8C8;
+ }
+
+ .layanan .layanan-container h3 {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 26px;
+	font-weight: 600;
+	color: #000;
+	text-transform: uppercase;
+ }
+
+ /* .gallery .jenis h3 {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 26px;
+	font-weight: 600;
+	color: #000;
+	text-transform: uppercase;
+ } */
+
+ /* .jenis .card{
+	width: 300px;
+	height: 300px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+	background: #fff;
+	border-radius: 30px;
+	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.10);
+ } */
+
+ .container .card{
+	/* display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+	gap:2rem; */
+	/* margin: 50px; */
+ }
+
+ /* #jenis .container .row{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+	gap: 2rem;
+ }
+
+ .card {
+    width: 300px;
+	height: 300px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+	background: #fff;
+	border-radius: 30px;
+	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.10);
+}
+
+.card:hover {
+    background: #FFE1E1;
+    box-shadow: 10px 13px 50px rgba(254, 156, 156, 0.25);
+    transition: all ease-in-out 0.5s;
+}
+
+.card-body h4 {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 30px;
+	font-weight: 600;
+	color: #000;
+	text-transform: uppercase;
+} */
 
 
 
@@ -958,6 +1149,10 @@ span {
   flex:1 1 41rem;
 }
 
+.order form .box-container .box .inputBox {
+	margin-bottom: 30px;
+}
+
 .order form .box-container .box .inputBox input,
 .order form .box-container .box .inputBox textarea,
 .order form .box-container .box .inputBox select {
@@ -970,6 +1165,7 @@ span {
   border: 1.2px solid #d0d0d0;
   text-transform: none;
   background: #fff;
+  /* text-transform: capitalize; */
 }
 
 .order form .box-container .box .inputBox input::placeholder,
@@ -992,6 +1188,7 @@ span {
 .order form .box-container .box .inputBox textarea{
   height: 10rem;
   resize: none;
+  margin-bottom: 20px;
 }
 
 .order form .box-container .box .inputBox .map{
@@ -1003,7 +1200,7 @@ span {
 .order form .box-container .box .inputBox label{
   font-size: 18px;
   color: #000;
-  margin-top: 20px;
+  font-weight: 500;
 }
 
 .order form .box-container .box .inputBox .form-control{
@@ -1011,7 +1208,7 @@ span {
   }
 
 .order form .box-container .box .inputBox span{
-	font-size: 14px;
+	font-size: 16px;
 	color: #000;
   }
 
