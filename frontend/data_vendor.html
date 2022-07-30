@@ -460,10 +460,6 @@
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary btn-icon-text btn_ubah"
-                                        data-bs-toggle="modal" data-bs-target="#tentangVendor">
-                                        <i class="fa-solid fa-eye"></i> Lihat
-                                    </button>
                                     <button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
                                         data-bs-toggle="modal" data-bs-target="#tentangVendor">
                                         <i class="fa-solid fa-pen-to-square"></i> Ubah
@@ -488,10 +484,6 @@
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary btn-icon-text btn_ubah"
-                                        data-bs-toggle="modal" data-bs-target="#fasilitas">
-                                        <i class="fa-solid fa-eye"></i> Lihat
-                                    </button>
                                     <button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
                                         data-bs-toggle="modal" data-bs-target="#fasilitas">
                                         <i class="fa-solid fa-pen-to-square"></i> Ubah
@@ -502,7 +494,7 @@
 
                         <thead>
                             <tr>
-                                <th>Variasi Menu</th>
+                                <th>Produk/Jasa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -531,10 +523,6 @@
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary btn-icon-text btn_ubah"
-                                        data-bs-toggle="modal" data-bs-target="#menu">
-                                        <i class="fa-solid fa-eye"></i> Lihat
-                                    </button>
                                     <button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
                                         data-bs-toggle="modal" data-bs-target="#menu">
                                         <i class="fa-solid fa-pen-to-square"></i> Ubah
@@ -562,10 +550,6 @@
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary btn-icon-text btn_ubah"
-                                        data-bs-toggle="modal" data-bs-target="#kontak">
-                                        <i class="fa-solid fa-eye"></i> Lihat
-                                    </button>
                                     <button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
                                         data-bs-toggle="modal" data-bs-target="#kontak">
                                         <i class="fa-solid fa-pen-to-square"></i> Ubah
@@ -623,6 +607,7 @@
                                     <label for="message-text" class="col-form-label">Tentang Vendor</label>
                                     <textarea name="" placeholder="jelaskan detail tentang vendor anda..." id="classic"
                                         cols="30" rows="10"></textarea>
+                                        <div>* Maksimal 500 Karakter</div>
                                 </div>
 
                             </form>
@@ -651,6 +636,7 @@
                                     <label for="message-text" class="col-form-label">Fasilitas Vendor</label>
                                     <textarea name="" placeholder="fasilitas yang disediakan..." id="classic" cols="30"
                                         rows="10"></textarea>
+                                        <div>* Maksimal 500 Karakter</div>
                                 </div>
 
                             </form>
@@ -669,16 +655,17 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Variasi Menu Vendor</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Produk/Jasa Vendor</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form class="needs-validation">
 
                                 <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">Variasi Menu</label>
+                                    <label for="message-text" class="col-form-label">Produk/Jasa</label>
                                     <textarea name="" placeholder="Masukkan variasi/nama/paket/menu yang tersedia..."
                                         id="classic" cols="30" rows="10"></textarea>
+                                        <div>* Maksimal 500 Karakter</div>
                                 </div>
 
                             </form>

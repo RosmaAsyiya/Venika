@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard_vendor.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/3709d60cb3.js" crossorigin="anonymous"></script>
+
+    <title>Venika</title>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="index.html" class="brand">
+            <i class="fa-brands fa-slack icon"></i>
+            Venika
+        </a>
+        <ul class="side-menu">
+            <li>
+                <a href="dashboard_vendor.html" class="nav-link">
+                    <i class="fa-solid fa-house-chimney icon"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="divider" data-text="main">Main</li>
+            <li>
+                <a href="favorit.html">
+                    <i class="fa-solid fa-folder-plus icon"></i>
+                    Favorit
+                </a>
+            </li>
+            <li>
+                <a href="data_pesanan.html" class="nav-link">
+                    <i class="fa-solid fa-cart-shopping icon"></i>
+                    Pesanan
+                </a>
+            </li>
+            <li>
+                <a href="pengaturan.html" class="active">
+                    <i class="fa-solid fa-gear icon"></i>
+                    Pengaturan
+                </a>
+            </li>
+            <li>
+                <a href="login_vendor.php" class="nav-link">
+                    <i class="fa-solid fa-right-from-bracket icon"></i>
+                    Keluar
+                </a>
+            </li>
+        </ul>
+
+        <!-- Footer -->
+		<div class="ads">
+			<div class="wrapper">
+				<ul class="fast_link">
+					<li>Kontak</li>
+					<li>Vendor</li>
+					<li>Tentang Kami</li>
+					<li>FAQ</li>
+				  </ul>
+				  
+				<p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
+			</div>
+		</div>
+    </section>
+
+    <!-- NAVBAR -->
+    <section id="content">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <i class="fa-solid fa-bars toggle-sidebar"></i>
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+
+                    </ul>
+                    <div>
+                        <div id="pcoded" class="pcoded">
+                            <div class="pcoded-overlay-box"></div>
+                            <div class="pcoded-container navbar-wrapper">
+                                <nav class="navbar header-navbar pcoded-header">
+                                    <div class="navbar-wrapper">
+
+                                        <div class="navbar-container container-fluid">
+                                            <ul class="nav-right">
+                                                <li class="user-profile header-notification">
+                                                    <a href="#!" class="arrowdown">
+                                                        <img src="img/circle-user-solid.svg" class="img-radius"
+                                                            alt="User-Profile-Image">
+                                                        <span>Rosma Asiyya</span>
+                                                        <i class="fa-solid fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="show-notification profile-notification">
+                                                        <li class="">
+                                                            <a href="#!">
+                                                                <i class="fas fa-user"></i> Lihat Profil
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="#">
+                                                                <i class="fas fa-question"></i> FAQ
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="#">
+                                                                <i class="fas fa-arrow-right-from-bracket"></i> Keluar
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <script src="js/script.js"></script>
+                        <script type="text/javascript" src="js/jquery.min.js"></script>
+
+                        <script src="js/pcoded.min.js"></script>
+                        <script src="js/vertical-layout.min.js"></script>
+                        <script type="text/javascript" src="js/user_profile.js"></script>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- MAIN -->
+
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Pengaturan</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Pengaturan</a>
+                        </li>
+                        <li><i class="fa-solid fa-angle-right"></i></li>
+                        <li>
+                            <a class="active" href="pengaturan.html">Edit Profile</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <a href="#" class="btn-download">
+					<i class='bx bxs-cloud-download' ></i>
+					<span class="text">Download PDF</span>
+				</a> -->
+            </div>
+
+            <div class="edit_foto">
+                <h3 class="head_profile">Pilih Foto Profil</h3>
+            <div class="profile-pic-div">
+                <img src="img/circle-user-solid.svg" id="photo">
+                <input type="file" id="file" accept="image/*">
+                <label for="file" id="uploadBtn">
+                    <i class="fa-solid fa-camera icon_btn"></i> <br>
+                    Pilih Foto</label>
+              </div>
+              
+            </div>
+
+              <script src="js/profil.js"></script>
+              
+
+            <!-- Form Edit -->
+
+            <section class="order" id="order">
+
+                <div class="heading">
+                    <!-- <h2>Edit Profile</h2> -->
+                    <!-- <h3>fast home delivery</h3> -->
+                </div>
+
+                <h3 class="head_profile">Informasi Akun</h3>
+
+                <form action="">
+                    <div class="box-container">
+                        <div class="box">
+                            <div class="inputBox">
+                                <label for="validationCustom01">Nama Lengkap</label>
+                                <input type="text" placeholder="" value="Rosma Asiyya" id="validationDefault01" required>
+                            </div>
+                            <div class="inputBox">
+                                <label for="validationCustom01">Username</label>
+                                <input type="text" placeholder="" value="Asiyya" id="validationDefault01" required>
+                            </div>
+                            <div class="inputBox">
+                                <label for="validationCustom01">Email</label>
+                                <input type="text" placeholder="" value="asiyya@gmail.com"  id="validationDefault01" required>
+                            </div>
+                            
+                        </div>
+                        <div class="box">
+                            <div class="inputBox">
+                                <label for="validationCustom02">Nomor Telephone</label>
+                                <input type="text" placeholder="" value="08988325479" id="validationDefault02" required>
+                            </div>
+                            <div class="inputBox">
+                                <label for="validationCustom02">Password</label>
+                                <input type="password" placeholder="" value="asiyya123" id="validationDefault02" required>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Simpan" class="btn_simpan">
+                </form>
+
+            </section>
+
+
+
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- NAVBAR -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="js/dashboard_vendor.js"></script>
+</body>
+
+</html>
