@@ -25,6 +25,7 @@
 	--orange: #FD7238;
 	--light-orange: #FFE0D3;
 	--light-pink: #ffe8e8;
+	--green: #008000;
 }
 
 html {
@@ -167,6 +168,8 @@ li {
 	background: var(--light-orange);
 	color: var(--blue);
 }
+
+
 #sidebar .ads {
 	width: 100%;
 	/* padding: 20px; */
@@ -177,6 +180,7 @@ li {
 #sidebar.hide:hover .ads {
 	display: block;
 }
+/* Footer dahsboard vendor */
 #sidebar .ads .wrapper {
 	margin-top: 195px;
 	padding: 20px;
@@ -205,6 +209,39 @@ li {
 #sidebar .ads .wrapper p span {
 	font-weight: 700;
 }
+
+/* Footer dahsboard user */
+#sidebar .ads .footer_dashboard_user {
+	margin-top: 295px;
+	padding: 20px;
+}
+#sidebar .ads .footer_dashboard_user .fast_link,
+#sidebar .ads .footer_dashboard_user .fast_link_footer {
+	display: flex;
+	font-size: 12px;
+	color: #000;
+	text-align: center;
+	cursor: pointer;
+}
+#sidebar .ads .footer_dashboard_user .fast_link li,
+#sidebar .ads .footer_dashboard_user .fast_link_footer li {
+	text-decoration: underline;
+	margin: 5px;
+	color: #000;
+}
+#sidebar .ads .footer_dashboard_user .fast_link li:hover,
+#sidebar .ads .footer_dashboard_user .fast_link_footer li:hover {
+	color: var(--blue);
+}
+#sidebar .ads .footer_dashboard_user p {
+	font-size: 12px;
+	color: #000;
+	text-align: center;
+	margin-top: 10px;
+}
+#sidebar .ads .footer_dashboard_user p span {
+	font-weight: 700;
+}
 /* SIDEBAR */
 
 
@@ -219,10 +256,6 @@ li {
 	width: calc(100% - 60px);
 	left: 60px;
 }
-
-
-
-/* Footer */
 
 
 
@@ -764,6 +797,14 @@ span {
 #content main .table-data .order table tr td .status.pending {
 	background: var(--orange);
 }
+
+#content main .table-data .order table tr td .status.ditolak {
+	background: var(--red);
+}
+#content main .table-data .order table tr td .status.diterima {
+	background: var(--green);
+}
+
 
 
 #content main .table-data .todo {
