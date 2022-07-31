@@ -1,10 +1,13 @@
 <?php
+  session_start();
 
-    include 'database/connection.php';
-    include 'search.php';
-
+  include '../database/connection.php';
+  if (!isset($_SESSION['is_login'])) {
+    echo "<script> alert('Login Terlebih Dahulu!')</script>";
+    echo "<script>document.location.href='../login.php';</script>";
+    die();
+}
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,11 +24,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="frontend/css/katering.css">
-    <link rel="stylesheet" href="frontend/css/style_nav_login.css">
+    <link rel="stylesheet" href="css/list_vendor.css">
+    <link rel="stylesheet" href="css/style_nav_login.css">
 
     <!-- Style Responsive -->
-    <link rel="stylesheet" href="frontend/css/responsive.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
     <script
       src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
@@ -39,9 +42,6 @@
 
     <title>Venika</title>
   </head>
-  <?php
-if (isset($_SESSION['username'])){
-?>
   <body>
   <!-- Navbar Login --> 
   <nav class="navbar navbar-expand-lg bg-transparent navbar-light position-fixed w-100">
@@ -56,7 +56,7 @@ if (isset($_SESSION['username'])){
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item mx-3">
-            <a class="nav-link active" aria-current="page" href="index.php">Beranda</a>
+            <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
           </li>
           <li class="nav-item mx-3">
             <a class="nav-link" href="katering.php">Vendor</a>
@@ -77,8 +77,8 @@ if (isset($_SESSION['username'])){
 
                     <ul class="nav-right">
                       <li class="user-profile header-notification">
-                        <a href="#" class="arrowdown">
-                        <img src="frontend/img/circle-user-solid.svg" class="img-radius" alt="User-Profile-Image">
+                        <a href="#!" class="arrowdown">
+                        <img src="img/circle-user-solid.svg" class="img-radius" alt="User-Profile-Image">
                           <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
                           <i class="fas fa-angle-down toggle"></i>
                         </a>
@@ -118,63 +118,21 @@ if (isset($_SESSION['username'])){
       </div>
     </div>
   </nav>
-  <?php }
-  else {
-  ?>
-  <body>
-  <!-- Navbar sebelum Login -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent position-fixed w-100">
-    <div class="container">
-      
-      <a class="navbar-brand" href="#">
-        <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
-          class="d-inline-block align-text-top" me-3>Venika</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          
-          <li class="nav-item mx-3">
-            
-            <a class="nav-link active" aria-current="page" href="index.php">Beranda</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link" href="katering.php">Vendor</a>
-          </li>
-          <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Tentang Kami</a>
-          </li>
-        </ul>
-        
-        <div>
-          
-        <a href="login.php"><button class="btn_register">Register</button></a>
-          <a href="login.php"><button class="btn_login">Login</button></a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  
-<?php
-  }
-?>
 
       <!-- HERO SECTION -->
-      <!-- <section id="hero"> -->
+      <section id="hero">
             <!-- h-100 : height agar memenuhi layar -->
-        <!-- <div class="container" h-100> 
+        <div class="container" h-100> 
           <div class="row" h-100>
             <div class="col-md-6 hero-tagline my-auto">
-                <img src="img/bg_katering2.jpg" alt="" class="position-absolute end-0 bottom-0 img-hero">
-              <h1>Ingin Katering Seperti Apa ?</h1>
-              <p>Temukan katering terbaik versi anda disini...</p>
+                <img src="img/bg_mua.jpg" alt="" class="position-absolute end-0 bottom-0 img-hero">
+              <h1>Tampil Cantik Di Hari Spesial ? It’s a must !</h1>
+              <p>Temukan Makeup Artist terbaik disini...</p>
               <button class="btn_cari_sekarang">Cari sekarang...</button>
             </div>
           </div>
-        </div> -->
-      <!-- </section> -->
+        </div>
+      </section>
       
       <!-- Search Section -->
 
@@ -182,11 +140,11 @@ if (isset($_SESSION['username'])){
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h2 style="margin-top:100px">VENDOR</h2>
+          <h2>VENDOR</h2>
         </div>
       </div>
 
-      <form action="hasil.php" method="GET">
+      <form action="../hasil.php" method="GET">
       <div class="col-10 mx-auto rectangle">
         <div class="row">
           <div class="col-auto">
@@ -273,39 +231,39 @@ if (isset($_SESSION['username'])){
     </div>
   </section>
 
-      <!-- KATERING SECTION -->
-      <section id="katering">
+      <!-- Makeup SECTION -->
+      <section id="dekorasi">
           <div class="container">
               <div class="row">
-                  <div class="col-12">
-                      
-                  </div>
-              </div>
-              <div class="row">
                 <?php
-                while ($cek = mysqli_fetch_assoc($sql)){
+                  $sql = mysqli_query($koneksi,
+                  "SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis 
+                  FROM vendor, jenis_layanan WHERE jenis_layanan.nama_layanan = 'makeup'
+                  AND vendor.id = jenis_layanan.id_vendor");
+                  while ($cek = mysqli_fetch_assoc($sql)){
                     $nama = $cek["nama"];
                     $kecamatan = $cek["kecamatan"];
                     $jenis_layanan = $cek["nama_layanan"];
                     $id = $cek["id"];
                     $galeri = $cek["galeri"];
                     $id_jenis = $cek["id_jenis"];
-                ?>
-			  	  <div class="col-4">
-					    <div class="card" style="width: 22rem;">
-              <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($galeri) . '"alt="">' ?>
-						    <div class="card-body">
-						    <?php echo'<h4> '. $nama .'</h4>';?>
-						    <?php echo '<p> ' . $kecamatan .', Semarang <br> <span class="text-danger">Mulai dari Rp.95.000</span></p>';?>
-                <?php echo'<a href="frontend/detail.php?' . $id .'?' . $id_jenis . '" class="stretched-link"></a>';
-                      ?>
-						    <!-- <img src="img/love.png" alt=""> -->
-					     <i class="fas fa-heart"></i>
-						  </div>
-					</div>
-			 	</div>
-                <?php } ?>
-        </div>
+
+                  ?>
+                    <div class="col-4">
+                        <div class="card" style="width: 22rem;">
+                        <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($galeri) . '"alt="">' ?>
+                            <div class="card-body"> 
+                                <?php echo '<h4>'. $nama .'</h4>';
+                                echo '<p>' . $kecamatan . ', Semarang</p>';?>
+                                <!-- <img src="img/love.png" alt=""> -->
+                                <i class="fas fa-heart"></i>
+                                <?php echo'<a href="detail.php?' . $id .'?' . $id_jenis . '" class="stretched-link"></a>';?>
+                            </div>
+                        </div>
+                    </div>
+                    <?php }?>
+              </div>
+          </div>
       </section>
 
 
@@ -331,8 +289,8 @@ if (isset($_SESSION['username'])){
           <p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
         </div>
       </footer>
-<!-- JavaScript -->
-<script src="js/script.js"></script>
+      <!-- JavaScript -->
+      <script src="js/script.js"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -280,41 +280,41 @@ if (isset($_SESSION['username'])){
       <div class="row">
         <div class="col-auto text-center">
           <div class="col-md-3">
-            <div class="card-kategori">
+            <a href="frontend/dekorasi.php"><div class="card-kategori">
               <div class="circle-icon ">
                 <i class="fa-solid fa-paint-roller"></i>
                 <h4>Dekorasi</h4>
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
 
         <div class="col-auto text-center">
           <div class="col-md-3">
-            <div class="card-kategori">
+          <a href="frontend/katering.php"><div class="card-kategori">
               <div class="circle-icon ">
                 <i class="fa-solid fa-cake-candles"></i>
                 <!-- <i class="fa-solid fa-bell-concierge"></i> -->
                 <h4>Katering</h4>
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
 
         <div class="col-auto text-center">
           <div class="col-md-3">
-            <div class="card-kategori">
+          <a href="frontend/makeup.php"><div class="card-kategori">
               <div class="circle-icon ">
                 <i class="fa-solid fa-paintbrush"></i>
                 <h4>Makeup</h4>
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
 
         <div class="col-auto text-center">
           <div class="col-md-3">
-            <div class="card-kategori">
+          <a href="frontend/SoundSystem.php"><div class="card-kategori">
               <div class="circle-icon ">
                 <!-- <img src="img/icon_sound.png" alt=""> -->
                 <!-- <i class="fa-brands fa-soundcloud"></i> -->
@@ -322,73 +322,73 @@ if (isset($_SESSION['username'])){
                 <!-- <i class="fa-solid fa-square-poll-vertical"></i> -->
                 <h4>Sound System</h4>
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
 
         <div class="col-auto text-center">
           <div class="col-md-3">
-            <div class="card-kategori">
+          <a href="frontend/Musicband.php"><div class="card-kategori">
               <div class="circle-icon ">
                 <i class="fa-solid fa-music"></i>
                 <h4>Music Band</h4>
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
 
         <div class="col-auto text-center">
           <div class="col-md-3">
-            <div class="card-kategori">
+          <a href="frontend/Gedung.php"><div class="card-kategori">
               <div class="circle-icon ">
                 <i class="fa-solid fa-landmark-dome"></i>
                 <h4>Gedung Pernikahan</h4>
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
 
         <div class="col-auto text-center">
           <div class="col-md-3">
-            <div class="card-kategori">
+          <a href="frontend/fotovideo.php"><div class="card-kategori">
               <div class="circle-icon ">
                 <i class="fa-solid fa-camera"></i>
                 <h4>Foto & Video</h4>
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
 
         <div class="col-auto text-center">
           <div class="col-md-3">
-            <div class="card-kategori">
+          <a href="frontend/sewamobil.php"><div class="card-kategori">
               <div class="circle-icon ">
                 <i class="fa-solid fa-car"></i>
                 <h4>Sewa Mobil</h4>
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
 
         <div class="col-auto text-center">
           <div class="col-md-3">
-            <div class="card-kategori">
+          <a href="frontend/gaunpengantin.php"><div class="card-kategori">
               <div class="circle-icon ">
                 <i class="fa-brands fa-black-tie"></i>
                 <h4>Gaun Pengantin</h4>
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
 
         <div class="col-auto text-center">
           <div class="col-md-3">
-            <div class="card-kategori">
+          <a href="frontend/mc.php"><div class="card-kategori">
               <div class="circle-icon ">
                 <i class="fa-solid fa-user-tie"></i>
                 <h4>MC</h4>
               </div>
-            </div>
+            </div></a>
           </div>
         </div>
   </section>

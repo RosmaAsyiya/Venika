@@ -7,15 +7,25 @@ session_start();
     $id = parse_url($actual_link, PHP_URL_QUERY);
     $id_user = $_SESSION['id'];
     $_GET['id'] = $id;
+    $id_vendor = substr($id,0,1);
+    $id_jenis = substr($id,2);
 
 
     $sql = mysqli_query($koneksi, 
     "SELECT * FROM vendor, jenis_layanan WHERE vendor.id = jenis_layanan.id_vendor
-    AND vendor.id = '$id'");
+    AND vendor.id = '$id' AND jenis_layanan.id = '$id_jenis'");
 
     $cek = mysqli_fetch_assoc($sql);
     $nama = $cek["nama"];
+    $nama_layanan = $cek["nama_layanan"];
     $deskripsi = $cek["deskripsi"];
+    $fasilitas = $cek["fasilitas"];
+    $variasi = $cek["variasi"];
+    $no_hp = $cek["no_hp"];
+    $instagram = $cek["instagram"];
+    $facebook = $cek["facebook"];
+    $twitter = $cek["twitter"];
+    $website = $cek["website"];
     
 ?>
 
@@ -192,33 +202,21 @@ if (isset($_SESSION['username'])){
         <div class="swiper products-slider">
 
             <div class="swiper-wrapper">
+              <?php
+                $sql = mysqli_query($koneksi,
+                "SELECT galeri_jenis_layanan.galeri from galeri_jenis_layanan, jenis_layanan, vendor
+                WHERE vendor.id = '$id_vendor' AND jenis_layanan.id = '$id_jenis'
+                AND  galeri_jenis_layanan.id_vendor = vendor.id AND galeri_jenis_layanan.id_jenis = jenis_layanan.id");
+                while($cek = mysqli_fetch_assoc($sql)){
+                  $galeri = $cek["galeri"];
+              ?>
 
                 <div class="swiper-slide slide">
-                    <img src="img/mawar_katering.png" alt="">
+                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($galeri) . '"alt="">'; ?>
                     <!-- <h3>Paket A</h3> -->
                     <!-- <div class="btn" data-product="product-1">lihat detail</div> -->
                 </div>
-
-                <div class="swiper-slide slide">
-                    <img src="img/Agnez_katering.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide slide">
-                    <img src="img/japanese_katering.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide slide">
-                    <img src="img/japanese_katering.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide slide">
-                    <img src="img/Agnez_katering.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide slide">
-                    <img src="img/mawar_katering.png" alt="">
-                </div>
-
+                <?php } ?>
             </div>
             <!-- <p>Swipe<i class="fa-solid fa-arrow-right"></i></p>   -->
         </div>
@@ -253,7 +251,7 @@ if (isset($_SESSION['username'])){
 
     <section class="detail" id="detail">
         <div class="product-content">
-            <h2 class="product-title">Detail Layanan</h2>
+            <?php echo '<h2 class="product-title">Detail Layanan ' . $nama_layanan . '</h2>' ?>
             <a href=""><button class="btn_call">Hubungi Vendor</button></a> <br>
 
             <!-- <div class = "product-rating">
@@ -289,56 +287,24 @@ if (isset($_SESSION['username'])){
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <h2>Fasilitas</h2>
-                <ul>
-                    <li>...</li>
-                    <li>...</li>
-                    <li>...</li>
-                </ul>
+                <?php
+                    echo $fasilitas;
+                ?>
                 </div>
                 <div class="tab-pane fade" id="nav-menu" role="tabpanel" aria-labelledby="nav-menu-tab">
                     <h2>Pilihan Menu</h2>
-                <ul>
-                    <li>Paket A : 
-                        <p>Prasmanan, Buffet</p>
-                    </li>
-                    <li>Paket B : 
-                        <p>Pondok ala buffet</p>
-                    </li>
-                    <li>Main Course : 
-                        <p>Bakso</p>
-                        <p>Sate (ayam/sapi/kambing)</p>
-                        <p>Rawon (sapi/kambing)</p>
-                        <p>Soto (ayam,sapi)</p>
-                        <p>Gule (ayam/sapi/kambing</p>
-                        <p>Steak (ayam/sapi)</p>
-                        <p>Nasi Putih (kakap asam manis, ayam bakar, sambal goreng, capcay, sop, kerupuk udang, bihun)</p>
-                    </li>
-                    <li>Appetizers : 
-                        <p>Batagor</p>
-                        <p>Siomay</p>
-                        <p>Zuppa Soup</p>
-                    </li>
-                    <li>Desserts : 
-                        <p>Ice Cream (coklat/vanila/strawberry)</p>
-                        <p>Kue</p>
-                        <p>Buah (melon/semangka/anggur/pear)</p>
-                        <p>Rujak</p>
-                        <P>Puding</P>
-                        <p>Sup Buah</p>
-                    </li>
-                    <li>Minuman : 
-                        <p>Aqua</p>
-                        <p>Jus (jambu/jeruk/melon/semangka)</p>
-                        <p>Jahe</p>
-                    </li>
-                </ul>
+                <?php
+                    echo $variasi;
+                ?>
                 </div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <h2>Kontak</h2>
                 <ul>
-                    <li>Whatsapp : <a href="#" class="product-link">https://wa.me/628988325479</a></li>
-                    <li>Instagram : <a href="#" class="product-link">https://www.instagram.com/mawar/</a></li>
-                    <li>Website : <a href="#" class="product-link">https://www.mawar.com</a></li>
+                    <li>No. HP : <a href="#" class="product-link"><?php echo $no_hp; ?></a></li>
+                    <li>Instagram : <a href="#" class="product-link"><?php echo $instagram; ?></a></li>
+                    <li>Facebook : <a href="#" class="product-link"><?php echo $facebook; ?></a></li>
+                    <li>Twitter : <a href="#" class="product-link"><?php echo $twitter; ?></a></li>
+                    <li>Website : <a href="#" class="product-link"><?php echo $website; ?></a></li>
                 </ul>
                 </div>
             </div>
