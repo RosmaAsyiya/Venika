@@ -19,10 +19,10 @@
 	--grey: #eee;
 	--dark-grey: #AAAAAA;
 	--dark: #000000;
-	--red: #DB504A;
+	--red: #dd2f29;
 	--yellow: #ffc70f;
 	--light-yellow: #FFF2C6;
-	--orange: #FD7238;
+	--orange: #fd7238;
 	--light-orange: #FFE0D3;
 	--light-pink: #ffe8e8;
 	--green: #008000;
@@ -789,20 +789,20 @@ span {
 	font-weight: 600;
 }
 #content main .table-data .order table tr td .status.selesai {
-	background: var(--blue);
+	background: var(--green);
 }
 #content main .table-data .order table tr td .status.proses {
-	background: var(--yellow);
+	background: var(--blue);
 }
 #content main .table-data .order table tr td .status.pending {
-	background: var(--orange);
+	background: var(--yellow);
 }
 
 #content main .table-data .order table tr td .status.ditolak {
 	background: var(--red);
 }
 #content main .table-data .order table tr td .status.diterima {
-	background: var(--green);
+	background: var(--orange);
 }
 
 

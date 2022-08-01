@@ -231,7 +231,7 @@
 								<td>Katering</td>
 								<td>Paket A</td>
 								<td>
-									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah"><i
+									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#terimaPesanan"><i
 											class="fa-solid fa-check"></i> Terima</button>
 									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus" data-bs-toggle="modal" data-bs-target="#tolakPesanan"><i
 											class="fa-solid fa-xmark"></i> Tolak</button>
@@ -246,7 +246,7 @@
 								<td>Katering</td>
 								<td>Paket A</td>
 								<td>
-									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah"><i
+									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#terimaPesanan"><i
 											class="fa-solid fa-check"></i> Terima</button>
 									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus" data-bs-toggle="modal" data-bs-target="#tolakPesanan"><i
 											class="fa-solid fa-xmark"></i> Tolak</button>
@@ -261,7 +261,7 @@
 								<td>Katering</td>
 								<td>Paket A</td>
 								<td>
-									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah"><i
+									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#terimaPesanan"><i
 											class="fa-solid fa-check"></i> Terima</button>
 									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus" data-bs-toggle="modal" data-bs-target="#tolakPesanan"><i
 											class="fa-solid fa-xmark"></i> Tolak</button>
@@ -276,7 +276,7 @@
 								<td>Katering</td>
 								<td>Paket A</td>
 								<td>
-									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah"><i
+									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#terimaPesanan"><i
 											class="fa-solid fa-check"></i> Terima</button>
 									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus" data-bs-toggle="modal" data-bs-target="#tolakPesanan"><i
 											class="fa-solid fa-xmark"></i> Tolak</button>
@@ -291,7 +291,7 @@
 								<td>Katering</td>
 								<td>Paket A</td>
 								<td>
-									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah"><i
+									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#terimaPesanan"><i
 											class="fa-solid fa-check"></i> Terima</button>
 									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus"
 										data-bs-toggle="modal" data-bs-target="#tolakPesanan"><i
@@ -303,7 +303,7 @@
 				</div>
 			</div>
 
-			<!-- Form Ubah Tentang Vendor -->
+			<!-- Tolak Pesanan -->
 			<div class="modal fade" id="tolakPesanan" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel"
 				aria-hidden="true">
 				<div class="modal-dialog">
@@ -319,6 +319,34 @@
 								<div class="mb-3">
 									<label for="message-text" class="col-form-label"> </label>
 									<textarea class="form-control" id="message-text" placeholder="Beri catatan mengapa pesanan ditolak..." cols="30" rows="5"></textarea>
+								</div>
+
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn_tutup" data-bs-dismiss="modal">Batal</button>
+							<button type="submit" class="btn_tambah">Kirim</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Terima Pesanan -->
+			<div class="modal fade" id="terimaPesanan" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Catatan</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form class="needs-validation">
+								<h5>Pesanan Diterima ? Sampaikan sesuatu kepada klien</h5>
+								
+								<div class="mb-3">
+									<label for="message-text" class="col-form-label"> </label>
+									<textarea class="form-control" id="message-text" placeholder="Tuliskan sesuatu..." cols="30" rows="5"></textarea>
 								</div>
 
 							</form>
