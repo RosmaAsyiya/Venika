@@ -135,7 +135,11 @@ section {
 }
 
 .products .slide img {
+<<<<<<< Updated upstream
   /* object-fit: cover;
+=======
+  object-fit: cover;
+>>>>>>> Stashed changes
   height: 23rem;
   margin: 5rem 0;
   -webkit-transform: scale(0.5);
