@@ -1,5 +1,9 @@
 <?php
 session_start(); 
+
+include 'database/connection.php';
+
+$id = $_SESSION['id'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -77,13 +81,21 @@ if (isset($_SESSION['username'])){
                     <ul class="nav-right">
                       <li class="user-profile header-notification">
                         <a href="#!" class="arrowdown">
-                        <img src="frontend/img/circle-user-solid.svg" class="img-radius" alt="User-Profile-Image">
+                        <?php 
+                                                        $sql = mysqli_query($koneksi,
+                                                        "SELECT photo From user WHERE id = '$id'");
+                                                        while ($cek = mysqli_fetch_assoc($sql)){
+                                                            $photo = $cek['photo'];
+                                                        
+                                                        ?>
+                                                        <?php echo '<img src="photo/' . $photo . '" class="img-radius"
+                                                            alt="User-Profile-Image">';} ?>
                           <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
                           <i class="fas fa-angle-down toggle"></i>
                         </a>
                         <ul class="show-notification profile-notification">
                           <li class="">
-                            <a href="#!">
+                            <a href="frontend/dashboard_user.php">
                               <i class="fas fa-user"></i> Lihat Profil
                             </a>
                           </li>
@@ -426,7 +438,7 @@ if (isset($_SESSION['username'])){
               <span class="overlay"></span>
 
               <div class="card-image">
-                <img src="" alt="" class="card-img">
+                <img src="img/sultan.jpeg" alt="" class="card-img">
               </div>
             </div>
 

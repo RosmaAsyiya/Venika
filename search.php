@@ -33,7 +33,7 @@ if (isset($_GET['search'])) {
 		$sql = mysqli_query($koneksi,
 		"SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis
     FROM vendor, jenis_layanan 
-		WHERE vendor.nama = '$vendor' 
+		WHERE vendor.nama LIKE '$vendor%' 
     AND vendor.id = jenis_layanan.id_vendor");
 	}
 
@@ -43,7 +43,7 @@ if (isset($_GET['search'])) {
 		$sql = mysqli_query($koneksi,
 		"SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis
     FROM vendor, jenis_layanan 
-		WHERE vendor.nama = '$vendor' AND jenis_layanan.nama_layanan = '$jenis_layanan'
+		WHERE vendor.nama LIKE '$vendor%' AND jenis_layanan.nama_layanan = '$jenis_layanan'
     AND vendor.id = jenis_layanan.id_vendor");
 	}
 
@@ -53,7 +53,7 @@ if (isset($_GET['search'])) {
 		$sql = mysqli_query($koneksi,
 		"SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis
     FROM vendor, jenis_layanan 
-		WHERE vendor.nama = '$vendor' AND jenis_layanan.adat = '$adat'
+		WHERE vendor.nama LIKE '$vendor%' AND jenis_layanan.adat = '$adat'
     AND vendor.id = jenis_layanan.id_vendor");
 	}
 
@@ -63,7 +63,7 @@ if (isset($_GET['search'])) {
 		$sql = mysqli_query($koneksi,
 		"SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis
     FROM vendor, jenis_layanan 
-		WHERE vendor.nama = '$vendor' AND vendor.kecamatan = '$lokasi'
+		WHERE vendor.nama LIKE '$vendor%' AND vendor.kecamatan = '$lokasi'
     AND vendor.id = jenis_layanan.id_vendor");
 	}
 
@@ -73,7 +73,7 @@ if (isset($_GET['search'])) {
 		$sql = mysqli_query($koneksi,
 		"SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis
     FROM vendor, jenis_layanan 
-		WHERE vendor.nama = '$vendor' AND jenis_layanan.nama_layanan = '$jenis_layanan'
+		WHERE vendor.nama LIKE '$vendor%' AND jenis_layanan.nama_layanan = '$jenis_layanan'
     AND jenis_layanan.adat = '$adat' AND vendor.id = jenis_layanan.id_vendor");
 	}
 
@@ -83,7 +83,7 @@ if (isset($_GET['search'])) {
 		$sql = mysqli_query($koneksi,
 		"SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis
     FROM vendor, jenis_layanan 
-		WHERE vendor.nama = '$vendor' AND jenis_layanan.nama_layanan = '$jenis_layanan'
+		WHERE vendor.nama LIKE '$vendor%' AND jenis_layanan.nama_layanan = '$jenis_layanan'
     AND vendor.kecamatan = '$lokasi' AND vendor.id = jenis_layanan.id_vendor");
 	}
 
@@ -93,7 +93,7 @@ if (isset($_GET['search'])) {
 		$sql = mysqli_query($koneksi,
 		"SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis
     FROM vendor, jenis_layanan 
-		WHERE vendor.nama = '$vendor' AND vendor.kecamatan = '$lokasi'
+		WHERE vendor.nama LIKE '$vendor%' AND vendor.kecamatan = '$lokasi'
     AND jenis_layanan.adat = '$adat' AND vendor.id = jenis_layanan.id_vendor");
 	}
 
@@ -176,7 +176,7 @@ if (isset($_GET['search'])) {
 	{
 		$sql = mysqli_query($koneksi, 
 		"SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis 
-		FROM vendor, jenis_layanan WHERE vendor.nama='$vendor' AND vendor.kecamatan ='$lokasi' 
+		FROM vendor, jenis_layanan WHERE vendor.nama LIKE '$vendor%' AND vendor.kecamatan ='$lokasi' 
 		AND jenis_layanan.adat='$adat' AND jenis_layanan.nama_layanan='$jenis_layanan'
     AND vendor.id = jenis_layanan.id_vendor");
 	

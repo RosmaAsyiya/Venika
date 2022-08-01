@@ -159,7 +159,7 @@ if (!isset($_SESSION['is_login'])) {
             </li>
             <li class="divider" data-text="main">Main</li>
             <li>
-                <a href="data_vendor.html" class="active">
+                <a href="data_vendor.php" class="active">
                     <i class="fa-solid fa-folder-plus icon"></i>
                     Data Vendor
                     <i class="fa-solid fa-angle-right icon-right"></i>
@@ -290,7 +290,7 @@ if (!isset($_SESSION['is_login'])) {
                         </li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
                         <li>
-                            <a class="active" href="data_vendor.html">Katering</a>
+                            <a class="active" href="data_vendor.php">Katering</a>
                         </li>
                     </ul>
                 </div>
@@ -363,9 +363,6 @@ if (!isset($_SESSION['is_login'])) {
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#tentangVendor">
-                                        <i class="fa-solid fa-eye"></i> Lihat
-                                    </button>
                                     <button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
                                         data-bs-toggle="modal" data-bs-target="#tentangVendor">
                                         <i class="fa-solid fa-pen-to-square"></i> Ubah
@@ -388,9 +385,6 @@ if (!isset($_SESSION['is_login'])) {
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#fasilitas">
-                                        <i class="fa-solid fa-eye"></i> Lihat
-                                    </button>
                                     <button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
                                         data-bs-toggle="modal" data-bs-target="#fasilitas">
                                         <i class="fa-solid fa-pen-to-square"></i> Ubah
@@ -413,9 +407,6 @@ if (!isset($_SESSION['is_login'])) {
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#menu">
-                                        <i class="fa-solid fa-eye"></i> Lihat
-                                    </button>
                                     <button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
                                         data-bs-toggle="modal" data-bs-target="#menu">
                                         <i class="fa-solid fa-pen-to-square"></i> Ubah
@@ -445,9 +436,6 @@ if (!isset($_SESSION['is_login'])) {
                                 </td>
 
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#kontak">
-                                        <i class="fa-solid fa-eye"></i> Lihat
-                                    </button>
                                     <button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
                                         data-bs-toggle="modal" data-bs-target="#kontak">
                                         <i class="fa-solid fa-pen-to-square"></i> Ubah
@@ -499,21 +487,23 @@ if (!isset($_SESSION['is_login'])) {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="needs-validation">
+                            <form class="needs-validation" action="update_deskripsi.php" method="POST">
 
                                 <div class="mb-3">
                                     <label for="message-text" class="col-form-label">Tentang Vendor</label>
-                                    <textarea name="" placeholder="jelaskan detail tentang vendor anda..." id="classic"
+                                    <textarea name="deskripsi" placeholder="jelaskan detail tentang vendor anda..." id="classic"
                                         cols="30" rows="10"></textarea>
+                                    <?php echo '<input type="hidden" name="id_vendor" value="' . $id_vendor . '">';
+                                    echo '<input type="hidden" name="id_jenis" value="' . $id_jenis . '">'; ?>
                                 </div>
 
-                            </form>
-                        </div>
+                        <!-- </div> -->
                         <div class="modal-footer">
                             <button type="button" class="btn_tutup" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn_tambah"><i
+                            <button type="submit" name="update" class="btn_tambah"><i
                                     class="fa-solid fa-floppy-disk"></i>Simpan</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

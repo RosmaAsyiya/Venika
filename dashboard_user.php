@@ -1,14 +1,12 @@
 <?php
+// Mulai session
 session_start();
 
+// Panggil file config
 include '../database/connection.php';
-
-$id = $_SESSION['id'];
-
-if (!isset($_SESSION['is_login'])) {
-    echo "<script>document.location.href='../login_vendor.php';</script>";
-    die();
-}
+// $_SESSION["id"] = 1; // User's session
+// $sessionId = $_SESSION["id"];
+// $user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id = $sessionId"));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +14,6 @@ if (!isset($_SESSION['is_login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'> -->
-
     <!-- CSS -->
     <link rel="stylesheet" href="css/dashboard_vendor.css">
 
@@ -26,7 +22,9 @@ if (!isset($_SESSION['is_login'])) {
 
     <title>Venika</title>
 </head>
-
+<?php
+if (isset($_SESSION['username'])){
+?>
 <body>
 
     <!-- SIDEBAR -->
@@ -37,43 +35,24 @@ if (!isset($_SESSION['is_login'])) {
         </a>
         <ul class="side-menu">
             <li>
-                <a href="dashboard_vendor.php" class="nav-link">
-                    <i class="fa-solid fa-house-chimney icon"></i>
-                    Dashboard
+                <a href="dashboard_user.html" class="active">
+                    <i class="fa-solid fa-user icon"></i>
+                    Profil
                 </a>
             </li>
-            <li class="divider" data-text="main">Main</li>
             <li>
-                <a href="#">
-                    <i class="fa-solid fa-folder-plus icon"></i>
-                    Data Vendor
-                    <i class="fa-solid fa-angle-right icon-right"></i>
+                <a href="favorit.html">
+                    <i class="fa-solid fa-heart icon"></i>
+                    Favorit Saya
                 </a>
-                <ul class="side-dropdown">
-                    <li><a href="kategori_layanan_vendor.php"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
-                    <li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
-                            Data</a></li>
-                </ul>
             </li>
             <li>
-                <a href="data_pesanan.php" class="nav-link">
+                <a href="pesanan_user.html" class="nav-link">
                     <i class="fa-solid fa-cart-shopping icon"></i>
-                    Pesanan
-                    <i class="fa-solid fa-angle-right icon-right"></i>
+                    Pesanan Saya
                 </a>
-                <ul class="side-dropdown">
-                    <li><a href="req_pesanan.php"><i class="fa-solid fa-user-clock icon"></i> Permintaan Pesanan</a>
-                    </li>
-                    <li><a href="data_pesanan.php"><i class="fa-solid fa-clipboard-list icon"></i> Data Pesanan</a>
-                    </li>
-                </ul>
             </li>
             <li>
-                <a href="pengaturan.php" class="active">
-                    <i class="fa-solid fa-gear icon"></i>
-                    Pengaturan
-                </a>
-            </li>
             <li>
                 <a href="login_vendor.php" class="nav-link">
                     <i class="fa-solid fa-right-from-bracket icon"></i>
@@ -81,37 +60,24 @@ if (!isset($_SESSION['is_login'])) {
                 </a>
             </li>
         </ul>
+
+        <!-- Footer -->
+		<div class="ads">
+			<div class="wrapper footer_dashboard_user">
+				<ul class="fast_link">
+					<li>Kontak</li>
+					<li>Vendor</li>
+					<li>Tentang Kami</li>
+					<li>FAQ</li>
+				  </ul>
+				  
+				<p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
+			</div>
+		</div>
     </section>
 
     <!-- NAVBAR -->
     <section id="content">
-        <!-- NAVBAR -->
-        <!-- <nav>
-			<i class="fa-solid fa-bars toggle-sidebar"></i>
-
-			<form action="#">
-				
-			</form>
-			
-			<span class="divider"></span>
-
-			<div class="profile">
-				<div>
-				<a href="#!" class="profile-dropdown">
-					<img src="img/bg.jpg" alt="">
-					<span>Rosma Asiyya</span>
-					<i class="fa-solid fa-angle-down icon"></i>
-				</a>
-			</div>
-
-				<ul class="profile-link">
-					<li><a href="#"><i class="fas fa-user"></i> Lihat Profil</a></li>
-					<li><a href="#"><i class="fas fa-question"></i> FAQ</a></li>
-					<li><a href="#"><i class="fas fa-arrow-right-from-bracket"></i> Keluar</a></li>
-				</ul>
-			</div>
-		</nav> -->
-        <!-- NAVBAR -->
 
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -134,7 +100,7 @@ if (!isset($_SESSION['is_login'])) {
                                                     <a href="#!" class="arrowdown">
                                                         <img src="img/circle-user-solid.svg" class="img-radius"
                                                             alt="User-Profile-Image">
-                                                        <span>Rosma Asiyya</span>
+                                                            <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
                                                         <i class="fa-solid fa-angle-down"></i>
                                                     </a>
                                                     <ul class="show-notification profile-notification">
@@ -171,7 +137,13 @@ if (!isset($_SESSION['is_login'])) {
                 </div>
             </div>
         </nav>
-
+        <?php }
+  else {
+  ?>
+  <body>
+  <?php
+  }
+?>
 
         <!-- MAIN -->
 
@@ -179,34 +151,70 @@ if (!isset($_SESSION['is_login'])) {
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Pengaturan</h1>
+                    <h1>Profil</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Pengaturan</a>
+                            <a href="#">Profil</a>
                         </li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
                         <li>
-                            <a class="active" href="#">Edit Profile</a>
+                            <a class="active" href="dashboard_user.html">Edit Profil</a>
                         </li>
                     </ul>
                 </div>
-                <!-- <a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
-				</a> -->
             </div>
 
-            <div class="edit_foto">
+            <form class="edit_foto" enctype="multipart/form-data" method="POST">
                 <h3 class="head_profile">Pilih Foto Profil</h3>
-            <div class="profile-pic-div">
+            <div class="profile-pic-div" >
+            <?php
+                // $id = $user["id"];
+                // $nama = $user["nama"];
+                // $email = $user["email"];
+                // $no_hp = $user["no_hp"];
+                // $username = $user["username"];
+                // $password = $user["password"];
+                // $photo = $user["photo"];
+            ?>
+                
                 <img src="img/circle-user-solid.svg" id="photo">
-                <input type="file" id="file">
+                <input type="file" id="file" accept="image/*" id="photo" name="NamaFile">
                 <label for="file" id="uploadBtn">
                     <i class="fa-solid fa-camera icon_btn"></i> <br>
                     Pilih Foto</label>
               </div>
-              
-            </div>
+              <input type="submit" value="Simpan" name="proses" class="btn_simpan">
+</form>
+            
+
+    <?php
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $db_name = "venika2";
+    
+    $koneksi = mysqli_connect($server, $username, $password, $db_name);
+    if(isset($_POST["proses"])){
+    //   $id = $_POST["id"];
+    //   $nama = $_POST["nama"];
+    //   $email = $_POST["email"];
+    //   $no_hp = $_POST["no_hp"];
+    //   $username = $_POST["username"];
+    //   $password = $_POST["password"];
+
+    $direktori = "photo/";
+      $file_name = $_FILES['NamaFile']['name'];
+      move_uploaded_file($_FILES['NamaFile']['tmp_name'], $direktori.$file_name);
+
+      mysqli_query($koneksi, "update user set photo='$file_name' where id='$id'");
+    //   mysqli_query($koneksi, "update into user set photo='$file_name'");
+    //   mysqli_query($koneksi, "update user set photo='$file_name' where id='$_SESSION['id']'");
+
+      echo "<b>File Berhasil Diupload";
+      
+    }
+    ?>
+            
 
               <script src="js/profil.js"></script>
               
@@ -222,50 +230,35 @@ if (!isset($_SESSION['is_login'])) {
 
                 <h3 class="head_profile">Informasi Akun</h3>
 
-                <?php
-                $sql = mysqli_query($koneksi, "SELECT * FROM vendor WHERE id = '$id'");
-                $cek = mysqli_fetch_assoc($sql);
-                $nama = $cek['nama'];
-                $user = $cek['username'];
-                $email = $cek['email'];
-                $no_hp = $cek['no_hp'];
-                $alamat = $cek['alamat'];
-                // $pass = $cek['password'];
-
-                ?>
-                <form action="update_vendor.php" method="POST">
+                <form action="">
                     <div class="box-container">
                         <div class="box">
                             <div class="inputBox">
-                                <label for="validationCustom01">Nama Vendor</label>
-                                <?php echo '<input type="text" name="nama" placeholder="" value="' . $nama . '" id="validationDefault01" required>'; ?>
+                                <label for="validationCustom01">Nama Lengkap</label>
+                                <input type="text" placeholder="" value="Rosma Asiyya" id="validationDefault01" required>
                             </div>
                             <div class="inputBox">
                                 <label for="validationCustom01">Username</label>
-                                <?php echo '<input type="text" name="username" placeholder="" value="' . $user . '" id="validationDefault01" required>'; ?>
+                                <input type="text" placeholder="" value="Asiyya" id="validationDefault01" required>
                             </div>
                             <div class="inputBox">
                                 <label for="validationCustom01">Email</label>
-                                <?php echo '<input type="text" name="email" placeholder="" value="' . $email . '"  id="validationDefault01" required>'; ?>
+                                <input type="text" placeholder="" value="asiyya@gmail.com"  id="validationDefault01" required>
                             </div>
                             
                         </div>
                         <div class="box">
                             <div class="inputBox">
                                 <label for="validationCustom02">Nomor Telephone</label>
-                                <?php echo '<input type="text" name="no_hp" placeholder="Nomor Telephone Kosong" value="' . $no_hp .'" id="validationDefault02" required>'; ?>
+                                <input type="text" placeholder="" value="08988325479" id="validationDefault02" required>
                             </div>
                             <div class="inputBox">
-                                <label for="validationCustom02">Alamat</label>
-                                <?php echo '<input type="text" name="alamat" placeholder="Alamat Kosong" value="' . $alamat . '" id="validationDefault02" required>'; ?>
-                            </div>
-                            <!-- <div class="inputBox">
                                 <label for="validationCustom02">Password</label>
-                                 echo '<input type="password" placeholder="" value=' . $pass' id="validationDefault02" required>';  -->
-                            </div> 
+                                <input type="password" placeholder="" value="asiyya123" id="validationDefault02" required>
+                            </div>
                         </div>
                     </div>
-                    <input type="submit" value="Simpan" class="btn_simpan">
+                    <input type="submit" value="Simpan" name ="proses" class="btn_simpan">
                 </form>
 
             </section>

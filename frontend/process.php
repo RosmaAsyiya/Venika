@@ -41,6 +41,7 @@
         $tanggal = $_POST['tanggal'];
         $jenis_layanan = $_POST['jenis_layanan'];
         $paket = $_POST['paket'];
+        $id_order = 
         $sql1 = mysqli_query($koneksi,
         "DELETE FROM request_order where id = '$id_order'");
 
