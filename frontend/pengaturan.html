@@ -71,18 +71,18 @@
         </ul>
 
         <!-- Footer -->
-		<div class="ads">
-			<div class="wrapper">
-				<ul class="fast_link">
-					<li>Kontak</li>
-					<li>Vendor</li>
-					<li>Tentang Kami</li>
-					<li>FAQ</li>
-				  </ul>
-				  
-				<p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
-			</div>
-		</div>
+        <div class="ads">
+            <div class="wrapper">
+                <ul class="fast_link">
+                    <li>Kontak</li>
+                    <li>Vendor</li>
+                    <li>Tentang Kami</li>
+                    <li>FAQ</li>
+                </ul>
+
+                <p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
+            </div>
+        </div>
     </section>
 
     <!-- NAVBAR -->
@@ -200,18 +200,18 @@
 
             <div class="edit_foto">
                 <h3 class="head_profile">Pilih Foto Profil</h3>
-            <div class="profile-pic-div">
-                <img src="img/circle-user-solid.svg" id="photo">
-                <input type="file" id="file" accept="image/*">
-                <label for="file" id="uploadBtn">
-                    <i class="fa-solid fa-camera icon_btn"></i> <br>
-                    Pilih Foto</label>
-              </div>
-              
+                <div class="profile-pic-div">
+                    <img src="img/circle-user-solid.svg" id="photo">
+                    <input type="file" id="file" accept="image/*">
+                    <label for="file" id="uploadBtn">
+                        <i class="fa-solid fa-camera icon_btn"></i> <br>
+                        Pilih Foto</label>
+                </div>
+
             </div>
 
-              <script src="js/profil.js"></script>
-              
+            <script src="js/profil.js"></script>
+
 
             <!-- Form Edit -->
 
@@ -229,7 +229,8 @@
                         <div class="box">
                             <div class="inputBox">
                                 <label for="validationCustom01">Nama Vendor</label>
-                                <input type="text" placeholder="" value="Mawar Katering" id="validationDefault01" required>
+                                <input type="text" placeholder="" value="Mawar Katering" id="validationDefault01"
+                                    required>
                             </div>
                             <div class="inputBox">
                                 <label for="validationCustom01">Username</label>
@@ -237,23 +238,47 @@
                             </div>
                             <div class="inputBox">
                                 <label for="validationCustom01">Email</label>
-                                <input type="text" placeholder="" value="mawar@gmail.com"  id="validationDefault01" required>
+                                <input type="text" placeholder="" value="mawar@gmail.com" id="validationDefault01"
+                                    required>
                             </div>
-                            
-                        </div>
-                        <div class="box">
                             <div class="inputBox">
                                 <label for="validationCustom02">Nomor Telephone</label>
                                 <input type="text" placeholder="" value="08988325479" id="validationDefault02" required>
                             </div>
+
+                        </div>
+                        <div class="box">
                             <div class="inputBox">
                                 <label for="validationCustom02">Alamat</label>
-                                <input type="text" placeholder="" value="Jl.Cempaka, Tembalang, Semarang" id="validationDefault02" required>
+                                <input type="text" placeholder="" value="Jl.Cempaka, Tembalang, Semarang"
+                                    id="validationDefault02" required>
                             </div>
                             <div class="inputBox">
-                                <label for="validationCustom02">Password</label>
-                                <input type="password" placeholder="" value="asiyya" id="validationDefault02" required>
+                                <label for="">Kecamatan</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected class="option">---Kecamatan---</option>
+                                    <option class="option" value="1">Banyumanik</option>
+                                    <option class="option" value="2">Candisari</option>
+                                    <option class="option" value="3">Gajahmungkur</option>
+                                    <option class="option" value="4">Gayamsari</option>
+                                    <option class="option" value="5">Genuk</option>
+                                    <option class="option" value="6">Gunungpati</option>
+                                    <option class="option" value="7">Mijen</option>
+                                    <option class="option" value="8">Ngaliyan</option>
+                                    <option class="option" value="9">Pedurungan</option>
+                                    <option class="option" value="10">Semarang Barat</option>
+                                    <option class="option" value="11">Semarang Selatan</option>
+                                    <option class="option" value="12">Semarang Tengah</option>
+                                    <option class="option" value="13">Semarang Utara</option>
+                                    <option class="option" value="14">Tembalang</option>
+                                    <option class="option" value="15">Tugu</option>
+                                </select>
                             </div>
+                            <div class="inputBox">
+								<label for="">Tentang Vendor</label>
+								<textarea name="" placeholder="Jelaskan Detail Tentang Vendor Anda..." id="" cols="30" rows="10"></textarea>
+								<div style="margin-top: -20px;">* Maksimal 500 Karakter</div>
+							</div>
                         </div>
                     </div>
                     <input type="submit" value="Simpan" class="btn_simpan">

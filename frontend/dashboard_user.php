@@ -190,7 +190,6 @@ if (isset($_SESSION['username'])){
                 // $password = $user["password"];
                 // $photo = $user["photo"];
             ?>
-
                 <?php echo '<img src="../photo/' . $photo . '" class="profile-pic-div"
                                                             alt="User-Profile-Image">'; ?>
                 <input type="file" id="file" accept="image/*" id="photo" name="NamaFile">

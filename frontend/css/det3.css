@@ -80,7 +80,7 @@
   /* Vendor */
   
   section {
-    padding: 2rem 9%;
+    padding: 4rem 9%;
     /* background: #F5F5F5; */
   }
   
@@ -89,6 +89,7 @@
     text-transform: capitalize;
     font-size: 4rem;
     margin-top: 100px;
+    margin-bottom: 50px;
     font-weight: 600;
     color: #000;
   }
@@ -315,13 +316,13 @@
     background: #12263a;
   } */
   
-  .btn_call {
-    width: 160px;
+  .btn_plus {
+    width: 120px;
     height: 44px;
     background-color: #FF7171;
     color: #FFF;
     border: none;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     border-radius: 30px;
     transition: 0.5s;
@@ -329,8 +330,30 @@
     /* float: right; */
     margin-top: 150px;
   }
+
+  .btn_plus i,
+  .btn_plus2 i {
+    margin-right: 8px;
+  }
+
+  .btn_plus2 {
+    width: 120px;
+    height: 44px;
+    background-color: #949494;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: 0.5s;
+    padding: 5px;
+    /* float: right; */
+    margin-top: 150px;
+  }
+
   
-  .btn_call:hover {
+  
+  /* .btn_call:hover {
     width: 160px;
     height: 44px;
     background-color: #0F1F48;
@@ -339,7 +362,7 @@
     font-size: 14px;
     font-weight: 700;
     border-radius: 30px;
-  }
+  } */
   
   .product-link {
     text-decoration: none;
