@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -86,7 +86,7 @@ session_start();
                             </a>
                           </li>
                           <li class="">
-                            <a href="#">
+                            <a href="../login/logout.php">
                               <i class="fas fa-arrow-right-from-bracket"></i> Keluar
                             </a>
                           </li>

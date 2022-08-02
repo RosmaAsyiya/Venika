@@ -1,3 +1,19 @@
+<?php
+include '../database/connection.php';
+
+session_start();
+
+if (!isset($_SESSION['is_login'])) {
+    echo "<script>document.location.href='../login.php';</script>";
+    die();
+}
+if ($_SESSION['tipe'] != "user"){
+    echo "<script>document.location.href='../index.php';</script>";
+}
+
+$user = $_SESSION['username'];
+$id = $_SESSION['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +70,7 @@
             </li>
             <li>
             <li>
-                <a href="login_vendor.php" class="nav-link">
+                <a href="../login/logout.php" class="nav-link">
                     <i class="fa-solid fa-right-from-bracket icon"></i>
                     Keluar
                 </a>
@@ -100,7 +116,7 @@
 													<a href="#!" class="arrowdown">
 														<img src="img/circle-user-solid.svg" class="img-radius"
 															alt="User-Profile-Image">
-														<span>Rosma Asiyya</span>
+														<?php echo '<span>' . $user . '</span>'; ?>
 														<i class="fa-solid fa-angle-down"></i>
 													</a>
 													<ul class="show-notification profile-notification">
@@ -115,7 +131,7 @@
 															</a>
 														</li>
 														<li class="">
-															<a href="#">
+															<a href="../login/logout.php">
 																<i class="fas fa-arrow-right-from-bracket"></i> Keluar
 															</a>
 														</li>
@@ -168,57 +184,48 @@
 								<th>Layanan</th>
 								<th>Produk/Jasa</th>
 								<th>Status</th>
-								<th>Catatan</th>
+								<!-- <th>Catatan</th> -->
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>
-									<!-- <img src="img/people.png"> -->
-									<p>Muhammad Sultan</p>
-								</td>
-								<td>08982718372</td>
-								<td>01-10-2021</td>
-								<td>Katering</td>
-								<td>Paket A</td>
-								<td>
-									<span class="status pending">Pending</span>
-								</td>
-								<td>
-									Akan di proses
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>Rosma Asiyya</p>
-								</td>
-								<td>08982718372</td>
-								<td>01-10-2021</td>
-								<td>Katering</td>
-								<td>Paket A Lorem ipsum,</td>
-								<td>
-									<span class="status pending">Pending</span>
-								</td>
-								<td>
-									Akan di proses
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>Rosma Asiyya</p>
-								</td>
-								<td>08982718372</td>
-								<td>01-10-2021</td>
-								<td>Katering</td>
-								<td>Paket A</td>
-								<td>
-									<span class="status ditolak">Ditolak</span>
-								</td>
-								<td>
-									Tanggal tersebut sudah full, harap pilih tanggal lain
-								</td>
-							</tr>
+							<?php
+							$sql = mysqli_query($koneksi,
+							"SELECT * FROM booking WHERE id_user = '$id' AND status = '0' or status = '3'");
+							while ($cek = mysqli_fetch_assoc($sql)){
+							$nama = $cek['nama'];
+							$no_hp = $cek['no_hp'];
+							$tanggal = $cek['tanggal'];
+							$jenis_layanan = $cek['jenis_layanan'];
+							$paket = $cek['paket'];
+							$status = $cek['status'];
 
+
+
+							?>
+							<tr>
+								<td>
+									<?php echo '<p>' . $nama . '</p>'; ?>
+								</td>
+								<?php echo '<td>' . $no_hp . '</td>';
+								echo '<td>' . $tanggal . '</td>';
+								echo '<td>' . $tanggal . '</td>';
+								echo '<td>' . $paket . '</td>'; ?>
+								<td>
+									<?php
+									switch($status){
+										case "0":
+											echo '<span class="status pending">Pending</span>';
+											break;
+										case "3":
+											echo '<span class="status ditolak">Ditolak</span>';
+											break;
+									} ?>
+								</td>
+								<!-- <td>
+									Akan di roses
+								</td> -->
+							</tr>
+							<?php } ?>
 						</tbody>
 					</table>
 				</div>
@@ -243,32 +250,44 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>
-									<!-- <img src="img/people.png"> -->
-									<p>Muhammad Sultan</p>
-								</td>
-								<td>08982718372</td>
-								<td>01-10-2021</td>
-								<td>Katering</td>
-								<td>Paket A</td>
-								<td>
-									<span class="status proses">Proses</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>Rosma Asiyya</p>
-								</td>
-								<td>08982718372</td>
-								<td>01-10-2021</td>
-								<td>Katering</td>
-								<td>Paket A Lorem ipsum,</td>
-								<td>
-									<span class="status selesai">completed</span>
-								</td>
-							</tr>
+							<?php
+							$sql = mysqli_query($koneksi,
+							"SELECT * FROM booking where id = '$id' AND status = '1' or status = '2'");
+							while ($cek = mysqli_fetch_assoc($sql)){
+								$nama = $cek['nama'];
+								$no_hp = $cek['no_hp'];
+								$tanggal = $cek['tanggal'];
+								$jenis_layanan = $cek['jenis_layanan'];
+								$paket = $cek['paket'];
+								$status = $cek['status'];
 
+
+
+								?>
+								<tr>
+									<td>
+										<?php echo '<p>' . $nama . '</p>'; ?>
+									</td>
+									<?php echo '<td>' . $no_hp . '</td>';
+									echo '<td>' . $tanggal . '</td>';
+									echo '<td>' . $tanggal . '</td>';
+									echo '<td>' . $paket . '</td>'; ?>
+									<td>
+										<?php
+										switch($status){
+											case "1":
+												echo '<span class="status proses">Process</span>';
+												break;
+											case "3":
+												echo '<span class="status selesai">Completed</span>';
+												break;
+										} ?>
+									</td>
+									<!-- <td>
+										Akan di roses
+									</td> -->
+								</tr>
+								<?php } ?>
 						</tbody>
 					</table>
 				</div>

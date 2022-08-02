@@ -8,6 +8,10 @@ if (!isset($_SESSION['is_login'])) {
     die();
 }
 
+if ($_SESSION['tipe'] != 'vendor'){
+	echo "<script>document.location.href='../index.php';</script>";
+}
+
 $id = $_SESSION['id'];
 
 ?>
@@ -99,9 +103,9 @@ $id = $_SESSION['id'];
 			<i class="fa-solid fa-bars toggle-sidebar"></i>
 
 			<form action="#">
-				
+
 			</form>
-			
+
 			<span class="divider"></span>
 
 			<div class="profile">
@@ -237,30 +241,33 @@ $id = $_SESSION['id'];
 						<thead>
 							<tr>
 								<th>Nama</th>
+								<th>No. HP</th>
 								<th>Tanggal Order</th>
-								<th>Pesan</th>
-								<th>Status</th>
+								<th>Jenis Layanan</th>
+								<th>Paket</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php
 							$sql = mysqli_query($koneksi,
-							"SELECT nama, tanggal, jenis_layanan FROM booking WHERE id_vendor = '$id' ORDER BY tanggal LIMIT 5");
+							"SELECT * FROM booking WHERE id_vendor = '$id' ORDER BY tanggal LIMIT 5");
 							while ($cek = mysqli_fetch_assoc($sql)){
 								$nama = $cek["nama"];
+								$no_hp = $cek['no_hp'];
 								$tanggal = $cek["tanggal"];
 								$jenis_layanan = $cek["jenis_layanan"];
+								$paket = $cek["paket"];
+
 							?>
 							<tr>
 								<td>
 									<!-- <img src="img/people.png"> -->
 									<?php echo "<p>". $nama . "</p>"; ?>
 								</td>
+								<?php echo "<td>" . $no_hp . "</td>"; ?>
 								<?php echo "<td>" . $tanggal . "</td>"; ?>
 								<?php echo "<td>" . $jenis_layanan . "</td>"; ?>
-								<td>
-									<span class="status completed">Completed</span>
-								</td>
+								<?php echo "<td>" . $paket . "</td>"; ?>
 							</tr>
 							<?php } ?>
 						</tbody>

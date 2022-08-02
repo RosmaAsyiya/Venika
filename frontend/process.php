@@ -2,7 +2,7 @@
 
     include '../database/connection.php';
 
-    if($_POST['submit'] == 'Terima'){
+    if($_POST['submit'] == 'terima'){
     $nama = $_POST['nama'];
     $no_hp = $_POST['no_hp'];
     $tanggal = $_POST['tanggal'];
@@ -10,54 +10,57 @@
     $paket = $_POST['paket'];
     $id_vendor = $_POST['id_vendor'];
     $id_user = $_POST['id_user'];
-    $id_order = $_POST['id_order']; 
+    $id_booking = $_POST['id_booking'];
+    $note = $_POST['note'];
 
-    $sql = mysqli_query($koneksi, 
-    "INSERT INTO booking(id_vendor, id_user, nama, no_hp, tanggal, jenis_layanan, paket, status)
-    VALUES ('$id_vendor','$id_user','$nama','$no_hp','$tanggal','$jenis_layanan','$paket', '0')");
-    
+    $sql = mysqli_query($koneksi,
+    "UPDATE booking SET status = 1 where id = '$id_booking'");
+
     if(mysqli_affected_rows($koneksi) > 0){
-        // echo $cek;
-        $sql1 = mysqli_query($koneksi,
-        "DELETE FROM request_order where id = '$id_order'");
-
-        if(mysqli_affected_rows($koneksi) > 0){
-
-            echo '<script> alert(Data berhasil diterima!)';
-            echo "<script>document.location.href='dashboard_vendor.php';</script>";
+        $sql = mysqli_query($koneksi,
+        "INSERT INTO note(id_booking, note) values ('$id_booking', '$note')");
+        $cek = mysqli_affected_rows($koneksi);
+        if($cek > 0){
+        echo '<script> alert(Data berhasil diterima!)';
+        echo "<script>document.location.href='req_pesanan.php';</script>";
         }
-        else{
-            echo '<script> alert("ERROR!");</script>';
-            echo "<script>document.location.href='dashboard_vendor.php';</script>";
-            }
-        }
+    }
+
     else{
-        echo "ERROR!";
+        echo "<script>document.location.href='req_pesanan.php';</script>";
     }
 }
-    if($_POST['submit'] == 'Tolak'){
+    if($_POST['submit'] == 'tolak'){
         $nama = $_POST['nama'];
         $no_hp = $_POST['no_hp'];
         $tanggal = $_POST['tanggal'];
         $jenis_layanan = $_POST['jenis_layanan'];
         $paket = $_POST['paket'];
-        $id_order = 
-        $sql1 = mysqli_query($koneksi,
-        "DELETE FROM request_order where id = '$id_order'");
+        $id_booking = $_POST['id_booking'];
+        $note = $_POST['note'];
 
-        if(mysqli_affected_rows($koneksi) > 0){
+        $sql = mysqli_query($koneksi,
+        "UPDATE booking SET status = 3 where id = '$id_booking'");
 
-            echo '<script> alert(Data berhasil diterima!)';
-            echo "<script>document.location.href='req_pesanan.php';</script>";
+    if(mysqli_affected_rows($koneksi) > 0){
+        $sql = mysqli_query($koneksi,
+        "INSERT INTO note(id_booking, note) values ('$id_booking', '$note')");
+        $cek = mysqli_affected_rows($koneksi);
+        if($cek > 0){
+        echo '<script> alert(Data berhasil ditolak!)';
+        echo "<script>document.location.href='req_pesanan.php';</script>";
         }
-        else{
-            echo '<script> alert("ERROR!");</script>';
-            echo "<script>document.location.href='dashboard_vendor.php';</script>";
-            }
-        }
-    
-    
-    
+    }
+
+    else{
+        echo "<script>document.location.href='req_pesanan.php';</script>";
+    }
+
+    echo "<script>document.location.href='req_pesanan.php';</script>";
+}
+
+echo "<script>document.location.href='req_pesanan.php';</script>";
+
     // echo $id_vendor;
     // echo $id_user;
     // echo $nama;

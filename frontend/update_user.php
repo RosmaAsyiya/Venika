@@ -14,18 +14,15 @@ if(isset($_POST['submit'])){
     $username = mysqli_real_escape_string($koneksi, $_POST['username']);
     $email = mysqli_real_escape_string($koneksi, $_POST['email']);
     $no_hp = mysqli_real_escape_string($koneksi, $_POST['no_hp']);
-    $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
-    $deskripsi = mysqli_real_escape_string($koneksi, $_POST['deskripsi']);
-    $kecamatan = mysqli_real_escape_string($koneksi, $_POST['lokasi']);
 
-    $sql = mysqli_query($koneksi, "SELECT username FROM vendor where username = '$username' and id !='$id'");
+    $sql = mysqli_query($koneksi, "SELECT username FROM user where username = '$username' and id !='$id'");
     if($cek = mysqli_num_rows($sql) > 0) {
         echo "<script>
                 alert('Username sudah terpakai');
                 </script>";
         echo "<script>document.location.href='pengaturan.php';</script>";}
     else{
-        $sql = mysqli_query($koneksi, "SELECT nama FROM vendor where nama = '$nama' and id !='$id'");
+        $sql = mysqli_query($koneksi, "SELECT nama FROM user where nama = '$nama' and id !='$id'");
         if($cek = mysqli_num_rows($sql) > 0) {
             echo "<script>
                     alert('Nama sudah terpakai');
@@ -33,7 +30,7 @@ if(isset($_POST['submit'])){
             echo "<script>document.location.href='pengaturan.php';</script>";}
 
         else{
-            $sql = mysqli_query($koneksi, "SELECT email FROM vendor where email = '$email' and id !='$id'");
+            $sql = mysqli_query($koneksi, "SELECT email FROM user where email = '$email' and id !='$id'");
             if($cek = mysqli_num_rows($sql) > 0) {
                 echo "<script>
                         alert('email sudah terpakai');
@@ -41,7 +38,7 @@ if(isset($_POST['submit'])){
                 echo "<script>document.location.href='pengaturan.php';</script>";}
 
             else{
-                $sql = mysqli_query($koneksi, "SELECT no_hp FROM vendor where no_hp = '$no_hp' and id !='$id'");
+                $sql = mysqli_query($koneksi, "SELECT no_hp FROM user where no_hp = '$no_hp' and id !='$id'");
                 if($cek = mysqli_num_rows($sql) > 0) {
                     echo "<script>
                             alert('Nomor Handphone sudah terpakai');
@@ -49,15 +46,14 @@ if(isset($_POST['submit'])){
                     echo "<script>document.location.href='pengaturan.php';</script>";}
                 else{
                     $sql = mysqli_query($koneksi,
-                    "UPDATE vendor SET username = '$username', nama = '$nama', email = '$email', no_hp = '$no_hp', alamat = '$alamat', deskripsi = '$deskripsi', kecamatan = '$kecamatan'
-                    WHERE id = '$id'");
+                    "UPDATE user SET username = '$username', nama = '$nama', email = '$email', no_hp = '$no_hp' WHERE id = '$id'");
                     $cek = mysqli_affected_rows($koneksi);
                     if ($cek > 0)
                     {
                         echo "<script>
-                                alert('Data vendor berhasil diupdate');
+                                alert('Data user berhasil diupdate');
                                 </script>";
-                        echo "<script>document.location.href='pengaturan.php';</script>";}
+                        echo "<script>document.location.href='dashboard_user.php';</script>";}
                     }
                 }
             }

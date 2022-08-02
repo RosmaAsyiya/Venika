@@ -315,7 +315,7 @@
 						<div class="modal-body">
 							<form class="needs-validation">
 								<h5>Yakin ingin menolak permintaan pesanan ?</h5>
-								
+
 								<div class="mb-3">
 									<label for="message-text" class="col-form-label"> </label>
 									<textarea class="form-control" id="message-text" placeholder="Beri catatan mengapa pesanan ditolak..." cols="30" rows="5"></textarea>
@@ -343,7 +343,7 @@
 						<div class="modal-body">
 							<form class="needs-validation">
 								<h5>Pesanan Diterima ? Sampaikan sesuatu kepada klien</h5>
-								
+
 								<div class="mb-3">
 									<label for="message-text" class="col-form-label"> </label>
 									<textarea class="form-control" id="message-text" placeholder="Tuliskan sesuatu..." cols="30" rows="5"></textarea>
@@ -385,3 +385,52 @@
 </body>
 
 </html>
+
+<!-- <form action="process.php" method="POST"> -->
+	<?php
+	// $id = $_SESSION['id'];
+	$sql = mysqli_query($koneksi,
+	"SELECT * FROM booking WHERE id_vendor = '$id' and status = '0'");
+	while ($cek = mysqli_fetch_assoc($sql)){
+		$nama = $cek["nama"];
+		$no_hp = $cek["no_hp"];
+		$tanggal = $cek["tanggal"];
+		$jenis_layanan = $cek["jenis_layanan"];
+		$paket = $cek["paket"];
+		$id_order = $cek["id"];
+		$id_user = $cek["id_user"];
+		$id_vendor = $cek["id_vendor"];
+
+	?>
+	<tr>
+		<td>
+			<!-- <img src="img/people.png"> -->
+			<?php
+			echo "<p name='nama' value=" . $nama .">" . $nama ."</p>";
+		echo "</td>";
+		echo "<td name='no_hp' value=" . $no_hp .">" . $no_hp . "</td>";
+		echo "<td name='tanggal' value=" . $tanggal .">" . $tanggal . "</td>";
+		echo "<td name='jenis_layanan' value=" . $jenis_layanan .">" . $jenis_layanan . "</td>";
+		echo "<td name='paket' value=" . $paket .">" . $paket . "</td>";
+
+		echo '<input type="hidden" name="nama" value=' . $nama . ' class="btn solid">';
+		echo '<input type="hidden" name="no_hp" value=' . $no_hp . ' class="btn solid">';
+		echo '<input type="hidden" name="tanggal" value=' . $tanggal . ' class="btn solid">';
+		echo '<input type="hidden" name="jenis_layanan" value=' . $jenis_layanan . ' class="btn solid">';
+		echo '<input type="hidden" name="paket" value=' . $paket . ' class="btn solid">';
+		echo '<input type="hidden" name="id_vendor" value=' . $id_vendor . ' class="btn solid">';
+		echo '<input type="hidden" name="id_user" value=' . $id_user . ' class="btn solid">';
+		echo '<input type="hidden" name="id_order" value=' . $id_order . ' class="btn solid">';
+		?>
+
+		<td>
+			<button type="button" name="submit" value="terima" class="btn btn-outline-success btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#terimaPesanan"><i
+					class="fa-solid fa-check"></i> Terima</button>
+					<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus"
+				data-bs-toggle="modal" data-bs-target="#tolakPesanan"><i
+					class="fa-solid fa-xmark"></i> Tolak</button>
+
+		</td>
+	</tr>
+	<?php } ?>
+	<!-- </form> -->

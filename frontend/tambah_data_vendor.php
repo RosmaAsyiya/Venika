@@ -9,6 +9,10 @@ if (!isset($_SESSION['is_login'])) {
     echo "<script>document.location.href='../login_vendor.php';</script>";
     die();
 }
+
+if ($_SESSION['tipe'] != "vendor"){
+    echo "<script>document.location.href='../index.php';</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -177,9 +181,9 @@ if (!isset($_SESSION['is_login'])) {
 			<i class="fa-solid fa-bars toggle-sidebar"></i>
 
 			<form action="#">
-				
+
 			</form>
-			
+
 			<span class="divider"></span>
 
 			<div class="profile">

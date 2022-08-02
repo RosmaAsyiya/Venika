@@ -8,6 +8,10 @@ if (!isset($_SESSION['is_login'])) {
     die();
 }
 
+if ($_SESSION['tipe'] != "vendor"){
+    echo "<script>document.location.href='../index.php';</script>";
+}
+
 $id = $_SESSION['id'];
 
 ?>
@@ -188,7 +192,7 @@ $id = $_SESSION['id'];
 					<li>Tentang Kami</li>
 					<li>FAQ</li>
 				  </ul>
-				  
+
 				<p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
 			</div>
 		</div>
@@ -233,7 +237,7 @@ $id = $_SESSION['id'];
                                                             </a>
                                                         </li>
                                                         <li class="">
-                                                            <a href="#">
+                                                            <a href="../login/logout.php">
                                                                 <i class="fas fa-arrow-right-from-bracket"></i> Keluar
                                                             </a>
                                                         </li>

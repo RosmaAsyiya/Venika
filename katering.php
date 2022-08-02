@@ -39,7 +39,7 @@
 if (isset($_SESSION['username'])){
 ?>
   <body>
-  <!-- Navbar Login --> 
+  <!-- Navbar Login -->
   <nav class="navbar navbar-expand-lg bg-transparent navbar-light position-fixed w-100">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -121,7 +121,7 @@ if (isset($_SESSION['username'])){
   <!-- Navbar sebelum Login -->
   <nav class="navbar navbar-expand-lg navbar-light bg-transparent position-fixed w-100">
     <div class="container">
-      
+
       <a class="navbar-brand" href="#">
         <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
           class="d-inline-block align-text-top" me-3>Venika</a>
@@ -131,9 +131,9 @@ if (isset($_SESSION['username'])){
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
-          
+
           <li class="nav-item mx-3">
-            
+
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
           </li>
           <li class="nav-item mx-3">
@@ -143,16 +143,16 @@ if (isset($_SESSION['username'])){
             <a class="nav-link" href="#">Tentang Kami</a>
           </li>
         </ul>
-        
+
         <div>
-          
+
         <a href="login.php"><button class="btn_register">Register</button></a>
           <a href="login.php"><button class="btn_login">Login</button></a>
         </div>
       </div>
     </div>
   </nav>
-  
+
 <?php
   }
 ?>
@@ -160,7 +160,7 @@ if (isset($_SESSION['username'])){
       <!-- HERO SECTION -->
       <section id="hero">
             <!-- h-100 : height agar memenuhi layar -->
-        <div class="container" h-100> 
+        <div class="container" h-100>
           <div class="row" h-100>
             <div class="col-md-6 hero-tagline my-auto">
                 <img src="img/bg_katering2.jpg" alt="" class="position-absolute end-0 bottom-0 img-hero">
@@ -171,7 +171,7 @@ if (isset($_SESSION['username'])){
           </div>
         </div>
       </section>
-      
+
       <!-- Search Section -->
 
   <section id="search">
@@ -272,14 +272,14 @@ if (isset($_SESSION['username'])){
           <div class="container">
               <div class="row">
                   <div class="col-12">
-                      
+
                   </div>
               </div>
               <div class="row">
                   <div class="col-4">
                       <div class="card" style="width: 22rem;">
                           <img src="img/mawar_katering.png" alt="">
-                          <div class="card-body"> 
+                          <div class="card-body">
                               <h4>Mawar Katering</h4>
                               <p>Tembalang, Semarang <br> <span class="text-danger">Mulai dari Rp.95.000</span></p>
                               <!-- <img src="img/love.png" alt=""> -->
@@ -287,7 +287,7 @@ if (isset($_SESSION['username'])){
                           </div>
                       </div>
                   </div>
-                  
+
                   <div class="col-4">
                     <div class="card" style="width: 22rem;">
                         <img src="img/japanese_katering.jpg" alt="">

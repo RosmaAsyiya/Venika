@@ -86,7 +86,7 @@ if (!isset($_SESSION['is_login'])) {
 				</a>
 			</li>
 			<li>
-				<a href="login_vendor.php" class="nav-link">
+				<a href="../login/logout.php" class="nav-link">
 					<i class="fa-solid fa-right-from-bracket icon"></i>
 					Keluar
 				</a>
@@ -102,9 +102,9 @@ if (!isset($_SESSION['is_login'])) {
 			<i class="fa-solid fa-bars toggle-sidebar"></i>
 
 			<form action="#">
-				
+
 			</form>
-			
+
 			<span class="divider"></span>
 
 			<div class="profile">
@@ -351,7 +351,7 @@ if (!isset($_SESSION['is_login'])) {
 											class="fa-solid fa-trash-can"></i> Hapus</button>
 								</td> -->
 							</tr>
-							
+
 							<?php } ?>
 						</tbody>
 					</table>

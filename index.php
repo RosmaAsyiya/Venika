@@ -1,9 +1,10 @@
 <?php
-session_start(); 
+session_start();
 
 include 'database/connection.php';
-
+if (isset($_SESSION['id'])){
 $id = $_SESSION['id'];
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -46,7 +47,7 @@ $id = $_SESSION['id'];
 if (isset($_SESSION['username'])){
 ?>
   <body>
-  <!-- Navbar Login --> 
+  <!-- Navbar Login -->
   <nav class="navbar navbar-expand-lg bg-transparent navbar-light position-fixed w-100">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -81,12 +82,12 @@ if (isset($_SESSION['username'])){
                     <ul class="nav-right">
                       <li class="user-profile header-notification">
                         <a href="#!" class="arrowdown">
-                        <?php 
+                        <?php
                                                         $sql = mysqli_query($koneksi,
                                                         "SELECT photo From user WHERE id = '$id'");
                                                         while ($cek = mysqli_fetch_assoc($sql)){
                                                             $photo = $cek['photo'];
-                                                        
+
                                                         ?>
                                                         <?php echo '<img src="photo/' . $photo . '" class="img-radius"
                                                             alt="User-Profile-Image">';} ?>
@@ -95,9 +96,18 @@ if (isset($_SESSION['username'])){
                         </a>
                         <ul class="show-notification profile-notification">
                           <li class="">
+                            <?php
+                            if($_SESSION['tipe'] == "user"){
+                            ?>
                             <a href="frontend/dashboard_user.php">
                               <i class="fas fa-user"></i> Lihat Profil
                             </a>
+                            <?php }
+                            else{?>
+                            <a href="frontend/dashboard_vendor.php">
+                              <i class="fas fa-user"></i> Lihat Profil
+                            </a>
+                            <?php }?>
                           </li>
                           <li class="">
                             <a href="#">
@@ -136,7 +146,7 @@ if (isset($_SESSION['username'])){
   <!-- Navbar sebelum Login -->
   <nav class="navbar navbar-expand-lg navbar-light bg-transparent position-fixed w-100">
     <div class="container">
-      
+
       <a class="navbar-brand" href="#">
         <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
           class="d-inline-block align-text-top" me-3>Venika</a>
@@ -146,9 +156,9 @@ if (isset($_SESSION['username'])){
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
-          
+
           <li class="nav-item mx-3">
-            
+
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
           </li>
           <li class="nav-item mx-3">
@@ -158,16 +168,16 @@ if (isset($_SESSION['username'])){
             <a class="nav-link" href="#">Tentang Kami</a>
           </li>
         </ul>
-        
+
         <div>
-          
+
         <a href="login.php"><button class="btn_register">Register</button></a>
           <a href="login.php"><button class="btn_login">Login</button></a>
         </div>
       </div>
     </div>
   </nav>
-  
+
 <?php
   }
 ?>
@@ -493,7 +503,7 @@ if (isset($_SESSION['username'])){
       <h3>Venika</h3>
       <p>Venika adalah platform digital yang menyediakan layanan informasi vendor kebutuhan di daerah Semarang dan
         sekitarnya.</p>
-      <ul class="fast_link">  
+      <ul class="fast_link">
         <li>Kontak</li>
         <li>Vendor</li>
         <li>Tentang Kami</li>

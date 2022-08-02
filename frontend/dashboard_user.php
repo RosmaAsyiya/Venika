@@ -3,12 +3,14 @@
 session_start();
 
 // Panggil file config
-<<<<<<< Updated upstream
 include '../database/connection.php';
+
+if(isset($_SESSION['username'])){
 $id = $_SESSION['id'];
-=======
-// include '../database/connection.php';
->>>>>>> Stashed changes
+}
+if ($_SESSION['tipe'] != "user"){
+    echo "<script>document.location.href='../index.php';</script>";
+}
 // $_SESSION["id"] = 1; // User's session
 // $sessionId = $_SESSION["id"];
 // $user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id = $sessionId"));
@@ -20,11 +22,7 @@ $id = $_SESSION['id'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
-<<<<<<< Updated upstream
     <link rel="stylesheet" href="css/dashboard_vendor1.css">
-=======
-    <link rel="stylesheet" href="css/dashboard_vendor.css">
->>>>>>> Stashed changes
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3709d60cb3.js" crossorigin="anonymous"></script>
@@ -44,26 +42,26 @@ if (isset($_SESSION['username'])){
         </a>
         <ul class="side-menu">
             <li>
-                <a href="dashboard_user.html" class="active">
+                <a href="dashboard_user.php" class="active">
                     <i class="fa-solid fa-user icon"></i>
                     Profil
                 </a>
             </li>
             <li>
-                <a href="favorit.html">
+                <a href="favorit.php">
                     <i class="fa-solid fa-heart icon"></i>
                     Favorit Saya
                 </a>
             </li>
             <li>
-                <a href="pesanan_user.html" class="nav-link">
+                <a href="pesanan_user.php" class="nav-link">
                     <i class="fa-solid fa-cart-shopping icon"></i>
                     Pesanan Saya
                 </a>
             </li>
             <li>
             <li>
-                <a href="login_vendor.php" class="nav-link">
+                <a href="../login/logout.php" class="nav-link">
                     <i class="fa-solid fa-right-from-bracket icon"></i>
                     Keluar
                 </a>
@@ -79,7 +77,7 @@ if (isset($_SESSION['username'])){
 					<li>Tentang Kami</li>
 					<li>FAQ</li>
 				  </ul>
-				  
+
 				<p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
 			</div>
 		</div>
@@ -107,22 +105,16 @@ if (isset($_SESSION['username'])){
                                             <ul class="nav-right">
                                                 <li class="user-profile header-notification">
                                                     <a href="#!" class="arrowdown">
-<<<<<<< Updated upstream
-                                                        <?php 
+                                                        <?php
                                                         $sql = mysqli_query($koneksi,
                                                         "SELECT photo From user WHERE id = '$id'");
                                                         while ($cek = mysqli_fetch_assoc($sql)){
                                                             $photo = $cek['photo'];
-                                                        
+
                                                         ?>
                                                         <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
                                                             alt="User-Profile-Image">';} ?>
                                                             <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
-=======
-                                                        <img src="img/circle-user-solid.svg" class="img-radius"
-                                                            alt="User-Profile-Image">
-                                                            <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
->>>>>>> Stashed changes
                                                         <i class="fa-solid fa-angle-down"></i>
                                                     </a>
                                                     <ul class="show-notification profile-notification">
@@ -137,7 +129,7 @@ if (isset($_SESSION['username'])){
                                                             </a>
                                                         </li>
                                                         <li class="">
-                                                            <a href="#">
+                                                            <a href="../login/logout.php">
                                                                 <i class="fas fa-arrow-right-from-bracket"></i> Keluar
                                                             </a>
                                                         </li>
@@ -180,7 +172,7 @@ if (isset($_SESSION['username'])){
                         </li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
                         <li>
-                            <a class="active" href="dashboard_user.html">Edit Profil</a>
+                            <a class="active" href="dashboard_user.php">Edit Profil</a>
                         </li>
                     </ul>
                 </div>
@@ -198,13 +190,9 @@ if (isset($_SESSION['username'])){
                 // $password = $user["password"];
                 // $photo = $user["photo"];
             ?>
-                
-<<<<<<< Updated upstream
+
                 <?php echo '<img src="../photo/' . $photo . '" class="profile-pic-div"
                                                             alt="User-Profile-Image">'; ?>
-=======
-                <img src="img/circle-user-solid.svg" id="photo">
->>>>>>> Stashed changes
                 <input type="file" id="file" accept="image/*" id="photo" name="NamaFile">
                 <label for="file" id="uploadBtn">
                     <i class="fa-solid fa-camera icon_btn"></i> <br>
@@ -212,18 +200,9 @@ if (isset($_SESSION['username'])){
               </div>
               <input type="submit" value="Simpan" name="proses" class="btn_simpan">
 </form>
-            
+
 
     <?php
-<<<<<<< Updated upstream
-=======
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $db_name = "venika2";
-    
-    $koneksi = mysqli_connect($server, $username, $password, $db_name);
->>>>>>> Stashed changes
     if(isset($_POST["proses"])){
     //   $id = $_POST["id"];
     //   $nama = $_POST["nama"];
@@ -232,7 +211,6 @@ if (isset($_SESSION['username'])){
     //   $username = $_POST["username"];
     //   $password = $_POST["password"];
 
-<<<<<<< Updated upstream
       $direktori = "../photo/";
       $file_name = $_FILES['NamaFile']['name'];
       move_uploaded_file($_FILES['NamaFile']['tmp_name'], $direktori.$file_name);
@@ -248,24 +226,13 @@ if (isset($_SESSION['username'])){
     else{
         echo "<b>ERROR!";
     }
-=======
-    $direktori = "photo/";
-      $file_name = $_FILES['NamaFile']['name'];
-      move_uploaded_file($_FILES['NamaFile']['tmp_name'], $direktori.$file_name);
 
-      mysqli_query($koneksi, "update user set photo='$file_name' where id=$_SESSION '$id'");
-    //   mysqli_query($koneksi, "update into user set photo='$file_name'");
-    //   mysqli_query($koneksi, "update user set photo='$file_name' where id='$_SESSION['id']'");
-
-      echo "<b>File Berhasil Diupload";
->>>>>>> Stashed changes
-      
     }
     ?>
-            
+
 
               <script src="js/profil.js"></script>
-              
+
 
             <!-- Form Edit -->
 
@@ -278,35 +245,44 @@ if (isset($_SESSION['username'])){
 
                 <h3 class="head_profile">Informasi Akun</h3>
 
-                <form action="">
+                <?php
+                $sql = mysqli_query($koneksi,
+                "SELECT * FROM user where id = '$id'");
+                $cek = mysqli_fetch_assoc($sql);
+                $nama = $cek['nama'];
+                $user = $cek['username'];
+                $email = $cek['email'];
+                $no_hp = $cek['no_hp'];
+                ?>
+                <form action="update_user.php" method="POST">
                     <div class="box-container">
                         <div class="box">
                             <div class="inputBox">
                                 <label for="validationCustom01">Nama Lengkap</label>
-                                <input type="text" placeholder="" value="Rosma Asiyya" id="validationDefault01" required>
+                                <?php echo '<input type="text" name="nama" placeholder="" value="' . $nama . '" id="validationDefault01" required>'; ?>
                             </div>
                             <div class="inputBox">
                                 <label for="validationCustom01">Username</label>
-                                <input type="text" placeholder="" value="Asiyya" id="validationDefault01" required>
+                                <?php echo '<input type="text" name="username" placeholder="" value="' . $user . '" id="validationDefault01" required>'; ?>
                             </div>
                             <div class="inputBox">
                                 <label for="validationCustom01">Email</label>
-                                <input type="text" placeholder="" value="asiyya@gmail.com"  id="validationDefault01" required>
+                                <?php echo '<input type="text" name="email" placeholder="" value="' . $email . '"  id="validationDefault01" required>'; ?>
                             </div>
-                            
+
                         </div>
                         <div class="box">
                             <div class="inputBox">
                                 <label for="validationCustom02">Nomor Telephone</label>
-                                <input type="text" placeholder="" value="08988325479" id="validationDefault02" required>
+                                <?php echo '<input type="text" name="no_hp" placeholder="" value="' . $no_hp .'" id="validationDefault02" required>'; ?>
                             </div>
-                            <div class="inputBox">
+                            <!-- <div class="inputBox">
                                 <label for="validationCustom02">Password</label>
                                 <input type="password" placeholder="" value="asiyya123" id="validationDefault02" required>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <input type="submit" value="Simpan" name ="proses" class="btn_simpan">
+                    <input type="submit" value="Simpan" name ="submit" class="btn_simpan">
                 </form>
 
             </section>

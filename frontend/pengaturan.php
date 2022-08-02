@@ -9,6 +9,10 @@ if (!isset($_SESSION['is_login'])) {
     echo "<script>document.location.href='../login_vendor.php';</script>";
     die();
 }
+
+if ($_SESSION['tipe'] != "vendor"){
+    echo "<script>document.location.href='../index.php';</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +30,9 @@ if (!isset($_SESSION['is_login'])) {
 
     <title>Venika</title>
 </head>
-
+<?php
+if (isset($_SESSION['username'])){
+?>
 <body>
 
     <!-- SIDEBAR -->
@@ -75,7 +81,7 @@ if (!isset($_SESSION['is_login'])) {
                 </a>
             </li>
             <li>
-                <a href="login_vendor.php" class="nav-link">
+                <a href="../login/logout.php" class="nav-link">
                     <i class="fa-solid fa-right-from-bracket icon"></i>
                     Keluar
                 </a>
@@ -83,35 +89,8 @@ if (!isset($_SESSION['is_login'])) {
         </ul>
     </section>
 
-    <!-- NAVBAR -->
+        <!-- NAVBAR -->
     <section id="content">
-        <!-- NAVBAR -->
-        <!-- <nav>
-			<i class="fa-solid fa-bars toggle-sidebar"></i>
-
-			<form action="#">
-				
-			</form>
-			
-			<span class="divider"></span>
-
-			<div class="profile">
-				<div>
-				<a href="#!" class="profile-dropdown">
-					<img src="img/bg.jpg" alt="">
-					<span>Rosma Asiyya</span>
-					<i class="fa-solid fa-angle-down icon"></i>
-				</a>
-			</div>
-
-				<ul class="profile-link">
-					<li><a href="#"><i class="fas fa-user"></i> Lihat Profil</a></li>
-					<li><a href="#"><i class="fas fa-question"></i> FAQ</a></li>
-					<li><a href="#"><i class="fas fa-arrow-right-from-bracket"></i> Keluar</a></li>
-				</ul>
-			</div>
-		</nav> -->
-        <!-- NAVBAR -->
 
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -132,9 +111,16 @@ if (!isset($_SESSION['is_login'])) {
                                             <ul class="nav-right">
                                                 <li class="user-profile header-notification">
                                                     <a href="#!" class="arrowdown">
-                                                        <img src="img/circle-user-solid.svg" class="img-radius"
-                                                            alt="User-Profile-Image">
-                                                        <span>Rosma Asiyya</span>
+                                                        <?php
+                                                        $sql = mysqli_query($koneksi,
+                                                        "SELECT photo From user WHERE id = '$id'");
+                                                        while ($cek = mysqli_fetch_assoc($sql)){
+                                                            $photo = $cek['photo'];
+
+                                                        ?>
+                                                        <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                            alt="User-Profile-Image">';} ?>
+                                                            <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
                                                         <i class="fa-solid fa-angle-down"></i>
                                                     </a>
                                                     <ul class="show-notification profile-notification">
@@ -149,7 +135,7 @@ if (!isset($_SESSION['is_login'])) {
                                                             </a>
                                                         </li>
                                                         <li class="">
-                                                            <a href="#">
+                                                            <a href="../login/logout.php">
                                                                 <i class="fas fa-arrow-right-from-bracket"></i> Keluar
                                                             </a>
                                                         </li>
@@ -171,7 +157,13 @@ if (!isset($_SESSION['is_login'])) {
                 </div>
             </div>
         </nav>
-
+        <?php }
+  else {
+  ?>
+  <body>
+  <?php
+  }
+?>
 
         <!-- MAIN -->
 
@@ -179,37 +171,74 @@ if (!isset($_SESSION['is_login'])) {
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Pengaturan</h1>
+                    <h1>Profil</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Pengaturan</a>
+                            <a href="#">Profil</a>
                         </li>
                         <li><i class="fa-solid fa-angle-right"></i></li>
                         <li>
-                            <a class="active" href="#">Edit Profile</a>
+                            <a class="active" href="dashboard_user.php">Edit Profil</a>
                         </li>
                     </ul>
                 </div>
-                <!-- <a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
-				</a> -->
             </div>
 
-            <div class="edit_foto">
+            <form class="edit_foto" enctype="multipart/form-data" method="POST">
                 <h3 class="head_profile">Pilih Foto Profil</h3>
-            <div class="profile-pic-div">
-                <img src="img/circle-user-solid.svg" id="photo">
-                <input type="file" id="file">
+            <div class="profile-pic-div" >
+            <?php
+                // $id = $user["id"];
+                // $nama = $user["nama"];
+                // $email = $user["email"];
+                // $no_hp = $user["no_hp"];
+                // $username = $user["username"];
+                // $password = $user["password"];
+                // $photo = $user["photo"];
+            ?>
+
+                <?php echo '<img src="../photo/' . $photo . '" class="profile-pic-div"
+                                                            alt="User-Profile-Image">'; ?>
+                <input type="file" id="file" accept="image/*" id="photo" name="NamaFile">
                 <label for="file" id="uploadBtn">
                     <i class="fa-solid fa-camera icon_btn"></i> <br>
                     Pilih Foto</label>
               </div>
-              
-            </div>
+              <input type="submit" value="Simpan" name="proses" class="btn_simpan">
+</form>
+
+
+    <?php
+    if(isset($_POST["proses"])){
+    //   $id = $_POST["id"];
+    //   $nama = $_POST["nama"];
+    //   $email = $_POST["email"];
+    //   $no_hp = $_POST["no_hp"];
+    //   $username = $_POST["username"];
+    //   $password = $_POST["password"];
+
+      $direktori = "../photo/";
+      $file_name = $_FILES['NamaFile']['name'];
+      move_uploaded_file($_FILES['NamaFile']['tmp_name'], $direktori.$file_name);
+
+      $sql = mysqli_query($koneksi,
+    "UPDATE user SET photo = '$file_name' WHERE id = '$id'");
+    if ($cek = mysqli_affected_rows($koneksi) > 0){
+    //   mysqli_query($koneksi, "update into user set photo='$file_name'");
+    //   mysqli_query($koneksi, "update user set photo='$file_name' where id='$_SESSION['id']'");
+      echo "<b>File Berhasil Diupload";
+      echo "<script>document.location.href='dashboard_user.php';</script>";
+    }
+    else{
+        echo "<b>ERROR!";
+    }
+
+    }
+    ?>
+
 
               <script src="js/profil.js"></script>
-              
+
 
             <!-- Form Edit -->
 
@@ -230,6 +259,8 @@ if (!isset($_SESSION['is_login'])) {
                 $email = $cek['email'];
                 $no_hp = $cek['no_hp'];
                 $alamat = $cek['alamat'];
+                $lokasi = $cek['kecamatan'];
+                $deskripsi = $cek['deskripsi'];
                 // $pass = $cek['password'];
 
                 ?>
@@ -248,7 +279,11 @@ if (!isset($_SESSION['is_login'])) {
                                 <label for="validationCustom01">Email</label>
                                 <?php echo '<input type="text" name="email" placeholder="" value="' . $email . '"  id="validationDefault01" required>'; ?>
                             </div>
-                            
+                            <div class="inputBox">
+                                <label for="validationCustom01">Tentang Vendor</label>
+                                <?php echo '<input type="text" name="deskripsi" placeholder="" value="' . $deskripsi . '"  id="validationDefault01" required>'; ?>
+                            </div>
+
                         </div>
                         <div class="box">
                             <div class="inputBox">
@@ -259,13 +294,34 @@ if (!isset($_SESSION['is_login'])) {
                                 <label for="validationCustom02">Alamat</label>
                                 <?php echo '<input type="text" name="alamat" placeholder="Alamat Kosong" value="' . $alamat . '" id="validationDefault02" required>'; ?>
                             </div>
+                            <div class="inputBox">
+                                <label for="validationCustom02">Lokasi</label>
+                                <select name="lokasi" class="form-select" id="inputGroupSelect01">
+                                <?php echo '<option selected class="option" value="'. $lokasi . '">'. $lokasi . '</option>'; ?>
+                                <option class="option" value="Banyumanik">Banyumanik</option>
+                                <option class="option" value="Candisari">Candisari</option>
+                                <option class="option" value="Gajahmungkur">Gajahmungkur</option>
+                                <option class="option" value="Gayamsari">Gayamsari</option>
+                                <option class="option" value="Genuk">Genuk</option>
+                                <option class="option" value="Gunungpati">Gunungpati</option>
+                                <option class="option" value="Mijen">Mijen</option>
+                                <option class="option" value="Ngaliyan">Ngaliyan</option>
+                                <option class="option" value="Pedurungan">Pedurungan</option>
+                                <option class="option" value="SemarangBarat">Semarang Barat</option>
+                                <option class="option" value="SemarangSelatan">Semarang Selatan</option>
+                                <option class="option" value="Semarang Tengah">Semarang Tengah</option>
+                                <option class="option" value="SemarangUtara">Semarang Utara</option>
+                                <option class="option" value="Tembalang">Tembalang</option>
+                                <option class="option" value="Tugu">Tugu</option>
+                                </select>
+                            </div>
                             <!-- <div class="inputBox">
                                 <label for="validationCustom02">Password</label>
                                  echo '<input type="password" placeholder="" value=' . $pass' id="validationDefault02" required>';  -->
-                            </div> 
+                            </div>
                         </div>
                     </div>
-                    <input type="submit" value="Simpan" class="btn_simpan">
+                    <input type="submit" name="submit" value="Simpan" class="btn_simpan">
                 </form>
 
             </section>

@@ -43,7 +43,7 @@
     <title>Venika</title>
   </head>
   <body>
-  <!-- Navbar Login --> 
+  <!-- Navbar Login -->
   <nav class="navbar navbar-expand-lg bg-transparent navbar-light position-fixed w-100">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -94,7 +94,7 @@
                             </a>
                           </li>
                           <li class="">
-                            <a href="logout.php">
+                            <a href="../login/logout.php">
                               <i class="fas fa-arrow-right-from-bracket"></i> Keluar
                             </a>
                           </li>
@@ -122,7 +122,7 @@
       <!-- HERO SECTION -->
       <section id="hero">
             <!-- h-100 : height agar memenuhi layar -->
-        <div class="container" h-100> 
+        <div class="container" h-100>
           <div class="row" h-100>
             <div class="col-md-6 hero-tagline my-auto">
                 <img src="img/bg_mua.jpg" alt="" class="position-absolute end-0 bottom-0 img-hero">
@@ -133,7 +133,7 @@
           </div>
         </div>
       </section>
-      
+
       <!-- Search Section -->
 
   <section id="search">
@@ -237,7 +237,7 @@
               <div class="row">
                 <?php
                   $sql = mysqli_query($koneksi,
-                  "SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis 
+                  "SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis
                   FROM vendor, jenis_layanan WHERE jenis_layanan.nama_layanan = 'makeup'
                   AND vendor.id = jenis_layanan.id_vendor");
                   while ($cek = mysqli_fetch_assoc($sql)){
@@ -252,7 +252,7 @@
                     <div class="col-4">
                         <div class="card" style="width: 22rem;">
                         <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($galeri) . '"alt="">' ?>
-                            <div class="card-body"> 
+                            <div class="card-body">
                                 <?php echo '<h4>'. $nama .'</h4>';
                                 echo '<p>' . $kecamatan . ', Semarang</p>';?>
                                 <!-- <img src="img/love.png" alt=""> -->

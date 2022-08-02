@@ -51,7 +51,7 @@
 if (isset($_SESSION['username'])){
 ?>
   <body>
-  <!-- Navbar Login --> 
+  <!-- Navbar Login -->
   <nav class="navbar navbar-expand-lg bg-transparent navbar-light position-fixed w-100">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -102,7 +102,7 @@ if (isset($_SESSION['username'])){
                             </a>
                           </li>
                           <li class="">
-                            <a href="logout.php">
+                            <a href="../login/logout.php">
                               <i class="fas fa-arrow-right-from-bracket"></i> Keluar
                             </a>
                           </li>
@@ -133,7 +133,7 @@ if (isset($_SESSION['username'])){
   <!-- Navbar sebelum Login -->
   <nav class="navbar navbar-expand-lg navbar-light bg-transparent position-fixed w-100">
     <div class="container">
-      
+
       <a class="navbar-brand" href="#">
         <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
           class="d-inline-block align-text-top" me-3>Venika</a>
@@ -143,9 +143,9 @@ if (isset($_SESSION['username'])){
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
-          
+
           <li class="nav-item mx-3">
-            
+
             <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
           </li>
           <li class="nav-item mx-3">
@@ -155,16 +155,16 @@ if (isset($_SESSION['username'])){
             <a class="nav-link" href="#">Tentang Kami</a>
           </li>
         </ul>
-        
+
         <div>
-          
+
         <a href="login.php"><button class="btn_register">Register</button></a>
           <a href="login.php"><button class="btn_login">Login</button></a>
         </div>
       </div>
     </div>
   </nav>
-  
+
 <?php
   }
 ?>
@@ -172,7 +172,7 @@ if (isset($_SESSION['username'])){
       <!-- HERO SECTION -->
       <section id="hero">
             <!-- h-100 : height agar memenuhi layar -->
-        <div class="container" h-100> 
+        <div class="container" h-100>
           <div class="row" h-100>
             <div class="col-md-6 hero-tagline my-auto">
                 <img src="img/bg_katering2.jpg" alt="" class="position-absolute end-0 bottom-0 img-hero">
@@ -183,7 +183,7 @@ if (isset($_SESSION['username'])){
           </div>
         </div>
       </section>
-      
+
       <!-- Search Section -->
 
   <section id="search">
@@ -286,7 +286,7 @@ if (isset($_SESSION['username'])){
           <div class="container">
               <div class="row">
                   <div class="col-12">
-                      
+
                   </div>
               </div>
               <div class="row">
@@ -308,7 +308,7 @@ if (isset($_SESSION['username'])){
                   <div class="col-4">
                       <div class="card" style="width: 22rem;">
                       <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($galeri) . '"alt="">' ?>
-                          <div class="card-body"> 
+                          <div class="card-body">
                               <?php echo '<h4>'. $nama .'</h4>';
                               echo '<p>' . $kecamatan . ', Semarang <br> <span class="text-danger">Adat ' . $adat . '</span></p>';?>
                               <!-- <img src="img/love.png" alt=""> -->
@@ -319,7 +319,7 @@ if (isset($_SESSION['username'])){
                   </div>
                   <?php }?>
               </div>
-              
+
           </div>
       </section>
 

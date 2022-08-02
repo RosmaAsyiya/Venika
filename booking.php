@@ -32,10 +32,10 @@
 
             $id_vendor = $_POST['id'];
 
-            $sql = mysqli_query($koneksi, 
-            "INSERT INTO request_order(id_vendor, id_user, nama, no_hp, tanggal, jenis_layanan, paket)
-            VALUES ('$id_vendor','$id_user','$nama','$no_hp','$tanggal','$jenis_layanan','$paket')");
-            
+            $sql = mysqli_query($koneksi,
+            "INSERT INTO booking(id_vendor, id_user, nama, no_hp, tanggal, jenis_layanan, paket, status)
+            VALUES ('$id_vendor','$id_user','$nama','$no_hp','$tanggal','$jenis_layanan','$paket', '0')");
+
             if(mysqli_affected_rows($koneksi) > 0){
 				// beri pesan jika booking berhasil dan dialihkan ke halaman admin
 				echo "<script>alert('Booking Berhasil!');
