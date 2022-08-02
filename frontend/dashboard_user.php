@@ -3,12 +3,8 @@
 session_start();
 
 // Panggil file config
-<<<<<<< Updated upstream
 include '../database/connection.php';
 $id = $_SESSION['id'];
-=======
-// include '../database/connection.php';
->>>>>>> Stashed changes
 // $_SESSION["id"] = 1; // User's session
 // $sessionId = $_SESSION["id"];
 // $user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id = $sessionId"));
@@ -20,11 +16,7 @@ $id = $_SESSION['id'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
-<<<<<<< Updated upstream
     <link rel="stylesheet" href="css/dashboard_vendor1.css">
-=======
-    <link rel="stylesheet" href="css/dashboard_vendor.css">
->>>>>>> Stashed changes
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3709d60cb3.js" crossorigin="anonymous"></script>
@@ -107,7 +99,6 @@ if (isset($_SESSION['username'])){
                                             <ul class="nav-right">
                                                 <li class="user-profile header-notification">
                                                     <a href="#!" class="arrowdown">
-<<<<<<< Updated upstream
                                                         <?php 
                                                         $sql = mysqli_query($koneksi,
                                                         "SELECT photo From user WHERE id = '$id'");
@@ -118,11 +109,6 @@ if (isset($_SESSION['username'])){
                                                         <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
                                                             alt="User-Profile-Image">';} ?>
                                                             <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
-=======
-                                                        <img src="img/circle-user-solid.svg" class="img-radius"
-                                                            alt="User-Profile-Image">
-                                                            <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
->>>>>>> Stashed changes
                                                         <i class="fa-solid fa-angle-down"></i>
                                                     </a>
                                                     <ul class="show-notification profile-notification">
@@ -199,12 +185,8 @@ if (isset($_SESSION['username'])){
                 // $photo = $user["photo"];
             ?>
                 
-<<<<<<< Updated upstream
                 <?php echo '<img src="../photo/' . $photo . '" class="profile-pic-div"
                                                             alt="User-Profile-Image">'; ?>
-=======
-                <img src="img/circle-user-solid.svg" id="photo">
->>>>>>> Stashed changes
                 <input type="file" id="file" accept="image/*" id="photo" name="NamaFile">
                 <label for="file" id="uploadBtn">
                     <i class="fa-solid fa-camera icon_btn"></i> <br>
@@ -215,15 +197,6 @@ if (isset($_SESSION['username'])){
             
 
     <?php
-<<<<<<< Updated upstream
-=======
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $db_name = "venika2";
-    
-    $koneksi = mysqli_connect($server, $username, $password, $db_name);
->>>>>>> Stashed changes
     if(isset($_POST["proses"])){
     //   $id = $_POST["id"];
     //   $nama = $_POST["nama"];
@@ -232,7 +205,6 @@ if (isset($_SESSION['username'])){
     //   $username = $_POST["username"];
     //   $password = $_POST["password"];
 
-<<<<<<< Updated upstream
       $direktori = "../photo/";
       $file_name = $_FILES['NamaFile']['name'];
       move_uploaded_file($_FILES['NamaFile']['tmp_name'], $direktori.$file_name);
@@ -248,17 +220,6 @@ if (isset($_SESSION['username'])){
     else{
         echo "<b>ERROR!";
     }
-=======
-    $direktori = "photo/";
-      $file_name = $_FILES['NamaFile']['name'];
-      move_uploaded_file($_FILES['NamaFile']['tmp_name'], $direktori.$file_name);
-
-      mysqli_query($koneksi, "update user set photo='$file_name' where id=$_SESSION '$id'");
-    //   mysqli_query($koneksi, "update into user set photo='$file_name'");
-    //   mysqli_query($koneksi, "update user set photo='$file_name' where id='$_SESSION['id']'");
-
-      echo "<b>File Berhasil Diupload";
->>>>>>> Stashed changes
       
     }
     ?>
