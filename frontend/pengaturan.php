@@ -280,9 +280,10 @@ if (isset($_SESSION['username'])){
                                 <?php echo '<input type="text" name="email" placeholder="" value="' . $email . '"  id="validationDefault01" required>'; ?>
                             </div>
                             <div class="inputBox">
-                                <label for="validationCustom01">Tentang Vendor</label>
-                                <?php echo '<input type="text" name="deskripsi" placeholder="" value="' . $deskripsi . '"  id="validationDefault01" required>'; ?>
-                            </div>
+								<label for="">Tentang Vendor</label>
+								<?php echo '<textarea name="deskripsi" value="' . $deskripsi . '" placeholder="Jelaskan Detail Tentang Vendor Anda..." id="" cols="30" rows="10"></textarea>'; ?>
+								<div style="margin-top: -20px;">* Maksimal 500 Karakter</div>
+							</div>
 
                         </div>
                         <div class="box">
@@ -303,14 +304,14 @@ if (isset($_SESSION['username'])){
                                 <option class="option" value="Gajahmungkur">Gajahmungkur</option>
                                 <option class="option" value="Gayamsari">Gayamsari</option>
                                 <option class="option" value="Genuk">Genuk</option>
-                                <option class="option" value="Gunungpati">Gunungpati</option>
+                                <option class="option" value="Gunung pati">Gunungpati</option>
                                 <option class="option" value="Mijen">Mijen</option>
                                 <option class="option" value="Ngaliyan">Ngaliyan</option>
                                 <option class="option" value="Pedurungan">Pedurungan</option>
-                                <option class="option" value="SemarangBarat">Semarang Barat</option>
-                                <option class="option" value="SemarangSelatan">Semarang Selatan</option>
+                                <option class="option" value="Semarang Barat">Semarang Barat</option>
+                                <option class="option" value="Semarang Selatan">Semarang Selatan</option>
                                 <option class="option" value="Semarang Tengah">Semarang Tengah</option>
-                                <option class="option" value="SemarangUtara">Semarang Utara</option>
+                                <option class="option" value="Semarang Utara">Semarang Utara</option>
                                 <option class="option" value="Tembalang">Tembalang</option>
                                 <option class="option" value="Tugu">Tugu</option>
                                 </select>

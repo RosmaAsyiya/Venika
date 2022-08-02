@@ -69,16 +69,16 @@ if ($_SESSION['tipe'] != "vendor"){
 				</ul>
 			</li>
 			<li>
-				<a href="req_pesanan.html" class="active">
+				<a href="req_pesanan.php" class="active">
 					<i class="fa-solid fa-cart-shopping icon"></i>
 					Pesanan
 					<i class="fa-solid fa-angle-right icon-right"></i>
 				</a>
 				<ul class="side-dropdown">
-					<li><a href="req_pesanan.html" class="active"><i class="fa-solid fa-user-clock icon"></i> Permintaan
+					<li><a href="req_pesanan.php" class="active"><i class="fa-solid fa-user-clock icon"></i> Permintaan
 							Pesanan</a>
 					</li>
-					<li><a href="data_pesanan.html"><i class="fa-solid fa-clipboard-list icon"></i> Data Pesanan</a>
+					<li><a href="data_pesanan.php"><i class="fa-solid fa-clipboard-list icon"></i> Data Pesanan</a>
 					</li>
 				</ul>
 			</li>
@@ -185,7 +185,7 @@ if ($_SESSION['tipe'] != "vendor"){
 						</li>
 						<li><i class="fa-solid fa-angle-right"></i></li>
 						<li>
-							<a class="active" href="req_pesanan.html">Permintaan Pesanan</a>
+							<a class="active" href="req_pesanan.php">Permintaan Pesanan</a>
 						</li>
 					</ul>
 				</div>
@@ -271,6 +271,7 @@ if ($_SESSION['tipe'] != "vendor"){
 									echo '<input type="hidden" name="id_vendor" value=' . $id_vendor . ' class="btn solid">';
 									echo '<input type="hidden" name="id_user" value=' . $id_user . ' class="btn solid">';
 									echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">';
+									echo $id_booking;
 									?>
 
 									<td>
@@ -306,13 +307,13 @@ if ($_SESSION['tipe'] != "vendor"){
 									echo '<input type="hidden" name="paket" value=' . $paket . ' class="btn solid">';
 									echo '<input type="hidden" name="id_vendor" value=' . $id_vendor . ' class="btn solid">';
 									echo '<input type="hidden" name="id_user" value=' . $id_user . ' class="btn solid">';
-									echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">'; ?>
+									echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">';
+									echo $id_booking;?>
 
 								<div class="mb-3">
 									<label for="message-text" class="col-form-label"> </label>
 									<textarea class="form-control" id="message-text" name="note" placeholder="Beri catatan mengapa pesanan ditolak..." cols="30" rows="5"></textarea>
 								</div>
-
 
 						</div>
 						<div class="modal-footer">
@@ -343,7 +344,8 @@ if ($_SESSION['tipe'] != "vendor"){
 									echo '<input type="hidden" name="paket" value=' . $paket . ' class="btn solid">';
 									echo '<input type="hidden" name="id_vendor" value=' . $id_vendor . ' class="btn solid">';
 									echo '<input type="hidden" name="id_user" value=' . $id_user . ' class="btn solid">';
-									echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">'; ?>
+									echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">';
+									echo $id_booking;?>
 
 								<div class="mb-3">
 									<label for="message-text" class="col-form-label"> </label>

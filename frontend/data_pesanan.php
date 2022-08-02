@@ -9,6 +9,8 @@ if (!isset($_SESSION['is_login'])) {
     echo "<script>document.location.href='../login_vendor.php';</script>";
     die();
 }
+$user = $_SESSION['username'];
+
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +50,7 @@ if (!isset($_SESSION['is_login'])) {
 		</a>
 		<ul class="side-menu">
 			<li>
-				<a href="dashboard_vendor.php" class="nav-link">
+				<a href="dashboard_vendor.html" class="nav-link">
 					<i class="fa-solid fa-house-chimney icon"></i>
 					Dashboard
 				</a>
@@ -61,7 +63,7 @@ if (!isset($_SESSION['is_login'])) {
 					<i class="fa-solid fa-angle-right icon-right"></i>
 				</a>
 				<ul class="side-dropdown">
-					<li><a href="kategori_layanan_vendor.php"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
+					<li><a href="kategori_layanan_vendor.html"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
 					<li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
 							Data</a></li>
 				</ul>
@@ -75,12 +77,12 @@ if (!isset($_SESSION['is_login'])) {
 				<ul class="side-dropdown">
 					<li><a href="req_pesanan.php"><i class="fa-solid fa-user-clock icon"></i> Permintaan Pesanan</a>
 					</li>
-					<li><a href="data_pesanan.php"><i class="fa-solid fa-clipboard-list icon"></i> Data Pesanan</a>
+					<li><a href="data_pesanan.php" class="active"><i class="fa-solid fa-clipboard-list icon"></i> Data Pesanan</a>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<a href="pengaturan.php" class="nav-link">
+				<a href="pengaturan.html" class="nav-link">
 					<i class="fa-solid fa-gear icon"></i>
 					Pengaturan
 				</a>
@@ -92,38 +94,24 @@ if (!isset($_SESSION['is_login'])) {
 				</a>
 			</li>
 		</ul>
+
+		<!-- Footer -->
+		<div class="ads">
+			<div class="wrapper">
+				<ul class="fast_link">
+					<li>Kontak</li>
+					<li>Vendor</li>
+					<li>Tentang Kami</li>
+					<li>FAQ</li>
+				  </ul>
+
+				<p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
+			</div>
+		</div>
 	</section>
 
 	<!-- NAVBAR -->
 	<section id="content">
-
-		<!-- NAVBAR -->
-		<!-- <nav>
-			<i class="fa-solid fa-bars toggle-sidebar"></i>
-
-			<form action="#">
-
-			</form>
-
-			<span class="divider"></span>
-
-			<div class="profile">
-				<div>
-				<a href="#!" class="profile-dropdown">
-					<img src="img/bg.jpg" alt="">
-					<span>Rosma Asiyya</span>
-					<i class="fa-solid fa-angle-down icon"></i>
-				</a>
-			</div>
-
-				<ul class="profile-link">
-					<li><a href="#"><i class="fas fa-user"></i> Lihat Profil</a></li>
-					<li><a href="#"><i class="fas fa-question"></i> FAQ</a></li>
-					<li><a href="#"><i class="fas fa-arrow-right-from-bracket"></i> Keluar</a></li>
-				</ul>
-			</div>
-		</nav> -->
-		<!-- NAVBAR -->
 
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-light">
@@ -146,7 +134,7 @@ if (!isset($_SESSION['is_login'])) {
 													<a href="#!" class="arrowdown">
 														<img src="img/circle-user-solid.svg" class="img-radius"
 															alt="User-Profile-Image">
-														<?php echo "<span>" . $_SESSION['username'] . "</span>" ?>
+														<?php echo '<span>' . $user . '</span>'; ?>
 														<i class="fa-solid fa-angle-down"></i>
 													</a>
 													<ul class="show-notification profile-notification">
@@ -161,7 +149,7 @@ if (!isset($_SESSION['is_login'])) {
 															</a>
 														</li>
 														<li class="">
-															<a href="#">
+															<a href="../login/logout.php">
 																<i class="fas fa-arrow-right-from-bracket"></i> Keluar
 															</a>
 														</li>
@@ -196,7 +184,7 @@ if (!isset($_SESSION['is_login'])) {
 						</li>
 						<li><i class="fa-solid fa-angle-right"></i></li>
 						<li>
-							<a class="active" href="#">Data Pesanan</a>
+							<a class="active" href="data_pesanan.php">Data Pesanan</a>
 						</li>
 					</ul>
 				</div>
@@ -206,95 +194,6 @@ if (!isset($_SESSION['is_login'])) {
 					<span class="text">Download PDF</span>
 				</a> -->
 			</div>
-
-			<!-- <button type="button" class="btn_tambahdata" data-bs-toggle="modal" data-bs-target="#exampleModal"
-				data-bs-whatever="@mdo">
-				<i class="fa-solid fa-circle-plus"></i>
-				Tambah Data
-			</button> -->
-
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-				aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Form Tambah Data Pesanan</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							<form class="needs-validation">
-								<div class="mb-3">
-									<label for="validationCustom01" class="form-label">Nama :</label>
-									<input type="text" class="form-control" id="validationDefault01" required>
-								</div>
-								<div class="mb-3">
-									<label for="recipient-name" class="col-form-label">Telephone :</label>
-									<input type="text" class="form-control" id="nama">
-								</div>
-								<div class="mb-3">
-									<label for="validationCustom03" class="col-form-label">Tanggal Booking</label>
-									<input type="date" class="form-control" id="validationDefault03" required>
-								</div>
-								<div class="mb-3">
-									<label for="recipient-name" class="col-form-label">Layanan :</label>
-									<select class="form-select" aria-label="Default select example"
-										id="validationDefault03" required>
-										<option value="">Pilih Jenis Layanan</option>
-										<option value="">Dekorasi</option>
-										<option value="">Foto & Video</option>
-										<option value="">Gaun Pengantin</option>
-										<option value="">Gedung</option>
-										<option value="">Katering</option>
-										<option value="">Makeup</option>
-										<option value="">MC</option>
-										<option value="">Music Band</option>
-										<option value="">Sewa Mobil</option>
-										<option value="">Sound System</option>
-									</select>
-								</div>
-								<div class="mb-3">
-									<label for="message-text" class="col-form-label">Variasi Layanan</label>
-									<textarea class="form-control" id="message-text" cols="30" rows="5"></textarea>
-								</div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn_tutup" data-bs-dismiss="modal">Tutup</button>
-							<button type="submit" class="btn_tambah"><i class="fa-solid fa-floppy-disk"></i>
-								Simpan</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- <ul class="box-info">
-				<li>
-					<i class="fa-solid fa-users"></i>
-					<span class="text">
-						<h3>80</h3>
-						<p>Total Pelanggan</p>
-					</span>
-				</li>
-				<li>
-					<i class="fa-solid fa-calendar-check"></i>
-					<span class="text">
-						<h3>84</h3>
-						<p>Total Pesanan</p>
-					</span>
-				</li>
-				<li>
-					<i class="fa-solid fa-cart-arrow-down"></i>
-					<span class="text">
-						<h3>865</h3>
-						<p>Total Penjualan</p>
-					</span>
-				</li>
-			</ul> -->
-
-
-
-
 
 			<!-- Tabel Data Pesanan -->
 			<div class="table-data">
@@ -310,80 +209,101 @@ if (!isset($_SESSION['is_login'])) {
 								<th>Telephone</th>
 								<th>Tgl Booking</th>
 								<th>Layanan</th>
-								<th>Variasi Layanan</th>
+								<th>Produk/Jasa</th>
 								<th>Status</th>
 								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php
+							<form action="update_status.php" method="POST">
+						<?php
 							// $id = $_SESSION['id'];
 							$sql = mysqli_query($koneksi,
-							"SELECT * FROM booking WHERE id_vendor = '$id'");
+							"SELECT * FROM booking WHERE id_vendor = '$id' and status='1' or status='2' order by status asc");
 							while ($cek = mysqli_fetch_assoc($sql)){
 								$nama = $cek["nama"];
 								$no_hp = $cek["no_hp"];
 								$tanggal = $cek["tanggal"];
 								$jenis_layanan = $cek["jenis_layanan"];
 								$paket = $cek["paket"];
-								$id_order = $cek["id"];
+								$id_booking = $cek["id"];
 								$id_user = $cek["id_user"];
 								$id_vendor = $cek["id_vendor"];
+								$status = $cek["status"];
 							?>
 							<tr>
 								<td>
 									<!-- <img src="img/people.png"> -->
 									<?php
-									echo "<p name='nama' value=" . $nama .">" . $nama ."</p>";
+								echo "<p name='id_booking' value=" . $id_booking .">" . $id_booking ."</p>";
+								echo "<p name='nama' value=" . $nama .">" . $nama ."</p>";
 								echo "</td>";
 								echo "<td name='no_hp' value=" . $no_hp .">" . $no_hp . "</td>";
 								echo "<td name='tanggal' value=" . $tanggal .">" . $tanggal . "</td>";
 								echo "<td name='jenis_layanan' value=" . $jenis_layanan .">" . $jenis_layanan . "</td>";
 								echo "<td name='paket' value=" . $paket .">" . $paket . "</td>";
-								?>
-								<!-- <td>
-									<span class="status completed">Completed</span>
-								</td> -->
-								<!-- <td>
-									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"><i
-											class="fa-solid fa-pen-to-square"></i> Ubah</button>
-									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus"><i
-											class="fa-solid fa-trash-can"></i> Hapus</button>
-								</td> -->
-							</tr>
+								echo "<td>";
 
+								switch($status){
+									case "1":
+										echo '<span class="status proses">Proses</span>';
+										break;
+									case "2":
+										echo '<span class="status selesai">Selesai</span>';
+										break;
+								}
+								echo '</td>';
+								echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">';
+								?>
+								<td>
+									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
+										data-bs-toggle="modal" data-bs-target="#ubahStatus">
+										<i class="fa-solid fa-pen-to-square"></i> Ubah
+									</button>
+								</td>
+							</tr>
 							<?php } ?>
+							</form>
 						</tbody>
 					</table>
 				</div>
-				<!-- <div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-						<i class="fa-solid fa-plus"></i>
+
+			</div>
+
+			<!-- FORM MODAL -->
+			<div class="modal fade" id="ubahStatus" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static"
+				aria-hidden="true">
+				<?php echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">'; ?>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Ubah Status Pesanan</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<form class="needs-validation" action="update_status.php" method="POST">
+							<?php echo $id_booking;
+							echo $jenis_layanan;?>
+								<div class="mb-3">
+									<label for="recipient-name" class="col-form-label">Status</label>
+									<select name="status" class="form-select" aria-label="Default select example"
+										id="validationDefault03" required>
+										<!-- <option value="">---Status---</option> -->
+										<option value="1">Proses</option>
+										<option value="2">Selesai</option>
+									</select>
+								</div>
+
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn_tutup" data-bs-dismiss="modal">Batal</button>
+							<button type="submit" name="submit" class="btn_tambah"><i class="fa-solid fa-floppy-disk"></i>Simpan</button>
+						</div>
+
 					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class="fa-solid fa-ellipsis"></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class="fa-solid fa-ellipsis"></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class="fa-solid fa-ellipsis"></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class="fa-solid fa-ellipsis"></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class="fa-solid fa-ellipsis"></i>
-						</li>
-					</ul>
-				</div> -->
+					</form>
+				</div>
 			</div>
 		</main>
 		<!-- MAIN -->

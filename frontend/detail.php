@@ -252,7 +252,12 @@ if (isset($_SESSION['username'])){
     <section class="detail" id="detail">
         <div class="product-content">
             <?php echo '<h2 class="product-title">Detail Layanan ' . $nama_layanan . '</h2>' ?>
-            <a href=""><button class="btn_call">Hubungi Vendor</button></a> <br>
+            <form action="tambah_favorit.php" method="POST">
+            <?php echo '<input type="hidden" name="id_vendor" value="' . $id_vendor . '">'; ?>
+            <?php echo '<input type="hidden" name="id_jenis" value="' . $id_jenis . '">';
+            ?>
+              <button type="submit" name="submit" class="btn_plus fa-solid fa-heart"> Favorit</button> <br>
+            </form>
 
             <!-- <div class = "product-rating">
                 <i class = "fas fa-star"></i>

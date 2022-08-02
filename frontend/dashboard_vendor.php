@@ -222,10 +222,15 @@ $id = $_SESSION['id'];
 					</span>
 				</li>
 				<li>
+					<?php
+					$sql = mysqli_query($koneksi,
+					"SELECT COUNT(id) AS jumlah3 from booking where id_vendor = '$id' AND status = '0'");
+					$cek = mysqli_fetch_assoc($sql);
+					?>
 					<i class="fa-solid fa-cart-arrow-down"></i>
 					<span class="text">
-						<h3>865</h3>
-						<p>Total Penjualan</p>
+						<?php echo '<h3>' . $cek['jumlah3'] . '</h3>'; ?>
+						<p>Permintaan Pesanan</p>
 					</span>
 				</li>
 			</ul>

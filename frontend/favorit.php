@@ -6,6 +6,7 @@ include '../database/connection.php';
 
 if(isset($_SESSION['username'])){
     $id = $_SESSION['id'];
+    $username = $_SESSION['username'];
 }
 if ($_SESSION['tipe'] != "user"){
     echo "<script>document.location.href='../index.php';</script>";
@@ -116,7 +117,7 @@ if ($_SESSION['tipe'] != "user"){
                                                     <a href="#!" class="arrowdown">
                                                         <img src="img/circle-user-solid.svg" class="img-radius"
                                                             alt="User-Profile-Image">
-                                                        <span>Rosma Asiyya</span>
+                                                        <?php echo '<span>' . $username . '</span>'; ?>
                                                         <i class="fa-solid fa-angle-down"></i>
                                                     </a>
                                                     <ul class="show-notification profile-notification">
@@ -172,21 +173,33 @@ if ($_SESSION['tipe'] != "user"){
             <section id="katering">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
+                    <?php
+                  $sql = mysqli_query($koneksi,
+                  "SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis
+                  FROM vendor, jenis_layanan WHERE jenis_layanan.nama_layanan = 'dekorasi'
+                  AND vendor.id = jenis_layanan.id_vendor");
+                  while ($cek = mysqli_fetch_assoc($sql)){
+                    $nama = $cek["nama"];
+                    $kecamatan = $cek["kecamatan"];
+                    $jenis_layanan = $cek["nama_layanan"];
+                    $id = $cek["id"];
+                    $galeri = $cek["galeri"];
+                    $id_jenis = $cek["id_jenis"];
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="img/mawar_katering.png" alt="">
-                                <div class="card-body">
-                                    <h4>Mawar Katering</h4>
-                                    <p>Tembalang, Semarang <br> <span class="text-danger"> </span></p>
-                                    <i class="fas fa-heart love"></i>
-                                </div>
+                  ?>
+                    <div class="col-4">
+                        <div class="card" style="width: 22rem;">
+                        <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($galeri) . '"alt="">' ?>
+                            <div class="card-body">
+                                <?php echo '<h4>'. $nama .'</h4>';
+                                echo '<p>' . $kecamatan . ', Semarang</p>';?>
+                                <!-- <img src="img/love.png" alt=""> -->
+                                <i class="fas fa-heart"></i>
+                                <?php echo'<a href="detail.php?' . $id .'?' . $id_jenis . '" class="stretched-link"></a>';?>
                             </div>
                         </div>
+                    </div>
+                    <?php }?>
                     </div>
                 </div>
             </section>

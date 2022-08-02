@@ -221,6 +221,7 @@ $id = $_SESSION['id'];
 											break;
 									} ?>
 								</td>
+
 								<!-- <td>
 									Akan di roses
 								</td> -->
