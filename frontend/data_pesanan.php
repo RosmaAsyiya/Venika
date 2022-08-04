@@ -82,7 +82,7 @@ $user = $_SESSION['username'];
 				</ul>
 			</li>
 			<li>
-				<a href="pengaturan.php" class="nav-link">
+				<a href="pengaturan.html" class="nav-link">
 					<i class="fa-solid fa-gear icon"></i>
 					Pengaturan
 				</a>
