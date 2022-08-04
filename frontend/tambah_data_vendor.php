@@ -222,16 +222,39 @@ if ($_SESSION['tipe'] != "vendor"){
 										<div class="navbar-container container-fluid">
 											<ul class="nav-right">
 												<li class="user-profile header-notification">
-														<a href="#!" class="arrowdown">
-														<img src="img/circle-user-solid.svg" class="img-radius" alt="User-Profile-Image">
-														<?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
-														<i class="fas fa-angle-down toggle"></i>
-														</a>
-														<ul class="show-notification profile-notification">
-														<li class="">
-															<a href="../login/logout.php">
-															<i class="fas fa-arrow-right-from-bracket"></i> Keluar
-															</a>
+												<a href="#!" class="arrowdown">
+                                                        <?php
+                                                        $sql = mysqli_query($koneksi,
+                                                        "SELECT photo From vendor WHERE id = '$id'");
+                                                        while ($cek = mysqli_fetch_assoc($sql)){
+                                                            $photo = $cek['photo'];
+
+                                                            if ($photo == NULL){
+                                                                echo '<img src="img/circle-user-solid.svg" class="img-radius">';
+                                                            }
+                                                            else{
+                                                                echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                            alt="User-Profile-Image">';}
+                                                            }
+                                                        ?>
+                                                            <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
+                                                        <i class="fa-solid fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="show-notification profile-notification">
+                                                        <li class="">
+                                                            <a href="#!">
+                                                                <i class="fas fa-user"></i> Lihat Profil
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="#">
+                                                                <i class="fas fa-question"></i> FAQ
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="../login/logout.php">
+                                                                <i class="fas fa-arrow-right-from-bracket"></i> Keluar
+                                                            </a>
 														</li>
 													</ul>
 												</li>
@@ -278,13 +301,13 @@ if ($_SESSION['tipe'] != "vendor"){
 					<!-- <h3>fast home delivery</h3> -->
 				</div>
 
-				<form action="tambah_layanan.php" method="POST">
+				<form action="tambah_layanan.php" enctype="multipart/form-data" method="POST">
 					<div class="box-container">
 						<div class="box">
 
 							<div class="mb-3 inputBox">
 								<label for="" class="form-label">Pilih Gambar Thumbnail</label>
-								<input name="thumbnail" class="form-control" type="file" accept="image/*" id="">
+								<input name="thumbnail" class="form-control" type="file" accept="image/*" id="photo">
 							</div>
 						</div>
 					</div>
@@ -323,7 +346,7 @@ if ($_SESSION['tipe'] != "vendor"){
 							</div>
 
 							<div class="inputBox">
-								<label for="">Adat</label>
+								<label for="">Adat (Khusus kategori Katering, Dekorasi, Makeup, Gaun Pengantin, dan MC)</label>
 								<select name="adat" class="form-select" id="inputGroupSelect01">
 									<option selected class="option" value="">Adat</option>
 									<option class="option" value="Bali">Bali</option>
@@ -335,27 +358,9 @@ if ($_SESSION['tipe'] != "vendor"){
 									<option class="option" value="Sunda">Sunda</option>
 								</select>
 							</div>
-							<!-- <div class="inputBox">
-								<label for="">Kontak</label>
-								<br><br>
-								<span>Whatsapp</span>
-								<input name="no_hp" type="text" placeholder="Masukkan Nomor/Link Whatsapp">
-
-								<span>Instagram (isi "-" jika tidak ada) </span>
-								<input name="instagram" type="text" placeholder="Masukkan Nama/Link Instagram">
-
-								<span>Facebook (isi "-" jika tidak ada) </span>
-								<input name="facebook" type="text" placeholder="Masukkan Nama/Link Facebook">
-
-								<span>Twitter (isi "-" jika tidak ada) </span>
-								<input name="twitter" type="text" placeholder="Masukkan Nama/Link Twitter">
-
-								<span>Website (isi "-" jika tidak ada) </span>
-								<input name="website" type="text" placeholder="Masukkan Nama/Link Website">
-							</div> -->
 							<div class="mb-3 inputBox">
 								<label for="" class="form-label">Pilih Gambar Galeri</label>
-								<input name="galeri" class="form-control" type="file" id="" accept="image/*" multiple>
+								<input name="galeri[]" class="form-control" type="file" accept="image/*" multiple>
 							</div>
 						</div>
 					</div>

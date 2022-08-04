@@ -6,6 +6,7 @@ include '../database/connection.php';
 
 if(isset($_SESSION['username'])){
     $id = $_SESSION['id'];
+    $username = $_SESSION['username'];
 }
 if ($_SESSION['tipe'] != "user"){
     echo "<script>document.location.href='../index.php';</script>";
@@ -31,7 +32,7 @@ if ($_SESSION['tipe'] != "user"){
 
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/dashboard_vendor.css">
+    <link rel="stylesheet" href="css/dashboard_vendor1.css">
     <link rel="stylesheet" href="css/list_vendor.css">
 
     <!-- Font Awesome -->
@@ -113,26 +114,29 @@ if ($_SESSION['tipe'] != "user"){
                                         <div class="navbar-container container-fluid">
                                             <ul class="nav-rightt">
                                                 <li class="user-profile header-notification">
-                                                    <a href="#!" class="arrowdown">
-                                                        <img src="img/circle-user-solid.svg" class="img-radius"
-                                                            alt="User-Profile-Image">
-                                                        <span>Rosma Asiyya</span>
-                                                        <i class="fa-solid fa-angle-down"></i>
-                                                    </a>
-                                                    <ul class="show-notification profile-notification">
-                                                        <li class="">
-                                                            <a href="#!">
-                                                                <i class="fas fa-user"></i> Lihat Profil
-                                                            </a>
-                                                        </li>
-                                                        <li class="">
-                                                            <a href="#">
-                                                                <i class="fas fa-question"></i> FAQ
-                                                            </a>
-                                                        </li>
-                                                        <li class="">
-                                                            <a href="../login/logout.php">
-                                                                <i class="fas fa-arrow-right-from-bracket"></i> Keluar
+                                                <a href="#!" class="arrowdown">
+                                                            <?php
+                                                            if($_SESSION['tipe'] == 'user'){
+                                                                $sql = mysqli_query($koneksi,
+                                                                "SELECT photo From user WHERE id = '$id'");
+                                                                while ($cek = mysqli_fetch_assoc($sql)){
+                                                                    $photo = $cek['photo'];
+
+                                                                ?>
+                                                                <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                                    alt="User-Profile-Image">';}}
+                                                            if($_SESSION['tipe'] == 'vendor'){
+                                                            $sql = mysqli_query($koneksi,
+                                                                "SELECT photo From vendor WHERE id = '$id'");
+                                                                while ($cek = mysqli_fetch_assoc($sql)){
+                                                                    $photo = $cek['photo'];
+
+                                                                ?>
+                                                                <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                                    alt="User-Profile-Image">';}
+                                                            } ?>
+                                                            <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
+                                                            <i class="fas fa-angle-down toggle"></i>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -172,21 +176,33 @@ if ($_SESSION['tipe'] != "user"){
             <section id="katering">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
+                    <?php
+                  $sql = mysqli_query($koneksi,
+                  "SELECT distinct vendor.nama, vendor.id, jenis_layanan.id as id_jenis, vendor.kecamatan, jenis_layanan.nama_layanan, jenis_layanan.galeri
+                  from vendor, favorit, jenis_layanan where favorit.id_user = '$id' and favorit.id_vendor = vendor.id
+                  and favorit.id_jenis = jenis_layanan.id");
+                  while ($cek = mysqli_fetch_assoc($sql)){
+                    $nama = $cek["nama"];
+                    $kecamatan = $cek["kecamatan"];
+                    $jenis_layanan = $cek["nama_layanan"];
+                    $id = $cek["id"];
+                    $galeri = $cek["galeri"];
+                    $id_jenis = $cek["id_jenis"];
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="card">
-                                <img src="img/mawar_katering.png" alt="">
-                                <div class="card-body">
-                                    <h4>Mawar Katering</h4>
-                                    <p>Tembalang, Semarang <br> <span class="text-danger"> </span></p>
-                                    <i class="fas fa-heart love"></i>
-                                </div>
+                  ?>
+                    <div class="col-4">
+                        <div class="card" style="width: 22rem;">
+                        <?php echo '<img src="../thumbnail/' . $galeri . '"alt="">' ?>
+                            <div class="card-body">
+                                <?php echo '<h4>'. $nama .'</h4>';
+                                echo '<p>' . $kecamatan . ', Semarang</p>';?>
+                                <!-- <img src="img/love.png" alt=""> -->
+                                <i class="fas fa-heart"></i>
+                                <?php echo'<a href="detail.php?' . $id .'?' . $id_jenis . '" class="stretched-link"></a>';?>
                             </div>
                         </div>
+                    </div>
+                    <?php }?>
                     </div>
                 </div>
             </section>

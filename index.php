@@ -63,10 +63,10 @@ if (isset($_SESSION['username'])){
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="katering.php">Vendor</a>
+            <a class="nav-link" href="#kategori">Vendor</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Tentang Kami</a>
+            <a class="nav-link" href="frontend/tentang_kami.php">Tentang Kami</a>
           </li>
         </ul>
 
@@ -83,14 +83,25 @@ if (isset($_SESSION['username'])){
                       <li class="user-profile header-notification">
                         <a href="#!" class="arrowdown">
                         <?php
-                                                        $sql = mysqli_query($koneksi,
-                                                        "SELECT photo From user WHERE id = '$id'");
-                                                        while ($cek = mysqli_fetch_assoc($sql)){
-                                                            $photo = $cek['photo'];
+                        if($_SESSION['tipe'] == 'user'){
+                              $sql = mysqli_query($koneksi,
+                              "SELECT photo From user WHERE id = '$id'");
+                              while ($cek = mysqli_fetch_assoc($sql)){
+                                  $photo = $cek['photo'];
 
-                                                        ?>
-                                                        <?php echo '<img src="photo/' . $photo . '" class="img-radius"
-                                                            alt="User-Profile-Image">';} ?>
+                              ?>
+                              <?php echo '<img src="photo/' . $photo . '" class="img-radius"
+                                  alt="User-Profile-Image">';}}
+                        if($_SESSION['tipe'] == 'vendor'){
+                          $sql = mysqli_query($koneksi,
+                              "SELECT photo From vendor WHERE id = '$id'");
+                              while ($cek = mysqli_fetch_assoc($sql)){
+                                  $photo = $cek['photo'];
+
+                              ?>
+                              <?php echo '<img src="photo/' . $photo . '" class="img-radius"
+                                  alt="User-Profile-Image">';}
+                        } ?>
                           <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
                           <i class="fas fa-angle-down toggle"></i>
                         </a>
@@ -99,18 +110,18 @@ if (isset($_SESSION['username'])){
                             <?php
                             if($_SESSION['tipe'] == "user"){
                             ?>
-                            <a href="frontend/dashboard_user.php">
+                            <a href="dashboard_user.php">
                               <i class="fas fa-user"></i> Lihat Profil
                             </a>
                             <?php }
                             else{?>
-                            <a href="frontend/dashboard_vendor.php">
+                            <a href="dashboard_vendor.php">
                               <i class="fas fa-user"></i> Lihat Profil
                             </a>
                             <?php }?>
                           </li>
                           <li class="">
-                            <a href="#">
+                            <a href="frontend/faq.php">
                               <i class="fas fa-question"></i> FAQ
                             </a>
                           </li>
@@ -162,10 +173,10 @@ if (isset($_SESSION['username'])){
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="katering.php">Vendor</a>
+            <a class="nav-link" href="#kategori">Vendor</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Tentang Kami</a>
+            <a class="nav-link" href="frontend/tentang_kami.php">Tentang Kami</a>
           </li>
         </ul>
 

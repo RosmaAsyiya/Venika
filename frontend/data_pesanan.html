@@ -49,25 +49,25 @@
 				</a>
 				<ul class="side-dropdown">
 					<li><a href="kategori_layanan_vendor.html"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
-					<li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
+					<li><a href="tambah_data_vendor.php"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
 							Data</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="data_pesanan.html" class="active">
+				<a href="data_pesanan.php" class="active">
 					<i class="fa-solid fa-cart-shopping icon"></i>
 					Pesanan
 					<i class="fa-solid fa-angle-right icon-right"></i>
 				</a>
 				<ul class="side-dropdown">
-					<li><a href="req_pesanan.html"><i class="fa-solid fa-user-clock icon"></i> Permintaan Pesanan</a>
+					<li><a href="req_pesanan.php"><i class="fa-solid fa-user-clock icon"></i> Permintaan Pesanan</a>
 					</li>
-					<li><a href="data_pesanan.html" class="active"><i class="fa-solid fa-clipboard-list icon"></i> Data Pesanan</a>
+					<li><a href="data_pesanan.php" class="active"><i class="fa-solid fa-clipboard-list icon"></i> Data Pesanan</a>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<a href="pengaturan.html" class="nav-link">
+				<a href="pengaturan.php" class="nav-link">
 					<i class="fa-solid fa-gear icon"></i>
 					Pengaturan
 				</a>
@@ -89,7 +89,7 @@
 					<li>Tentang Kami</li>
 					<li>FAQ</li>
 				  </ul>
-				  
+
 				<p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
 			</div>
 		</div>
@@ -169,7 +169,7 @@
 						</li>
 						<li><i class="fa-solid fa-angle-right"></i></li>
 						<li>
-							<a class="active" href="data_pesanan.html">Data Pesanan</a>
+							<a class="active" href="data_pesanan.php">Data Pesanan</a>
 						</li>
 					</ul>
 				</div>
@@ -309,9 +309,9 @@
 						</tbody>
 					</table>
 				</div>
-				
+
 			</div>
-			
+
 			<!-- FORM MODAL -->
 			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
 				aria-hidden="true">
@@ -332,8 +332,8 @@
 										<option value="">Selesai</option>
 									</select>
 								</div>
-								
-								
+
+
 							</form>
 						</div>
 						<div class="modal-footer">
@@ -367,3 +367,41 @@
 </body>
 
 </html>
+
+<?php
+							// $id = $_SESSION['id'];
+							$sql = mysqli_query($koneksi,
+							"SELECT * FROM booking WHERE id_vendor = '$id'");
+							while ($cek = mysqli_fetch_assoc($sql)){
+								$nama = $cek["nama"];
+								$no_hp = $cek["no_hp"];
+								$tanggal = $cek["tanggal"];
+								$jenis_layanan = $cek["jenis_layanan"];
+								$paket = $cek["paket"];
+								$id_order = $cek["id"];
+								$id_user = $cek["id_user"];
+								$id_vendor = $cek["id_vendor"];
+							?>
+							<tr>
+								<td>
+									<!-- <img src="img/people.png"> -->
+									<?php
+									echo "<p name='nama' value=" . $nama .">" . $nama ."</p>";
+								echo "</td>";
+								echo "<td name='no_hp' value=" . $no_hp .">" . $no_hp . "</td>";
+								echo "<td name='tanggal' value=" . $tanggal .">" . $tanggal . "</td>";
+								echo "<td name='jenis_layanan' value=" . $jenis_layanan .">" . $jenis_layanan . "</td>";
+								echo "<td name='paket' value=" . $paket .">" . $paket . "</td>";
+								?>
+								<!-- <td>
+									<span class="status completed">Completed</span>
+								</td> -->
+								<!-- <td>
+									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"><i
+											class="fa-solid fa-pen-to-square"></i> Ubah</button>
+									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus"><i
+											class="fa-solid fa-trash-can"></i> Hapus</button>
+								</td> -->
+							</tr>
+
+							<?php } ?>

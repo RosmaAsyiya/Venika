@@ -60,7 +60,7 @@ $id = $_SESSION['id'];
 				</a>
 				<ul class="side-dropdown">
 					<li><a href="data_vendor.html"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
-					<li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
+					<li><a href="tambah_data_vendor.php"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
 							Data</a></li>
 				</ul>
 			</li>
@@ -99,9 +99,9 @@ $id = $_SESSION['id'];
 			<i class="fa-solid fa-bars toggle-sidebar"></i>
 
 			<form action="#">
-				
+
 			</form>
-			
+
 			<span class="divider"></span>
 
 			<div class="profile">

@@ -219,10 +219,22 @@ $id = $_SESSION['id'];
                                         <div class="navbar-container container-fluid">
                                             <ul class="nav-rightt">
                                                 <li class="user-profile header-notification">
-                                                    <a href="#!" class="arrowdown">
-                                                        <img src="img/circle-user-solid.svg" class="img-radius"
-                                                            alt="User-Profile-Image">
-                                                        <?php echo '<span>' . $_SESSION["username"] . '</span>'; ?>
+                                                <a href="#!" class="arrowdown">
+                                                        <?php
+                                                        $sql = mysqli_query($koneksi,
+                                                        "SELECT photo From vendor WHERE id = '$id'");
+                                                        while ($cek = mysqli_fetch_assoc($sql)){
+                                                            $photo = $cek['photo'];
+
+                                                            if ($photo == NULL){
+                                                                echo '<img src="img/circle-user-solid.svg" class="img-radius">';
+                                                            }
+                                                            else{
+                                                                echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                            alt="User-Profile-Image">';}
+                                                            }
+                                                        ?>
+                                                            <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
                                                         <i class="fa-solid fa-angle-down"></i>
                                                     </a>
                                                     <ul class="show-notification profile-notification">

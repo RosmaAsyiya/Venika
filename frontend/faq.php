@@ -1,49 +1,45 @@
 <?php
-  session_start();
+session_start();
 
-  include '../database/connection.php';
-  if (!isset($_SESSION['is_login'])) {
-    echo "<script> alert('Login Terlebih Dahulu!')</script>";
-    echo "<script>document.location.href='../login.php';</script>";
-    die();
-}
+include '../database/connection.php';
+if (isset($_SESSION['id'])){
 $id = $_SESSION['id'];
+}
 ?>
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Font Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="css/list_vendor.css">
+    <link rel="stylesheet" href="css/faq.css">
     <link rel="stylesheet" href="css/style_nav_login.css">
 
     <!-- Style Responsive -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
-    </script>
-
-    <!-- Swiper CSS -->
-    <!-- <link rel="stylesheet" href="css/swiper-bundle.min.css"> -->
-
-    <!-- Style Swiper CSS-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <!-- Font Awesome -->
+    <!-- <script
+    src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous">
+  </script> -->
+    <script src="https://kit.fontawesome.com/3709d60cb3.js" crossorigin="anonymous"></script>
 
     <title>Venika</title>
-  </head>
-  <?php
+</head>
+
+<?php
 if (isset($_SESSION['username'])){
 ?>
   <body>
@@ -121,7 +117,7 @@ if (isset($_SESSION['username'])){
                             <?php }?>
                           </li>
                           <li class="">
-                            <a href="frontend/faq.php">
+                            <a href="#">
                               <i class="fas fa-question"></i> FAQ
                             </a>
                           </li>
@@ -167,11 +163,13 @@ if (isset($_SESSION['username'])){
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
+
           <li class="nav-item mx-3">
-            <a class="nav-link active" aria-current="page" href="../">Beranda</a>
+
+            <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="../#kategori">Vendor</a>
+            <a class="nav-link" href="katering.php">Vendor</a>
           </li>
           <li class="nav-item mx-3">
             <a class="nav-link" href="tentang_kami.php">Tentang Kami</a>
@@ -191,152 +189,78 @@ if (isset($_SESSION['username'])){
   }
 ?>
 
-    <!-- HERO SECTION -->
+
+    <!-- Hero Section -->
     <section id="hero">
         <!-- h-100 : height agar memenuhi layar -->
         <div class="container" h-100>
             <div class="row" h-100>
                 <div class="col-md-6 hero-tagline my-auto">
-                    <img src="img/bg_fotovideo1.jpg" alt="" class="position-absolute end-0 bottom-0 img-hero">
-                    <h1>Momen Bahagia Harus Di Abadikan !</h1>
-                    <p>Temukan Foto & Videographer terbaik disini...</p>
-                    <button class="btn_cari_sekarang">Cari sekarang...</button>
+                    <img src="img/bg_aboutus3.jpg" alt="" class="position-absolute end-0 bottom-0 img-hero">
+                    <h1>FAQ</h1>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Search Section -->
 
-  <section id="search">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-          <h2>VENDOR</h2>
-        </div>
-      </div>
+    <!-- Tentang Kami -->
 
-      <form action="../hasil.php" method="GET">
-      <div class="col-10 mx-auto rectangle">
-        <div class="row">
-          <div class="col-auto">
-            <input value="" type="text" class="form-control" name="nama_vendor" placeholder="Cari vendor..." aria-label="Cari vendor">
-          </div>
+    <section id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="text-center">
+                    <h2>Frequenty Asked Questions</h2>
+                </div>
+                <div class="right">
+                    <img src="img/faq.png" alt="">
+                    <div class="accordion" id="accordionExample">
 
-          <!-- <div class="col-auto">
-                <button class="btn_dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Kategori
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">Dekorasi</a></li>
-                  <li><a class="dropdown-item" href="#">Katering</a></li>
-                  <li><a class="dropdown-item" href="#">Makeup</a></li>
-                  <li><a class="dropdown-item" href="#">Sound System</a></li>
-                  <li><a class="dropdown-item" href="#">Gedung</a></li>
-                  <li><a class="dropdown-item" href="#">Foto & Video</a></li>
-                  <li><a class="dropdown-item" href="#">Sewa Mobil</a></li>
-                  <li><a class="dropdown-item" href="#">Gaun Pengantin</a></li>
-                </ul>
-              </div> -->
-
-          <!-- Filter Jenis Layanan -->
-          <div class="col-auto filter_jenis layanan">
-            <select name="jenis_layanan" class="form-select" id="inputGroupSelect01">
-              <option selected class="option" value="">Jenis Layanan</option>
-              <option class="option" value="Dekorasi">Dekorasi</option>
-              <option class="option" value="Katering">Katering</option>
-              <option class="option" value="Makeup">Makeup</option>
-              <option class="option" value="SoundSystem">Sound System</option>
-              <option class="option" value="MusicBand">Music Band</option>
-              <option class="option" value="Gedung">Gedung</option>
-              <option class="option" value="FotoVideo">Foto & Video</option>
-              <option class="option" value="SewaMobil">Sewa Mobil</option>
-              <option class="option" value="GaunPengantin">Gaun Pengantin</option>
-              <option class="option" value="MC">MC</option>
-            </select>
-          </div>
-
-          <!-- Filter Lokasi -->
-          <div class="col-auto ">
-            <select name="lokasi" class="form-select" id="inputGroupSelect01">
-              <option selected class="option" value="">Lokasi</option>
-              <option class="option" value="Banyumanik">Banyumanik</option>
-              <option class="option" value="Candisari">Candisari</option>
-              <option class="option" value="Gajahmungkur">Gajahmungkur</option>
-              <option class="option" value="Gayamsari">Gayamsari</option>
-              <option class="option" value="Genuk">Genuk</option>
-              <option class="option" value="Gunungpati">Gunungpati</option>
-              <option class="option" value="Mijen">Mijen</option>
-              <option class="option" value="Ngaliyan">Ngaliyan</option>
-              <option class="option" value="Pedurungan">Pedurungan</option>
-              <option class="option" value="SemarangBarat">Semarang Barat</option>
-              <option class="option" value="SemarangSelatan">Semarang Selatan</option>
-              <option class="option" value="Semarang Tengah">Semarang Tengah</option>
-              <option class="option" value="SemarangUtara">Semarang Utara</option>
-              <option class="option" value="Tembalang">Tembalang</option>
-              <option class="option" value="Tugu">Tugu</option>
-            </select>
-          </div>
-
-          <!-- Filter Adat -->
-          <div class="col-auto filter_adat">
-            <select name="adat" class="form-select" id="inputGroupSelect01">
-              <option selected class="option" value="">Adat</option>
-              <option class="option" value="Bali">Bali</option>
-              <option class="option" value="Batak">Batak</option>
-              <option class="option" value="Betawi">Betawi</option>
-              <option class="option" value="Eropa">Eropa</option>
-              <option class="option" value="Jawa">Jawa</option>
-              <option class="option" value="Melayu">Melayu</option>
-              <option class="option" value="Sunda">Sunda</option>
-            </select>
-          </div>
-
-          <!-- Button Cari -->
-          <div class="col-auto">
-            <button name="search" class="btn_search" type="submit" id="button-addon2">Cari</button>
-          </div>
-        </div>
-      </div>
-      </form>
-
-    </div>
-  </section>
-
-    <!-- Foto & Video SECTION -->
-    <section id="fotovideo">
-          <div class="container">
-              <div class="row">
-                <?php
-                  $sql = mysqli_query($koneksi,
-                  "SELECT DISTINCT vendor.id, vendor.nama, vendor.kecamatan, jenis_layanan.galeri, jenis_layanan.nama_layanan, jenis_layanan.id as id_jenis
-                  FROM vendor, jenis_layanan WHERE jenis_layanan.nama_layanan = 'fotovideo'
-                  AND vendor.id = jenis_layanan.id_vendor");
-                  while ($cek = mysqli_fetch_assoc($sql)){
-                    $nama = $cek["nama"];
-                    $kecamatan = $cek["kecamatan"];
-                    $jenis_layanan = $cek["nama_layanan"];
-                    $id = $cek["id"];
-                    $galeri = $cek["galeri"];
-                    $id_jenis = $cek["id_jenis"];
-
-                  ?>
-                    <div class="col-4">
-                        <div class="card" style="width: 22rem;">
-                        <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($galeri) . '"alt="">' ?>
-                            <div class="card-body">
-                                <?php echo '<h4>'. $nama .'</h4>';
-                                echo '<p>' . $kecamatan . ', Semarang</p>';?>
-                                <!-- <img src="img/love.png" alt=""> -->
-                                <i class="fas fa-heart"></i>
-                                <?php echo'<a href="detail.php?' . $id .'?' . $id_jenis . '" class="stretched-link"></a>';?>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header space" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Bagaimana Cara Melakukan Booking ?
+                            </button>
+                          </h2>
+                          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                             </div>
+                          </div>
                         </div>
-                    </div>
-                    <?php }?>
-              </div>
-          </div>
-      </section>
+
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Accordion Item #2
+                            </button>
+                          </h2>
+                          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              Accordion Item #3
+                            </button>
+                          </h2>
+                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
 
 
@@ -362,6 +286,7 @@ if (isset($_SESSION['username'])){
             <p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
         </div>
     </footer>
+
     <!-- JavaScript -->
     <script src="js/script.js"></script>
 

@@ -50,7 +50,7 @@ session_start();
 				</a>
 				<ul class="side-dropdown">
 					<li><a href="data_vendor.php"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
-					<li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
+					<li><a href="tambah_data_vendor.php"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
 							Data</a></li>
 				</ul>
 			</li>

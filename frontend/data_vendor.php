@@ -17,7 +17,7 @@ if (!isset($_SESSION['is_login'])) {
 
     $sql = mysqli_query($koneksi,
     "SELECT * FROM vendor, jenis_layanan
-    WHERE vendor.id = '$id_vendor' AND jenis_layanan.id = '$id_jenis' 
+    WHERE vendor.id = '$id_vendor' AND jenis_layanan.id = '$id_jenis'
     AND jenis_layanan.id_vendor = vendor.id");
     $cek = mysqli_fetch_assoc($sql);
     $fasilitas = $cek['fasilitas'];
@@ -206,7 +206,7 @@ if (!isset($_SESSION['is_login'])) {
 					<li>Tentang Kami</li>
 					<li>FAQ</li>
 				  </ul>
-				  
+
 				<p>Copyright &copy;2022 Venika | designed by <span>Venika</span></p>
 			</div>
 		</div>
@@ -233,10 +233,22 @@ if (!isset($_SESSION['is_login'])) {
                                         <div class="navbar-container container-fluid">
                                             <ul class="nav-rightt">
                                                 <li class="user-profile header-notification">
-                                                    <a href="#!" class="arrowdown">
-                                                        <img src="img/circle-user-solid.svg" class="img-radius"
-                                                            alt="User-Profile-Image">
-                                                        <?php echo '<span>' . $_SESSION["username"] .   '</span>'; ?>
+                                                <a href="#!" class="arrowdown">
+                                                        <?php
+                                                        $sql = mysqli_query($koneksi,
+                                                        "SELECT photo From vendor WHERE id = '$id'");
+                                                        while ($cek = mysqli_fetch_assoc($sql)){
+                                                            $photo = $cek['photo'];
+
+                                                            if ($photo == NULL){
+                                                                echo '<img src="img/circle-user-solid.svg" class="img-radius">';
+                                                            }
+                                                            else{
+                                                                echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                            alt="User-Profile-Image">';}
+                                                            }
+                                                        ?>
+                                                            <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
                                                         <i class="fa-solid fa-angle-down"></i>
                                                     </a>
                                                     <ul class="show-notification profile-notification">
@@ -251,7 +263,7 @@ if (!isset($_SESSION['is_login'])) {
                                                             </a>
                                                         </li>
                                                         <li class="">
-                                                            <a href="#">
+                                                            <a href="../login/logout.php">
                                                                 <i class="fas fa-arrow-right-from-bracket"></i> Keluar
                                                             </a>
                                                         </li>
@@ -297,17 +309,40 @@ if (!isset($_SESSION['is_login'])) {
             </div>
 
             <!-- GALLERY -->
-            
+
             <div class="table_data">
                 <div class="gallery" id="gallery">
                     <div class="head">
                         <h3>Galeri</h3>
                     </div>
 
-                    <div class="tambah_gbr">
-                        <input type="file" id="file" accept="image/*">
-                        <label for="file"><i class="fa-solid fa-circle-plus"></i> Tambah</label>
-                    </div>
+                    <form enctype="multipart/form-data" method="POST">
+                        <div class="tambah_gbr">
+                            <input type="file" id="file" accept="image/*" name="NamaFile" onchange="javascript:this.form.submit();">
+                            <label for="file"><i class="fa-solid fa-circle-plus"></i> Tambah</label>
+                        </div>
+                    </form>
+
+                    <?php
+                        if(isset($_FILES["NamaFile"])){
+                        $direktori = "../photo/";
+                        $file_name = $_FILES['NamaFile']['name'];
+                        move_uploaded_file($_FILES['NamaFile']['tmp_name'], $direktori.$file_name);
+
+                        $sql = mysqli_query($koneksi,
+                        "INSERT INTO galeri_jenis_layanan(id_vendor, id_jenis, galeri) values ('$id_vendor', '$id_jenis', '$file_name')");
+                        if ($cek = mysqli_affected_rows($koneksi) > 0){
+                        //   mysqli_query($koneksi, "update into user set photo='$file_name'");
+                        //   mysqli_query($koneksi, "update user set photo='$file_name' where id='$_SESSION['id']'");
+                        echo "<b>File Berhasil Diupload";
+                        echo "<script>document.location.href='data_vendor.php?" . $id_vendor . "?" . $id_jenis . "';</script>";
+                        }
+                        else{
+                            echo "<b>ERROR!";
+                        }
+
+                        }
+                    ?>
 
                     <div class="gallery-container">
                     <?php
@@ -318,10 +353,12 @@ if (!isset($_SESSION['is_login'])) {
                         while ($cek = mysqli_fetch_assoc($sql)){
                             $galeri = $cek['galeri'];
 
-                        ?>
 
+                        ?>
                         <div class="box">
-                            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($galeri) . '"alt="">' ?>
+                                                         <img src="../photo/<?php echo($galeri)?> " class="img"
+                                                            >
+
                             <div class="icon">
                                 <!-- Button Ubah Gambar -->
                                 <div class="ubah">
@@ -329,9 +366,14 @@ if (!isset($_SESSION['is_login'])) {
                                     <label for="file"><i class="fa-solid fa-pen-to-square"></i></label>
                                 </div>
                                 <!-- Button Hapus Gambar -->
-                                <form method = "POST" action="delete_image.php">
-                                <?php echo '<button type="button" name="delete" value="' . $galeri . '" class="btn  btn-icon-text btn_hapus"><i class="fa-solid fa-trash-can"></i></button>';?>
+                                <form method="POST" action="image_delete.php">
+                                    <input type="hidden" name="galeri" value="<?php echo($galeri)?>">
+                                    <input type="hidden" name="id_vendor" value="<?php echo($id_vendor)?>">
+                                    <input type="hidden" name="id_jenis" value="<?php echo($id_jenis)?>">
+                                    <button type="submit" name="image" class="btn  btn-icon-text btn_hapus"><i class="fa-solid fa-trash-can"></i></button>
                                 </form>
+                                <!-- <a href="image_delete.php" class="btn  btn-icon-text btn_hapus"><i class="fa-solid fa-trash-can"></i></a> -->
+
                             </div>
                         </div>
                             <?php } ?>

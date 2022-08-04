@@ -690,28 +690,28 @@ h2 {
     }
 
     /* Katering */
-    .card {
+    #katering .card {
         height: 300px;
         width: 8rem;
         margin-top: 30px;
         border-radius: 12px;
     }
-    .card img {
+    #katering .card img {
         border-radius: 12px 12px 0 0;
     }
 
-    .card-body h4 {
+    #katering .card-body h4 {
         font-weight: 600;
-        font-size: 14px;
+        font-size: 54px;
         line-height: 20px;
     }
 
-    .card-body p {
+    #katering .card-body p {
         font-weight: 400;
-        font-size: 12px;
+        font-size: 92px;
     }
 
-    .card-body span {
+    #katering .card-body span {
         line-height: 20px;
         font-weight: 500;
         font-size: 12px;
