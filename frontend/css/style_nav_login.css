@@ -26,7 +26,10 @@ body {
 }
 
 .nav-color {
-    background-color: #F9C8C8;
+    /* background-color: #F9C8C8; */
+	/* background-color: #ffe8e8; */
+	/* background-color: #fff; */
+	background-color: #FDEFEF;;
     transition: all ease-in-out 0.3s;
 }
 

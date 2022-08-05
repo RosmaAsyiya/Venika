@@ -23,14 +23,21 @@ body {
 }
 
 .nav-color {
-    background-color: #FDEFEF;
+    /* background-color: #FDEFEF; */
+    background-color: #ffe8e8;
     transition: all ease-in-out 0.3s;
 }
 
 /* Navbar */
 /* bold tulisan logo pd navbar */
 .navbar-brand {
+    font-size: 24px;
     font-weight: 700;
+    color: #0F1F48;
+}
+
+.navbar-brand img {
+    margin-right: 20px;
 }
 
 .nav-link {
@@ -80,7 +87,9 @@ body {
 /* Hero Section */
 
 #hero {
-    background: linear-gradient(108.37deg, rgba(254, 156, 156, 0.2) -0.63%, rgba(255, 113, 113, 0.55) 93.04%);
+    /* background: linear-gradient(108.37deg, rgba(254, 156, 156, 0.2) -0.63%, rgba(255, 113, 113, 0.55) 93.04%); */
+    background: linear-gradient(108.37deg, rgba(254, 156, 156, 0.04) -0.63%, rgba(255, 113, 113, 0.3) 93.04%);
+    /* background: #fafafa; */
     height: 754px;
     width: 100%;
 }
