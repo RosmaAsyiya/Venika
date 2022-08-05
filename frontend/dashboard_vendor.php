@@ -44,7 +44,7 @@ $id = $_SESSION['id'];
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<a href="index.html" class="brand">
+		<a href="../index.php" class="brand">
 			<i class="fa-brands fa-slack icon"></i>
 			Venika
 		</a>
@@ -64,7 +64,7 @@ $id = $_SESSION['id'];
 				</a>
 				<ul class="side-dropdown">
 					<li><a href="kategori_layanan_vendor.php"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
-					<li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
+					<li><a href="tambah_data_vendor.php"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
 							Data</a></li>
 				</ul>
 			</li>
@@ -144,16 +144,39 @@ $id = $_SESSION['id'];
 										<div class="navbar-container container-fluid">
 											<ul class="nav-right">
 												<li class="user-profile header-notification">
-														<a href="#!" class="arrowdown">
-														<img src="img/circle-user-solid.svg" class="img-radius" alt="User-Profile-Image">
-														<?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
-														<i class="fas fa-angle-down toggle"></i>
-														</a>
-														<ul class="show-notification profile-notification">
-														<li class="">
-															<a href="../login/logout.php">
-															<i class="fas fa-arrow-right-from-bracket"></i> Keluar
-															</a>
+												<a href="#!" class="arrowdown">
+                                                        <?php
+                                                        $sql = mysqli_query($koneksi,
+                                                        "SELECT photo From vendor WHERE id = '$id'");
+                                                        while ($cek = mysqli_fetch_assoc($sql)){
+                                                            $photo = $cek['photo'];
+
+                                                            if ($photo == NULL){
+                                                                echo '<img src="img/circle-user-solid.svg" class="img-radius">';
+                                                            }
+                                                            else{
+                                                                echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                            alt="User-Profile-Image">';}
+                                                            }
+                                                        ?>
+                                                            <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
+                                                        <i class="fa-solid fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="show-notification profile-notification">
+                                                        <li class="">
+                                                            <a href="#!">
+                                                                <i class="fas fa-user"></i> Lihat Profil
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="#">
+                                                                <i class="fas fa-question"></i> FAQ
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="../login/logout.php">
+                                                                <i class="fas fa-arrow-right-from-bracket"></i> Keluar
+                                                            </a>
 														</li>
 													</ul>
 												</li>
@@ -250,6 +273,7 @@ $id = $_SESSION['id'];
 								<th>Tanggal Order</th>
 								<th>Jenis Layanan</th>
 								<th>Paket</th>
+								<th>Status</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -262,6 +286,7 @@ $id = $_SESSION['id'];
 								$tanggal = $cek["tanggal"];
 								$jenis_layanan = $cek["jenis_layanan"];
 								$paket = $cek["paket"];
+								$status = $cek["status"];
 
 							?>
 							<tr>
@@ -273,6 +298,21 @@ $id = $_SESSION['id'];
 								<?php echo "<td>" . $tanggal . "</td>"; ?>
 								<?php echo "<td>" . $jenis_layanan . "</td>"; ?>
 								<?php echo "<td>" . $paket . "</td>"; ?>
+								<td>
+								<?php switch($status){
+									case "0":
+										echo '<span class="status pending">Pending</span>';
+										break;
+									case "1":
+										echo '<span class="status proses">Proses</span>';
+										break;
+									case "2":
+										echo '<span class="status selesai">Selesai</span>';
+										break;
+									case "3":
+										echo '<span class="status ditolak">Ditolak</span>';
+								} ?>
+								</td>
 							</tr>
 							<?php } ?>
 						</tbody>

@@ -64,7 +64,7 @@ $user = $_SESSION['username'];
 				</a>
 				<ul class="side-dropdown">
 					<li><a href="kategori_layanan_vendor.html"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
-					<li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
+					<li><a href="tambah_data_vendor.php"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
 							Data</a></li>
 				</ul>
 			</li>
@@ -131,27 +131,39 @@ $user = $_SESSION['username'];
 										<div class="navbar-container container-fluid">
 											<ul class="nav-rightt">
 												<li class="user-profile header-notification">
-													<a href="#!" class="arrowdown">
-														<img src="img/circle-user-solid.svg" class="img-radius"
-															alt="User-Profile-Image">
-														<?php echo '<span>' . $user . '</span>'; ?>
-														<i class="fa-solid fa-angle-down"></i>
-													</a>
-													<ul class="show-notification profile-notification">
-														<li class="">
-															<a href="#!">
-																<i class="fas fa-user"></i> Lihat Profil
-															</a>
-														</li>
-														<li class="">
-															<a href="#">
-																<i class="fas fa-question"></i> FAQ
-															</a>
-														</li>
-														<li class="">
-															<a href="../login/logout.php">
-																<i class="fas fa-arrow-right-from-bracket"></i> Keluar
-															</a>
+												<a href="#!" class="arrowdown">
+                                                        <?php
+                                                        $sql = mysqli_query($koneksi,
+                                                        "SELECT photo From vendor WHERE id = '$id'");
+                                                        while ($cek = mysqli_fetch_assoc($sql)){
+                                                            $photo = $cek['photo'];
+
+                                                            if ($photo == NULL){
+                                                                echo '<img src="img/circle-user-solid.svg" class="img-radius">';
+                                                            }
+                                                            else{
+                                                                echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                            alt="User-Profile-Image">';}
+                                                            }
+                                                        ?>
+                                                            <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
+                                                        <i class="fa-solid fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="show-notification profile-notification">
+                                                        <li class="">
+                                                            <a href="#!">
+                                                                <i class="fas fa-user"></i> Lihat Profil
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="#">
+                                                                <i class="fas fa-question"></i> FAQ
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="../login/logout.php">
+                                                                <i class="fas fa-arrow-right-from-bracket"></i> Keluar
+                                                            </a>
 														</li>
 													</ul>
 												</li>
@@ -256,8 +268,8 @@ $user = $_SESSION['username'];
 								echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">';
 								?>
 								<td>
-									<button type="button" class="btn btn-outline-warning btn-icon-text btn_ubah"
-										data-bs-toggle="modal" data-bs-target="#ubahStatus">
+									<button type="button" class="ubah-status btn btn-outline-warning btn-icon-text btn_ubah"
+										data-bs-toggle="modal" data-bs-target="#ubahStatus" data-id="<?php echo($id_booking)?>">
 										<i class="fa-solid fa-pen-to-square"></i> Ubah
 									</button>
 								</td>
@@ -273,7 +285,6 @@ $user = $_SESSION['username'];
 			<!-- FORM MODAL -->
 			<div class="modal fade" id="ubahStatus" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static"
 				aria-hidden="true">
-				<?php echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">'; ?>
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -282,9 +293,8 @@ $user = $_SESSION['username'];
 						</div>
 						<div class="modal-body">
 							<form class="needs-validation" action="update_status.php" method="POST">
-							<?php echo $id_booking;
-							echo $jenis_layanan;?>
 								<div class="mb-3">
+									<input type="hidden" name="id_book" id="id_book">
 									<label for="recipient-name" class="col-form-label">Status</label>
 									<select name="status" class="form-select" aria-label="Default select example"
 										id="validationDefault03" required>
@@ -326,6 +336,16 @@ $user = $_SESSION['username'];
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+		$(document).on("click", ".ubah-status", function () {
+			var myBookId = $(this).data('id');
+			$(".modal-body #id_book").val( myBookId );
+			// As pointed out in comments,
+			// it is unnecessary to have to manually call the modal.
+			// $('#addBookDialog').modal('show');
+		});
+	</script>
 </body>
 
 </html>

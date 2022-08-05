@@ -64,7 +64,7 @@ if ($_SESSION['tipe'] != "vendor"){
 				</a>
 				<ul class="side-dropdown">
 					<li><a href="kategori_layanan_vendor.html"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
-					<li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
+					<li><a href="tambah_data_vendor.php"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
 							Data</a></li>
 				</ul>
 			</li>
@@ -83,7 +83,7 @@ if ($_SESSION['tipe'] != "vendor"){
 				</ul>
 			</li>
 			<li>
-				<a href="pengaturan.html" class="nav-link">
+				<a href="pengaturan.php" class="nav-link">
 					<i class="fa-solid fa-gear icon"></i>
 					Pengaturan
 				</a>
@@ -132,27 +132,39 @@ if ($_SESSION['tipe'] != "vendor"){
 										<div class="navbar-container container-fluid">
 											<ul class="nav-rightt">
 												<li class="user-profile header-notification">
-													<a href="#!" class="arrowdown">
-														<img src="img/circle-user-solid.svg" class="img-radius"
-															alt="User-Profile-Image">
-														<?php echo '<span>' . $user . '</span>'; ?>
-														<i class="fa-solid fa-angle-down"></i>
-													</a>
-													<ul class="show-notification profile-notification">
-														<li class="">
-															<a href="#!">
-																<i class="fas fa-user"></i> Lihat Profil
-															</a>
-														</li>
-														<li class="">
-															<a href="#">
-																<i class="fas fa-question"></i> FAQ
-															</a>
-														</li>
-														<li class="">
-															<a href="#">
-																<i class="fas fa-arrow-right-from-bracket"></i> Keluar
-															</a>
+												<a href="#!" class="arrowdown">
+                                                        <?php
+                                                        $sql = mysqli_query($koneksi,
+                                                        "SELECT photo From vendor WHERE id = '$id'");
+                                                        while ($cek = mysqli_fetch_assoc($sql)){
+                                                            $photo = $cek['photo'];
+
+                                                            if ($photo == NULL){
+                                                                echo '<img src="img/circle-user-solid.svg" class="img-radius">';
+                                                            }
+                                                            else{
+                                                                echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                            alt="User-Profile-Image">';}
+                                                            }
+                                                        ?>
+                                                            <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
+                                                        <i class="fa-solid fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="show-notification profile-notification">
+                                                        <li class="">
+                                                            <a href="#!">
+                                                                <i class="fas fa-user"></i> Lihat Profil
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="#">
+                                                                <i class="fas fa-question"></i> FAQ
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="../login/logout.php">
+                                                                <i class="fas fa-arrow-right-from-bracket"></i> Keluar
+                                                            </a>
 														</li>
 													</ul>
 												</li>
@@ -262,23 +274,13 @@ if ($_SESSION['tipe'] != "vendor"){
 									echo "<td name='tanggal' value=" . $tanggal .">" . $tanggal . "</td>";
 									echo "<td name='jenis_layanan' value=" . $jenis_layanan .">" . $jenis_layanan . "</td>";
 									echo "<td name='paket' value=" . $paket .">" . $paket . "</td>";
-
-									echo '<input type="hidden" name="nama" value=' . $nama . ' class="btn solid">';
-									echo '<input type="hidden" name="no_hp" value=' . $no_hp . ' class="btn solid">';
-									echo '<input type="hidden" name="tanggal" value=' . $tanggal . ' class="btn solid">';
-									echo '<input type="hidden" name="jenis_layanan" value=' . $jenis_layanan . ' class="btn solid">';
-									echo '<input type="hidden" name="paket" value=' . $paket . ' class="btn solid">';
-									echo '<input type="hidden" name="id_vendor" value=' . $id_vendor . ' class="btn solid">';
-									echo '<input type="hidden" name="id_user" value=' . $id_user . ' class="btn solid">';
-									echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">';
-									echo $id_booking;
 									?>
 
 									<td>
 
-									<button type="button" class="btn btn-outline-success btn-icon-text btn_ubah" data-bs-toggle="modal" data-bs-target="#terimaPesanan"><i
+									<button type="button" class="note-success btn btn-outline-success btn-icon-text btn_ubah" data-id="<?php echo($id_booking)?>" data-bs-toggle="modal" data-bs-target="#terimaPesanan"><i
 											class="fa-solid fa-check"></i> Terima</button>
-									<button type="button" class="btn btn-outline-danger btn-icon-text btn_hapus" data-bs-toggle="modal" data-bs-target="#tolakPesanan"><i
+									<button type="button" class="note-reject btn btn-outline-danger btn-icon-text btn_hapus" data-id="<?php echo($id_booking)?>" data-bs-toggle="modal" data-bs-target="#tolakPesanan"><i
 											class="fa-solid fa-xmark"></i> Tolak</button>
 								</td>
 							</tr>
@@ -300,18 +302,9 @@ if ($_SESSION['tipe'] != "vendor"){
 						<div class="modal-body">
 							<form class="needs-validation" action="process.php" method="POST">
 								<h5>Yakin ingin menolak permintaan pesanan ?</h5>
-								<?php echo '<input type="hidden" name="nama" value=' . $nama . ' class="btn solid">';
-									echo '<input type="hidden" name="no_hp" value=' . $no_hp . ' class="btn solid">';
-									echo '<input type="hidden" name="tanggal" value=' . $tanggal . ' class="btn solid">';
-									echo '<input type="hidden" name="jenis_layanan" value=' . $jenis_layanan . ' class="btn solid">';
-									echo '<input type="hidden" name="paket" value=' . $paket . ' class="btn solid">';
-									echo '<input type="hidden" name="id_vendor" value=' . $id_vendor . ' class="btn solid">';
-									echo '<input type="hidden" name="id_user" value=' . $id_user . ' class="btn solid">';
-									echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">';
-									echo $id_booking;?>
-
 								<div class="mb-3">
 									<label for="message-text" class="col-form-label"> </label>
+									<input type="hidden" name="id_book1" id="id_book1">
 									<textarea class="form-control" id="message-text" name="note" placeholder="Beri catatan mengapa pesanan ditolak..." cols="30" rows="5"></textarea>
 								</div>
 
@@ -337,18 +330,9 @@ if ($_SESSION['tipe'] != "vendor"){
 						<div class="modal-body">
 							<form class="needs-validation" action="process.php" method="POST">
 								<h5>Pesanan Diterima ? Sampaikan sesuatu kepada klien</h5>
-								<?php echo '<input type="hidden" name="nama" value=' . $nama . ' class="btn solid">';
-									echo '<input type="hidden" name="no_hp" value=' . $no_hp . ' class="btn solid">';
-									echo '<input type="hidden" name="tanggal" value=' . $tanggal . ' class="btn solid">';
-									echo '<input type="hidden" name="jenis_layanan" value=' . $jenis_layanan . ' class="btn solid">';
-									echo '<input type="hidden" name="paket" value=' . $paket . ' class="btn solid">';
-									echo '<input type="hidden" name="id_vendor" value=' . $id_vendor . ' class="btn solid">';
-									echo '<input type="hidden" name="id_user" value=' . $id_user . ' class="btn solid">';
-									echo '<input type="hidden" name="id_booking" value=' . $id_booking . ' class="btn solid">';
-									echo $id_booking;?>
-
 								<div class="mb-3">
 									<label for="message-text" class="col-form-label"> </label>
+									<input type="hidden" name="id_book" id="id_book">
 									<textarea class="form-control" id="message-text" name="note" placeholder="Tuliskan sesuatu..." cols="30" rows="5"></textarea>
 								</div>
 						</div>
@@ -384,6 +368,25 @@ if ($_SESSION['tipe'] != "vendor"){
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 	-->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+		$(document).on("click", ".note-success", function () {
+			var myBookId = $(this).data('id');
+			$(".modal-body #id_book").val( myBookId );
+			// As pointed out in comments,
+			// it is unnecessary to have to manually call the modal.
+			// $('#addBookDialog').modal('show');
+		});
+	</script>
+	<script>
+		$(document).on("click", ".note-reject", function () {
+			var myBookId = $(this).data('id');
+			$(".modal-body #id_book1").val( myBookId );
+			// As pointed out in comments,
+			// it is unnecessary to have to manually call the modal.
+			// $('#addBookDialog').modal('show');
+		});
+	</script>
 </body>
 
 </html>

@@ -27,7 +27,7 @@ if (isset($_POST['login'])) {
 		// echo $_SESSION['id'];
 		// beri pesan dan dialihkan ke halaman admin
 		// echo "berhasil login";
-		echo "<script>document.location.href='../frontend/dashboard_vendor.php';</script>";
+		echo "<script>document.location.href='../dashboard_vendor.php';</script>";
 	}
 	else{
 		// beri pesan dan dialihkan ke halaman login

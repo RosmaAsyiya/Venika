@@ -104,8 +104,27 @@ if (isset($_SESSION['username'])){
 
                     <ul class="nav-right">
                       <li class="user-profile header-notification">
-                        <a href="#!" class="arrowdown">
-                        <img src="img/circle-user-solid.svg" class="img-radius" alt="User-Profile-Image">
+                      <a href="#!" class="arrowdown">
+                        <?php
+                        if($_SESSION['tipe'] == 'user'){
+                              $sql = mysqli_query($koneksi,
+                              "SELECT photo From user WHERE id = '$id'");
+                              while ($cek = mysqli_fetch_assoc($sql)){
+                                  $photo = $cek['photo'];
+
+                              ?>
+                              <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                  alt="User-Profile-Image">';}}
+                        if($_SESSION['tipe'] == 'vendor'){
+                          $sql = mysqli_query($koneksi,
+                              "SELECT photo From vendor WHERE id = '$id'");
+                              while ($cek = mysqli_fetch_assoc($sql)){
+                                  $photo = $cek['photo'];
+
+                              ?>
+                              <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                  alt="User-Profile-Image">';}
+                        } ?>
                           <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
                           <i class="fas fa-angle-down toggle"></i>
                         </a>

@@ -3,14 +3,7 @@
     include '../database/connection.php';
 
     if($_POST['submit'] == 'terima'){
-    $nama = $_POST['nama'];
-    $no_hp = $_POST['no_hp'];
-    $tanggal = $_POST['tanggal'];
-    $jenis_layanan = $_POST['jenis_layanan'];
-    $paket = $_POST['paket'];
-    $id_vendor = $_POST['id_vendor'];
-    $id_user = $_POST['id_user'];
-    $id_booking = $_POST['id_booking'];
+    $id_booking = $_POST['id_book'];
     $note = $_POST['note'];
 
     $sql = mysqli_query($koneksi,
@@ -29,14 +22,10 @@
     else{
         echo "<script>document.location.href='req_pesanan.php';</script>";
     }
+    echo "<script>document.location.href='req_pesanan.php';</script>";
 }
     if($_POST['submit'] == 'tolak'){
-        $nama = $_POST['nama'];
-        $no_hp = $_POST['no_hp'];
-        $tanggal = $_POST['tanggal'];
-        $jenis_layanan = $_POST['jenis_layanan'];
-        $paket = $_POST['paket'];
-        $id_booking = $_POST['id_booking'];
+        $id_booking = $_POST['id_book1'];
         $note = $_POST['note'];
 
         $sql = mysqli_query($koneksi,
@@ -58,15 +47,4 @@
 
     echo "<script>document.location.href='req_pesanan.php';</script>";
 }
-
-echo "<script>document.location.href='req_pesanan.php';</script>";
-
-    // echo $id_vendor;
-    // echo $id_user;
-    // echo $nama;
-    // echo $no_hp;
-    // echo $tanggal;
-    // echo $jenis_layanan;
-    // echo $paket;
-
 ?>

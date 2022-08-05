@@ -30,9 +30,6 @@ if ($_SESSION['tipe'] != "vendor"){
 
     <title>Venika</title>
 </head>
-<?php
-if (isset($_SESSION['username'])){
-?>
 <body>
 
     <!-- SIDEBAR -->
@@ -57,7 +54,7 @@ if (isset($_SESSION['username'])){
                 </a>
                 <ul class="side-dropdown">
                     <li><a href="kategori_layanan_vendor.php"><i class="fa-solid fa-eye icon"></i> Lihat Data</a></li>
-                    <li><a href="tambah_data_vendor.html"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
+                    <li><a href="tambah_data_vendor.php"><i class="fa-solid fa-file-circle-plus icon"></i> Tambah
                             Data</a></li>
                 </ul>
             </li>
@@ -113,13 +110,18 @@ if (isset($_SESSION['username'])){
                                                     <a href="#!" class="arrowdown">
                                                         <?php
                                                         $sql = mysqli_query($koneksi,
-                                                        "SELECT photo From user WHERE id = '$id'");
+                                                        "SELECT photo From vendor WHERE id = '$id'");
                                                         while ($cek = mysqli_fetch_assoc($sql)){
                                                             $photo = $cek['photo'];
 
+                                                            if ($photo == NULL){
+                                                                echo '<img src="img/circle-user-solid.svg" class="img-radius">';
+                                                            }
+                                                            else{
+                                                                echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                            alt="User-Profile-Image">';}
+                                                            }
                                                         ?>
-                                                        <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
-                                                            alt="User-Profile-Image">';} ?>
                                                             <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
                                                         <i class="fa-solid fa-angle-down"></i>
                                                     </a>
@@ -157,14 +159,7 @@ if (isset($_SESSION['username'])){
                 </div>
             </div>
         </nav>
-        <?php }
-  else {
-  ?>
   <body>
-  <?php
-  }
-?>
-
         <!-- MAIN -->
 
         <!-- MAIN -->
@@ -187,18 +182,13 @@ if (isset($_SESSION['username'])){
             <form class="edit_foto" enctype="multipart/form-data" method="POST">
                 <h3 class="head_profile">Pilih Foto Profil</h3>
             <div class="profile-pic-div" >
-            <?php
-                // $id = $user["id"];
-                // $nama = $user["nama"];
-                // $email = $user["email"];
-                // $no_hp = $user["no_hp"];
-                // $username = $user["username"];
-                // $password = $user["password"];
-                // $photo = $user["photo"];
-            ?>
-
-                <?php echo '<img src="../photo/' . $photo . '" class="profile-pic-div"
-                                                            alt="User-Profile-Image">'; ?>
+                <?php
+                if ($photo == NULL) {
+                    echo '<img src="img/circle-user-solid.svg" id="photo">';
+                }
+                else{
+                echo '<img src="../photo/' . $photo . '" class="profile-pic-div"
+                                                            alt="User-Profile-Image">'; }?>
                 <input type="file" id="file" accept="image/*" id="photo" name="NamaFile">
                 <label for="file" id="uploadBtn">
                     <i class="fa-solid fa-camera icon_btn"></i> <br>
@@ -210,24 +200,17 @@ if (isset($_SESSION['username'])){
 
     <?php
     if(isset($_POST["proses"])){
-    //   $id = $_POST["id"];
-    //   $nama = $_POST["nama"];
-    //   $email = $_POST["email"];
-    //   $no_hp = $_POST["no_hp"];
-    //   $username = $_POST["username"];
-    //   $password = $_POST["password"];
-
       $direktori = "../photo/";
       $file_name = $_FILES['NamaFile']['name'];
       move_uploaded_file($_FILES['NamaFile']['tmp_name'], $direktori.$file_name);
 
       $sql = mysqli_query($koneksi,
-    "UPDATE user SET photo = '$file_name' WHERE id = '$id'");
+    "UPDATE vendor SET photo = '$file_name' WHERE id = '$id'");
     if ($cek = mysqli_affected_rows($koneksi) > 0){
     //   mysqli_query($koneksi, "update into user set photo='$file_name'");
     //   mysqli_query($koneksi, "update user set photo='$file_name' where id='$_SESSION['id']'");
       echo "<b>File Berhasil Diupload";
-      echo "<script>document.location.href='dashboard_user.php';</script>";
+      echo "<script>document.location.href='pengaturan.php';</script>";
     }
     else{
         echo "<b>ERROR!";

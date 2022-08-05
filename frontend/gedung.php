@@ -7,6 +7,7 @@
     echo "<script>document.location.href='../login.php';</script>";
     die();
 }
+$id = $_SESSION['id'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -42,6 +43,9 @@
 
     <title>Venika</title>
   </head>
+  <?php
+if (isset($_SESSION['username'])){
+?>
   <body>
   <!-- Navbar Login -->
   <nav class="navbar navbar-expand-lg bg-transparent navbar-light position-fixed w-100">
@@ -55,16 +59,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
+
           <li class="nav-item mx-3">
-            <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
+
+            <a class="nav-link active" aria-current="page" href="../">Beranda</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="katering.php">Vendor</a>
+            <a class="nav-link" href="../#kategori">Vendor</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Tentang Kami</a>
+            <a class="nav-link" href="tentang_kami.php">Tentang Kami</a>
           </li>
         </ul>
+
+        <div>
 
         <div>
           <div id="pcoded" class="pcoded">
@@ -78,23 +86,51 @@
                     <ul class="nav-right">
                       <li class="user-profile header-notification">
                         <a href="#!" class="arrowdown">
-                        <img src="img/circle-user-solid.svg" class="img-radius" alt="User-Profile-Image">
+                        <?php
+                        if($_SESSION['tipe'] == 'user'){
+                              $sql = mysqli_query($koneksi,
+                              "SELECT photo From user WHERE id = '$id'");
+                              while ($cek = mysqli_fetch_assoc($sql)){
+                                  $photo = $cek['photo'];
+
+                              ?>
+                              <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                  alt="User-Profile-Image">';}}
+                        if($_SESSION['tipe'] == 'vendor'){
+                          $sql = mysqli_query($koneksi,
+                              "SELECT photo From vendor WHERE id = '$id'");
+                              while ($cek = mysqli_fetch_assoc($sql)){
+                                  $photo = $cek['photo'];
+
+                              ?>
+                              <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                  alt="User-Profile-Image">';}
+                        } ?>
                           <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
                           <i class="fas fa-angle-down toggle"></i>
                         </a>
                         <ul class="show-notification profile-notification">
                           <li class="">
-                            <a href="#!">
+                            <?php
+                            if($_SESSION['tipe'] == "user"){
+                            ?>
+                            <a href="dashboard_user.php">
                               <i class="fas fa-user"></i> Lihat Profil
                             </a>
+                            <?php }
+                            else{?>
+                            <a href="dashboard_vendor.php">
+                              <i class="fas fa-user"></i> Lihat Profil
+                            </a>
+                            <?php }?>
                           </li>
                           <li class="">
-                            <a href="#">
+                            <a href="frontend/faq.php">
                               <i class="fas fa-question"></i> FAQ
                             </a>
                           </li>
                           <li class="">
-                            <a href="../login/logout.php">
+                            <a href="logout.php">
                               <i class="fas fa-arrow-right-from-bracket"></i> Keluar
                             </a>
                           </li>
@@ -118,6 +154,46 @@
       </div>
     </div>
   </nav>
+  <?php }
+  else {
+  ?>
+  <body>
+  <!-- Navbar sebelum Login -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent position-fixed w-100">
+    <div class="container">
+
+      <a class="navbar-brand" href="#">
+        <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
+          class="d-inline-block align-text-top" me-3>Venika</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item mx-3">
+            <a class="nav-link active" aria-current="page" href="../">Beranda</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="../#kategori">Vendor</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="tentang_kami.php">Tentang Kami</a>
+          </li>
+        </ul>
+
+        <div>
+
+        <a href="login.php"><button class="btn_register">Register</button></a>
+          <a href="login.php"><button class="btn_login">Login</button></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<?php
+  }
+?>
 
     <!-- HERO SECTION -->
     <section id="hero">

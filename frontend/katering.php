@@ -63,14 +63,16 @@ if (isset($_SESSION['username'])){
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
+
           <li class="nav-item mx-3">
-            <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
+
+            <a class="nav-link active" aria-current="page" href="../">Beranda</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="katering.php">Vendor</a>
+            <a class="nav-link" href="../#kategori">Vendor</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Tentang Kami</a>
+            <a class="nav-link" href="tentang_kami.php">Tentang Kami</a>
           </li>
         </ul>
 
@@ -85,8 +87,27 @@ if (isset($_SESSION['username'])){
 
                     <ul class="nav-right">
                       <li class="user-profile header-notification">
-                        <a href="#" class="arrowdown">
-                        <img src="img/circle-user-solid.svg" class="img-radius" alt="User-Profile-Image">
+                      <a href="#!" class="arrowdown">
+                        <?php
+                        if($_SESSION['tipe'] == 'user'){
+                              $sql = mysqli_query($koneksi,
+                              "SELECT photo From user WHERE id = '$id'");
+                              while ($cek = mysqli_fetch_assoc($sql)){
+                                  $photo = $cek['photo'];
+
+                              ?>
+                              <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                  alt="User-Profile-Image">';}}
+                        if($_SESSION['tipe'] == 'vendor'){
+                          $sql = mysqli_query($koneksi,
+                              "SELECT photo From vendor WHERE id = '$id'");
+                              while ($cek = mysqli_fetch_assoc($sql)){
+                                  $photo = $cek['photo'];
+
+                              ?>
+                              <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                  alt="User-Profile-Image">';}
+                        } ?>
                           <?php echo' <span>' . $_SESSION['username'] . '</span> ';?>
                           <i class="fas fa-angle-down toggle"></i>
                         </a>
@@ -146,13 +167,13 @@ if (isset($_SESSION['username'])){
 
           <li class="nav-item mx-3">
 
-            <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
+            <a class="nav-link active" aria-current="page" href="../">Beranda</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="katering.php">Vendor</a>
+            <a class="nav-link" href="../#kategori">Vendor</a>
           </li>
           <li class="nav-item mx-3">
-            <a class="nav-link" href="#">Tentang Kami</a>
+            <a class="nav-link" href="tentang_kami.php">Tentang Kami</a>
           </li>
         </ul>
 

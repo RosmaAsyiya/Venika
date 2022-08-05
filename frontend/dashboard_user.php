@@ -36,7 +36,7 @@ if (isset($_SESSION['username'])){
 
     <!-- SIDEBAR -->
     <section id="sidebar">
-        <a href="index.html" class="brand">
+        <a href="../index.php" class="brand">
             <i class="fa-brands fa-slack icon"></i>
             Venika
         </a>

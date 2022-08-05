@@ -1,46 +1,35 @@
 <?php
-include '../database/connection.php';
-
 session_start();
 
+include '../database/connection.php';
+
+$id = $_SESSION['id'];
+
 if (!isset($_SESSION['is_login'])) {
-    echo "<script>document.location.href='../login.php';</script>";
+    echo "<script>document.location.href='../login_vendor.php';</script>";
     die();
 }
+
 if ($_SESSION['tipe'] != "user"){
     echo "<script>document.location.href='../index.php';</script>";
 }
-
-$user = $_SESSION['username'];
-$id = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'> -->
 
-	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard_vendor.css">
 
-	<!-- Font Google -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/3709d60cb3.js" crossorigin="anonymous"></script>
 
-
-	<!-- CSS -->
-	<link rel="stylesheet" href="css/dashboard_vendor.css">
-
-	<!-- Font Awesome -->
-	<script src="https://kit.fontawesome.com/3709d60cb3.js" crossorigin="anonymous"></script>
-
-	<title>Venika</title>
+    <title>Venika</title>
 </head>
-
 <body>
 
     <!-- SIDEBAR -->
@@ -70,7 +59,7 @@ $id = $_SESSION['id'];
             </li>
             <li>
             <li>
-                <a href="../login/logout.php" class="nav-link">
+                <a href="login_vendor.php" class="nav-link">
                     <i class="fa-solid fa-right-from-bracket icon"></i>
                     Keluar
                 </a>
@@ -92,67 +81,75 @@ $id = $_SESSION['id'];
 		</div>
     </section>
 
-	<!-- NAVBAR -->
-	<section id="content">
 
-		<!-- Navbar -->
-		<nav class="navbar navbar-expand-lg navbar-light">
-			<i class="fa-solid fa-bars toggle-sidebar bar"></i>
-			<div class="container">
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav mx-auto">
+        <!-- NAVBAR -->
+    <section id="content">
 
-					</ul>
-					<div>
-						<div id="pcoded" class="pcoded">
-							<div class="pcoded-overlay-box"></div>
-							<div class="pcoded-container navbar-wrapper">
-								<nav class="navbar header-navbar pcoded-header">
-									<div class="navbar-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <i class="fa-solid fa-bars toggle-sidebar"></i>
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
 
-										<div class="navbar-container container-fluid">
-											<ul class="nav-rightt">
-												<li class="user-profile header-notification">
-													<a href="#!" class="arrowdown">
-														<img src="img/circle-user-solid.svg" class="img-radius"
-															alt="User-Profile-Image">
-														<?php echo '<span>' . $user . '</span>'; ?>
-														<i class="fa-solid fa-angle-down"></i>
-													</a>
-													<ul class="show-notification profile-notification">
-														<li class="">
-															<a href="#!">
-																<i class="fas fa-user"></i> Lihat Profil
-															</a>
-														</li>
-														<li class="">
-															<a href="#">
-																<i class="fas fa-question"></i> FAQ
-															</a>
-														</li>
-														<li class="">
-															<a href="../login/logout.php">
-																<i class="fas fa-arrow-right-from-bracket"></i> Keluar
-															</a>
-														</li>
-													</ul>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</nav>
-							</div>
-						</div>
-						<script src="js/script.js"></script>
-						<script type="text/javascript" src="js/jquery.min.js"></script>
+                    </ul>
+                    <div>
+                        <div id="pcoded" class="pcoded">
+                            <div class="pcoded-overlay-box"></div>
+                            <div class="pcoded-container navbar-wrapper">
+                                <nav class="navbar header-navbar pcoded-header">
+                                    <div class="navbar-wrapper">
 
-						<script src="js/pcoded.min.js"></script>
-						<script src="js/vertical-layout.min.js"></script>
-						<script type="text/javascript" src="js/user_profile.js"></script>
-					</div>
-				</div>
-			</div>
-		</nav>
+                                        <div class="navbar-container container-fluid">
+                                            <ul class="nav-right">
+                                                <li class="user-profile header-notification">
+                                                    <a href="#!" class="arrowdown">
+                                                        <?php
+                                                        $sql = mysqli_query($koneksi,
+                                                        "SELECT photo From user WHERE id = '$id'");
+                                                        while ($cek = mysqli_fetch_assoc($sql)){
+                                                            $photo = $cek['photo'];
+
+                                                        ?>
+                                                        <?php echo '<img src="../photo/' . $photo . '" class="img-radius"
+                                                            alt="User-Profile-Image">';} ?>
+                                                            <?php echo' <span>' . $_SESSION['username'] . '</span>';?>
+                                                        <i class="fa-solid fa-angle-down"></i>
+                                                    </a>
+                                                    <ul class="show-notification profile-notification">
+                                                        <li class="">
+                                                            <a href="#!">
+                                                                <i class="fas fa-user"></i> Lihat Profil
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="#">
+                                                                <i class="fas fa-question"></i> FAQ
+                                                            </a>
+                                                        </li>
+                                                        <li class="">
+                                                            <a href="../login/logout.php">
+                                                                <i class="fas fa-arrow-right-from-bracket"></i> Keluar
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                        <script src="js/script.js"></script>
+                        <script type="text/javascript" src="js/jquery.min.js"></script>
+
+                        <script src="js/pcoded.min.js"></script>
+                        <script src="js/vertical-layout.min.js"></script>
+                        <script type="text/javascript" src="js/user_profile.js"></script>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
 
 		<!-- MAIN -->
@@ -294,68 +291,6 @@ $id = $_SESSION['id'];
 				</div>
 
 			</div>
-
-			<!-- FORM MODAL -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-				aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Form Ubah Data Pesanan</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							<form class="needs-validation">
-								<div class="mb-3">
-									<label for="validationCustom01" class="form-label">Nama</label>
-									<input type="text" class="form-control" id="validationDefault01" required>
-								</div>
-								<div class="mb-3">
-									<label for="recipient-name" class="col-form-label">Telephone</label>
-									<input type="text" class="form-control" id="nama">
-								</div>
-								<div class="mb-3">
-									<label for="validationCustom03" class="col-form-label">Tanggal Booking</label>
-									<input type="date" class="form-control" id="validationDefault03" required>
-								</div>
-								<div class="mb-3">
-									<label for="recipient-name" class="col-form-label">Layanan</label>
-									<select class="form-select" aria-label="Default select example"
-										id="validationDefault03" required>
-										<option value="">---Pilih Jenis Layanan---</option>
-										<option value="">Dekorasi</option>
-										<option value="">Foto & Video</option>
-										<option value="">Gaun Pengantin</option>
-										<option value="">Gedung</option>
-										<option value="">Katering</option>
-										<option value="">Makeup</option>
-										<option value="">MC</option>
-										<option value="">Music Band</option>
-										<option value="">Sewa Mobil</option>
-										<option value="">Sound System</option>
-									</select>
-								</div>
-								<div class="mb-3">
-									<label for="message-text" class="col-form-label">Produk/Jasa</label>
-									<textarea class="form-control" id="message-text" cols="30" rows="5"></textarea>
-									<div>* Maksimal 500 Karakter</div>
-								</div>
-								<div class="mb-3">
-									<label for="recipient-name" class="col-form-label">Status</label>
-									<select class="form-select" aria-label="Default select example"
-										id="validationDefault03" required>
-										<option value="">---Status---</option>
-										<option value="">Pending</option>
-										<option value="">Proses</option>
-										<option value="">Selesai</option>
-									</select>
-								</div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn_tutup" data-bs-dismiss="modal">Batal</button>
-							<button type="submit" class="btn_tambah"><i class="fa-solid fa-floppy-disk"></i>Simpan</button>
-						</div>
 					</div>
 				</div>
 			</div>

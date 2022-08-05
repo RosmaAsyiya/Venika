@@ -1,4 +1,7 @@
 
+html {
+    scroll-behavior: smooth;
+  }
 :root {
     --primary-color : #FF7171;
 }
@@ -191,7 +194,7 @@ h2 {
     border-radius: 12px;
     /* background-color: transparent; */
     background-color: #F0F0F0;
-    
+
     /* margin-left: 20px; */
     /* margin-left: 10px; */
     margin-top: 30px;
@@ -205,7 +208,7 @@ h2 {
     font-size: 14px;
     border-radius: 12px;
     background-color: #F0F0F0;
-    
+
     margin-top: 30px;
 } */
 
@@ -224,7 +227,7 @@ h2 {
     border-radius: 12px;
     /* background-color: transparent; */
     background-color: #F0F0F0;
-    
+
     /* margin-left: 20px; */
     /* margin-left: 10px; */
     margin-top: 30px;
@@ -338,7 +341,7 @@ h2 {
     width: 1100px;
     margin: auto;
     position: relative;
-    
+
 } */
 
 #inspirasi_nikah {
@@ -361,8 +364,8 @@ h2 {
 .right {
     display: grid;
     grid-template-columns: 50% auto;
-    padding: 4em 1em;  
-    
+    padding: 4em 1em;
+
 }
 
 .right img {
@@ -421,7 +424,7 @@ h2 {
     justify-content: center;
     /* background: #F2F2F2; */
     /* position: relative; */
-    
+
 }
 
 .slide-container{
@@ -527,7 +530,7 @@ h2 {
   .swiper-pagination-bullet-active{
     background-color: #4070F4;
   }
-  
+
   @media screen and (max-width: 768px) {
     .slide-content{
       margin: 0 10px;
@@ -636,6 +639,6 @@ h2 {
 
   .footer-bottom span {
     color: #fff;
-    font-size: 16px;    
+    font-size: 16px;
     font-weight: 700;
   }
